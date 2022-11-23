@@ -31,6 +31,6 @@ namespace fa22team31finalproject.Models
         public String Birthday { get; set; }
 
         [Display(Name = "Account Status:")]
-        public isActive Status { get; set; }
+        public isActive AccStatus { get; set; }
     }
 }

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace fa22team31finalproject.Models
 {
-    public class Disputes
+    public class Dispute
     {
         
     }
