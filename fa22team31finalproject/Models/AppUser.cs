@@ -5,7 +5,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace fa22team31finalproject.Models
 {
-    public enum isActive { Active, Inactive }
+    //public enum isActive { Active, Inactive }
+    public enum UserAcccountStatus { Active, Inactive }
     public class AppUser : IdentityUser
     {
         [Display(Name = "First Name:")]
@@ -31,6 +32,8 @@ namespace fa22team31finalproject.Models
         public String Birthday { get; set; }
 
         [Display(Name = "Account Status:")]
-        public isActive AccStatus { get; set; }
+        //public isActive AcccountStatus { get; set; }
+        public UserAcccountStatus UserAcccountStatus { get; set; }
+        public object StockPortfolio { get; internal set; }
     }
 }

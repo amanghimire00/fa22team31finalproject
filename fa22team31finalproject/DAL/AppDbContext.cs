@@ -19,10 +19,25 @@ namespace fa22team31finalproject.DAL
             builder.HasPerformanceLevel("Basic");
             builder.HasServiceTier("Basic");
             base.OnModelCreating(builder);
+
+            builder.Entity<StockPortfolio>()
+                .Property<String>("AppUserForeignKey");
+
+
+            //this code configures the 1:1 relationship between AppUser and StockPortfolio
+            builder.Entity<AppUser>()
+                .HasOne(sp => sp.StockPortfolio)
+                .WithOne(u => u.AppUser)
+                .HasForeignKey<StockPortfolio>("AppUserForeignKey");
         }
-
-
         //TODO: Add Dbsets here.  
         public DbSet<Account> Accounts { get; set; }
+        public DbSet<Dispute> Disputes { get; set; }
+        public DbSet<Stock> Stocks { get; set; }
+        public DbSet<StockPortfolio> StockPortfolios { get; set; }
+        public DbSet<StockTransaction> StockTransactions { get; set; }
+        public DbSet<StockType> StockTypes { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
     }
+
 }
