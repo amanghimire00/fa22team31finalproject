@@ -6,8 +6,11 @@ using System.ComponentModel.DataAnnotations;
 namespace fa22team31finalproject.Models
 {
     public enum StockTransactionType { Purchase, Sell }
-    public class StockTransaction
+    public class StockTransaction:Stock
     {
+        private const Int32 Stock_Purchase_Fee = 10;
+        private const Int32 Stock_Selling_Fee = 15;
+
         public Int32 StockTransactionID { get; set; }
 
         [Display(Name = "Quantity of Stock:")]
@@ -26,6 +29,14 @@ namespace fa22team31finalproject.Models
         public DateTime StickPurchaseDate { get; set; }
         public Stock Stock { get; set; }
         public StockPortfolio StockPortfolio { get; set; }
+
+        public Decimal StockBalance
+        {
+            get
+            {
+                return SharesQuantity * StockPrice;
+            }
+        }
 
     }
 }
