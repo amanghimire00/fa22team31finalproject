@@ -13,5 +13,16 @@ namespace fa22team31finalproject.Models
         [Display(Name = "Dispute Status:")]
         //public isActive AcccountStatus { get; set; }
         public DisputeStatus DisputeStatus { get; set; }
+
+        [Display(Name = "Transcation Number")]
+        [Required]
+        public Int32 TransactionNum { get; set; }
+
+        [Display(Name = "Correct Amount")]
+        [Required]
+        public Decimal CorrectAmount { get; set; }
+
+        [Display(Name = "Dispute Description")]
+        public String DisputeDescription { get; set; }
     }
 }

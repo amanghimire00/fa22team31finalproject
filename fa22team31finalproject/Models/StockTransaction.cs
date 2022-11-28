@@ -10,7 +10,6 @@ namespace fa22team31finalproject.Models
     {
         private const Int32 Stock_Purchase_Fee = 10;
         private const Int32 Stock_Selling_Fee = 15;
-
         public Int32 StockTransactionID { get; set; }
 
         [Display(Name = "Quantity of Stock:")]
@@ -27,6 +26,11 @@ namespace fa22team31finalproject.Models
         [Display(Name = "Date of Purchase:")]
         [Required(ErrorMessage = "Date is required!")]
         public DateTime StickPurchaseDate { get; set; }
+
+        [Display(Name = "Stock:")]
+        [Required(ErrorMessage = "Stock Ticker is required!")]
+        public String StockTicker { get; set; }
+
         public Stock Stock { get; set; }
         public StockPortfolio StockPortfolio { get; set; }
 
@@ -37,6 +41,7 @@ namespace fa22team31finalproject.Models
                 return SharesQuantity * StockPrice;
             }
         }
+        public AppUser AppUser { get; set; }
 
     }
 }

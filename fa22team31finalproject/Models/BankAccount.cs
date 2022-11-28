@@ -17,11 +17,11 @@ namespace fa22team31finalproject.Models
 
         [Display(Name = "Bank Account Nickname:")]
         [Required(ErrorMessage = "Bank Account Nickname is required.")]
-        public String AccountNickname { get; set; }
+        public String AccountName { get; set; }
 
-        [Display(Name = "Bank Account Balance Nickname:")]
+        [Display(Name = "Bank Account Balance:")]
         [Required(ErrorMessage = "Bank Account Balance is required.")]
-        public Decimal AccountBalance { get; set; }
+        public Decimal Balance { get; set; }
 
         [Display(Name = "Account Type:")]
         public AccountType AccountType { get; set; }

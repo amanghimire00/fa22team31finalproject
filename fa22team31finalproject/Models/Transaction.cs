@@ -19,5 +19,13 @@ namespace fa22team31finalproject.Models
         [Display(Name = "Transaction Date")]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime TransactionDate { get; set; }
+
+        [Display(Name = "Transcation Comment")]
+        [Required]
+        public String TransactionComment { get; set; }
+
+        [Display(Name = "Approved?")]
+        public bool isApproved { get; set; }
+        public AppUser AppUser { get; set; }
     }
 }
