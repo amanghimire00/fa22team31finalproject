@@ -15,7 +15,7 @@ namespace fa22team31finalproject.Models
 
         [Display(Name = "Name of Stock:")]
         [Required(ErrorMessage = "Your stock must have a name")]
-        public string StockName { get; set; }
+        public String StockName { get; set; }
 
         public Decimal StockPrice { get; set; }
 
@@ -26,6 +26,7 @@ namespace fa22team31finalproject.Models
                 return SharesQuantity * StockPrice;
             }
         }
+        public StockType StockType { get; set; }
 
     }
 }

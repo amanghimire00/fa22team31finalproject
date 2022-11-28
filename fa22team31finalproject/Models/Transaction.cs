@@ -11,6 +11,9 @@ namespace fa22team31finalproject.Models
     {
         public String TransactionID { get; set; }
 
+        [Display(Name = "Transcation Number")]
+        [Required]
+        public Int32 TransactionNumber { get; set; }
         public TransactionType TransactionType { get; set; }
 
         [Display(Name = "Transaction Date")]

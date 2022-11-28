@@ -31,7 +31,7 @@ namespace fa22team31finalproject.DAL
                 .HasForeignKey<StockPortfolio>("AppUserForeignKey");
         }
         //TODO: Add Dbsets here.  
-        public DbSet<BankAccount> BankAccounts { get; set; }
+        public DbSet<Account> Accounts { get; set; }
         public DbSet<Dispute> Disputes { get; set; }
         public DbSet<Stock> Stocks { get; set; }
         public DbSet<StockPortfolio> StockPortfolios { get; set; }

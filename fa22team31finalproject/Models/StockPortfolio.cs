@@ -18,12 +18,8 @@ namespace fa22team31finalproject.Models
         public AppUser AppUser { get; set; }
         public List<StockTransaction> StockTransactions { get; set; }
 
-        [Display(Name = "Bank Account Number:")]
-        [Required(ErrorMessage = "Bank Account Number is required.")]
-        public Int32 BankAccountNumber { get; set; }
-
         [Display(Name = "Bank Account Nickname:")]
         [Required(ErrorMessage = "Bank Account Nickname is required.")]
-        public String BankAccountNickname { get; set; }
+        public String AccountNickname { get; set; }
     }
 }
