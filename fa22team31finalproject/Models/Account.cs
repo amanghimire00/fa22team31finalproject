@@ -29,5 +29,6 @@ namespace fa22team31finalproject.Models
         [Display(Name = "Account Status:")]
         //public isActive AcccountStatus { get; set; }
         public AccountStatus AccountStatus { get; set; }
+
     }
 }

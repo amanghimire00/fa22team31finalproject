@@ -7,7 +7,6 @@ namespace fa22team31finalproject.Models
 {
     public enum TransactionType { Deposit, Withdrawal }
     public class Transaction
-
     {
         public String TransactionID { get; set; }
 
@@ -26,6 +25,6 @@ namespace fa22team31finalproject.Models
 
         [Display(Name = "Approved?")]
         public bool isApproved { get; set; }
-        public AppUser AppUser { get; set; }
+        public Account Account { get; set; }
     }
 }
