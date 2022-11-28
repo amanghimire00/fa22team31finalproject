@@ -25,6 +25,6 @@ namespace fa22team31finalproject.Models
 
         [Display(Name = "Approved?")]
         public bool isApproved { get; set; }
-        public Account Account { get; set; }
+        public List<Account> Account { get; set; }
     }
 }

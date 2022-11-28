@@ -30,5 +30,8 @@ namespace fa22team31finalproject.Models
         //public isActive AcccountStatus { get; set; }
         public AccountStatus AccountStatus { get; set; }
 
+        public List<AppUser> AppUser { get; set; }
+        public Transaction Transaction { get; set; }
+
     }
 }

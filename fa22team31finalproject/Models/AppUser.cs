@@ -55,6 +55,7 @@ namespace fa22team31finalproject.Models
         [Display(Name = "Account Status:")]
         //public isActive AcccountStatus { get; set; }
         public UserAcccountStatus UserAcccountStatus { get; set; }
-        public object StockPortfolio { get; internal set; }
+        public StockPortfolio StockPortfolio { get;  set; }
+        public Account Account { get; set; }
     }
 }

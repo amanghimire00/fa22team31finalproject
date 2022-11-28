@@ -20,10 +20,12 @@ namespace fa22team31finalproject.Models
         public Decimal CashBalance { get; set; }
 
         public AppUser AppUser { get; set; }
-        public List<StockTransaction> StockTransactions { get; set; }
 
         [Display(Name = "Bank Account Nickname:")]
         [Required(ErrorMessage = "Bank Account Nickname is required.")]
         public String AccountNickname { get; set; }
+
+        public Transaction Transaction { get; set; }
+        public StockTransaction StockTransaction { get; set; }
     }
 }
