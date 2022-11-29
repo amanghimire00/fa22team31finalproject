@@ -77,6 +77,8 @@ namespace fa22team31finalproject.Models
 
         public Boolean Fired { get; set; }
 
+        public Boolean isActive { get; set; }
+
         //NOTE: Here is the logic for putting in a password
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]

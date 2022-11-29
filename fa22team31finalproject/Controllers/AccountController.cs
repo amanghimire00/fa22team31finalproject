@@ -64,6 +64,7 @@ namespace fa22team31finalproject.Controllers
                 ZipCode = rvm.ZipCode,
                 DOB = rvm.DOB,
                 Fired = rvm.Fired,
+                isActive = rvm.isActive,
 
             };
 

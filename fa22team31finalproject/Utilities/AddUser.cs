@@ -72,6 +72,7 @@ namespace fa22team31finalproject.Utilities
                 dbUser.ZipCode = aum.User.ZipCode;
                 dbUser.DOB = aum.User.DOB;
                 dbUser.Fired = aum.User.Fired;
+                dbUser.isActive = aum.User.isActive;
 
 
                 //update the database
