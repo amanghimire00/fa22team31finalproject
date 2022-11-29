@@ -55,6 +55,10 @@ namespace fa22team31finalproject.Models
         [Display(Name = "Account Status:")]
         //public isActive AcccountStatus { get; set; }
         public UserAcccountStatus UserAcccountStatus { get; set; }
+
+        [Required]
+        public Boolean Fired { get; set; }
+
         public StockPortfolio StockPortfolio { get;  set; }
         public Account Account { get; set; }
     }

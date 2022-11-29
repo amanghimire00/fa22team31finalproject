@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 //TODO: Upddate this namespace to match your project name
 namespace fa22team31finalproject.Seeding
 {
-    public class SeedRoles
+    public class SeedTransactions
     {
         public static async Task AddAllRoles(RoleManager<IdentityRole> roleManager)
         {
@@ -23,10 +23,10 @@ namespace fa22team31finalproject.Seeding
                 //this code uses the role manager object to create the customer role
                 await roleManager.CreateAsync(new IdentityRole("Customer"));
             }
-            if (await roleManager.RoleExistsAsync("Employee") == false)
+            if (await roleManager.RoleExistsAsync("Customer") == false)
             {
-                //this code uses the role manager object to create the admin role
-                await roleManager.CreateAsync(new IdentityRole("Employee"));
+                //this code uses the role manager object to create the customer role
+                await roleManager.CreateAsync(new IdentityRole("Customer"));
             }
 
         }
