@@ -56,6 +56,6 @@ namespace fa22team31finalproject.Models
         //public isActive AcccountStatus { get; set; }
         public UserAcccountStatus UserAcccountStatus { get; set; }
         public StockPortfolio StockPortfolio { get;  set; }
-        public Account Account { get; set; }
+        public BankAccount Account { get; set; }
     }
 }

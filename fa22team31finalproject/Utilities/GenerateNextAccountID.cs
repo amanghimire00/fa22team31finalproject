@@ -34,7 +34,7 @@ namespace fa22team31finalproject.Utilities
             }
             else
             {
-                intMaxAccountID = _context.Accounts.Max(c => c.AccountID); //this is the highest number in the database right now
+                intMaxAccountID = _context.Accounts.Max(c => c.BankAccountID); //this is the highest number in the database right now
             }
 
             //You added records to the datbase before you realized 

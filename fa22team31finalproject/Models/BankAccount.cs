@@ -7,9 +7,9 @@ namespace fa22team31finalproject.Models
 {
     public enum AccountType { Savings, Checkings, IRA }
     public enum AccountStatus { Active, Inactive }
-    public class Account
+    public class BankAccount
     {        
-        public Int32 AccountID { get; set; }
+        public Int32 BankAccountID { get; set; }
 
         [Display(Name = "Bank Account Number:")]
         [Required(ErrorMessage = "Bank Account Number is required.")]
