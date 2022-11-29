@@ -75,6 +75,8 @@ namespace fa22team31finalproject.Models
         [Required(ErrorMessage = "Birthday is required.")]
         public String DOB { get; set; }
 
+        public Boolean Fired { get; set; }
+
         //NOTE: Here is the logic for putting in a password
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]

@@ -57,6 +57,13 @@ namespace fa22team31finalproject.Controllers
 
                 FirstName = rvm.FirstName,
                 LastName = rvm.LastName,
+                MI = rvm.MI,
+                Address = rvm.Address,
+                City = rvm.City,
+                State = rvm.State,
+                ZipCode = rvm.ZipCode,
+                DOB = rvm.DOB,
+                Fired = rvm.Fired,
 
             };
 
