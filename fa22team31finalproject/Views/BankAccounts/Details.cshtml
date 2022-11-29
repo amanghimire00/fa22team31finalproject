@@ -1,4 +1,4 @@
-﻿@model fa22team31finalproject.Models.Account
+﻿@model fa22team31finalproject.Models.BankAccount
 
 @{
     ViewData["Title"] = "Details";
@@ -7,7 +7,7 @@
 <h1>Details</h1>
 
 <div>
-    <h4>Account</h4>
+    <h4>BankAccount</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -43,6 +43,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.AccountID">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model?.BankAccountID">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>

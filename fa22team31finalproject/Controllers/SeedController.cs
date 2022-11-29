@@ -29,7 +29,7 @@ namespace fa22team31finalproject.Controllers
         {
             try
             {
-                Seeding.SeedTransactions.SeedAllTransactions(_context);
+                //Seeding.SeedTransactions.SeedAllTransactions(_context);
             }
             catch (Exception ex)
             {
@@ -68,7 +68,7 @@ namespace fa22team31finalproject.Controllers
         {
             try
             {
-                Seeding.SeedAccounts.SeedAllAccounts(_context);
+                //Seeding.SeedAccounts.SeedAllAccounts(_context);
             }
             catch (Exception ex)
             {

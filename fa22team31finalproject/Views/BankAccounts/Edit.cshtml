@@ -1,4 +1,4 @@
-﻿@model fa22team31finalproject.Models.Account
+﻿@model fa22team31finalproject.Models.BankAccount
 
 @{
     ViewData["Title"] = "Edit";
@@ -6,13 +6,13 @@
 
 <h1>Edit</h1>
 
-<h4>Account</h4>
+<h4>BankAccount</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="AccountID" />
+            <input type="hidden" asp-for="BankAccountID" />
             <div class="form-group">
                 <label asp-for="AccountNumber" class="control-label"></label>
                 <input asp-for="AccountNumber" class="form-control" />
