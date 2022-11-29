@@ -10,7 +10,7 @@
 
 @if (User.Identity.IsAuthenticated)
 {
-    <a asp-action="Index" asp-controller="Accounts" class="btn btn-info">Accounts Summary</a>
+    <a asp-action="Index" asp-controller="Account" class="btn btn-info">Accounts Summary</a>
 
     if (User.IsInRole("Admin"))
     {
