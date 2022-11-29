@@ -13,7 +13,7 @@ namespace fa22team31finalproject.Models
 
         [Display(Name = "Bank Account Number:")]
         [Required(ErrorMessage = "Bank Account Number is required.")]
-        public Int32 AccountNumber { get; set; }
+        public Int64 AccountNumber { get; set; }
 
         [Display(Name = "Bank Account Nickname:")]
         [Required(ErrorMessage = "Bank Account Nickname is required.")]

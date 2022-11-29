@@ -13,76 +13,93 @@ namespace fa22team31finalproject.Controllers
     public class SeedController : Controller
     {
         private readonly AppDbContext _context;
-        private readonly UserManager<AppUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public SeedController(AppDbContext db, UserManager<AppUser> um, RoleManager<IdentityRole> rm)
+        public SeedController(AppDbContext dbContext)
         {
-            _context = db;
-            _userManager = um;
-            _roleManager = rm;
+            _context = dbContext;
         }
 
+        // GET: /<controller>/
         public IActionResult Index()
         {
             return View();
         }
-        public async Task<IActionResult> SeedRoles()
+
+        public IActionResult SeedAllTransactions()
         {
             try
             {
-                await Seeding.SeedRoles.AddAllRoles(_roleManager);
+                Seeding.SeedTransactions.SeedAllTransactions(_context);
             }
             catch (Exception ex)
             {
-                //add the error messages to a list of strings
-                List<String> errorList = new List<String>();
+                //create a new list to hold all the errors
+                List<String> errors = new List<String>();
 
-                //Add the outer message
-                errorList.Add(ex.Message);
+                //add a generic message
+                errors.Add("There was an error adding genres to the database!");
 
-                //Add the message from the inner exception
-                errorList.Add(ex.InnerException.Message);
+                //add the message from the exception
+                errors.Add(ex.Message);
 
-                //Add additional inner exception messages, if there are any
-                if (ex.InnerException.InnerException != null)
+                //add messages from inner exceptions (if there are any)
+                if (ex.InnerException != null)
                 {
-                    errorList.Add(ex.InnerException.InnerException.Message);
+                    errors.Add(ex.InnerException.Message);
+                    if (ex.InnerException.InnerException != null)
+                    {
+                        errors.Add(ex.InnerException.InnerException.Message);
+                        if (ex.InnerException.InnerException.InnerException != null)
+                        {
+                            errors.Add(ex.InnerException.InnerException.InnerException.Message);
+                        }
+                    }
                 }
 
-                return View("Error", errorList);
+                //return the error message with the list of errors
+                return View("Error", errors);
             }
 
-            //this is the happy path - seeding worked!
+            //everything is okay - return the confirmation page
             return View("Confirm");
         }
-        public async Task<IActionResult> SeedPeople()
+
+        public IActionResult SeedAllAccounts()
         {
             try
             {
-                await Seeding.SeedUsers.SeedAllUsers(_userManager, _context);
+                Seeding.SeedAccounts.SeedAllAccounts(_context);
             }
             catch (Exception ex)
             {
-                //add the error messages to a list of strings
-                List<String> errorList = new List<String>();
+                //create a new list for the error messages
+                List<String> errors = new List<String>();
 
-                //Add the outer message
-                errorList.Add(ex.Message);
+                //add a generic error message
+                errors.Add("There was a problem adding repositories to the database");
 
-                //Add the message from the inner exception
-                errorList.Add(ex.InnerException.Message);
+                //add message from the exception
+                errors.Add(ex.Message);
 
-                //Add additional inner exception messages, if there are any
-                if (ex.InnerException.InnerException != null)
+                //add messages from inner exceptions, if there are any
+                if (ex.InnerException != null)
                 {
-                    errorList.Add(ex.InnerException.InnerException.Message);
+                    errors.Add(ex.InnerException.Message);
+                    if (ex.InnerException.InnerException != null)
+                    {
+                        errors.Add(ex.InnerException.InnerException.Message);
+                        if (ex.InnerException.InnerException.InnerException != null)
+                        {
+                            errors.Add(ex.InnerException.InnerException.InnerException.Message);
+                        }
+                    }
                 }
 
-                return View("Error", errorList);
+                //return the error view with the errors
+                return View("Error", errors);
             }
 
-            //this is the happy path - seeding worked!
+            //everything is okay - return the confirmation page
             return View("Confirm");
         }
     }

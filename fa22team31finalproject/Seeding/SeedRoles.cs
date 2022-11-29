@@ -23,6 +23,11 @@ namespace fa22team31finalproject.Seeding
                 //this code uses the role manager object to create the customer role
                 await roleManager.CreateAsync(new IdentityRole("Customer"));
             }
+            if (await roleManager.RoleExistsAsync("Employee") == false)
+            {
+                //this code uses the role manager object to create the admin role
+                await roleManager.CreateAsync(new IdentityRole("Employee"));
+            }
 
         }
     }

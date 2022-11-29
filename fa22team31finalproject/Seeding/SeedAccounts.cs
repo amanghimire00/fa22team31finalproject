@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 //TODO: Upddate this namespace to match your project name
 namespace fa22team31finalproject.Seeding
 {
-    public static class SeedUsers
+    public static class SeedAccounts
     {
         public async static Task<IdentityResult> SeedAllUsers(UserManager<AppUser> userManager, AppDbContext context)
         {
