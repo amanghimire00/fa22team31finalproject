@@ -5,8 +5,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace fa22team31finalproject.Models
 {
-    //public enum isActive { Active, Inactive }
-    public enum UserAcccountStatus { Active, Inactive }
     public class AppUser : IdentityUser
     {
         [Display(Name = "First Name:")]
@@ -51,13 +49,8 @@ namespace fa22team31finalproject.Models
         [Display(Name = "Birthday (MM/DD/YYYY):")]
         [Required(ErrorMessage = "Birthday is required.")]
         public String DOB { get; set; }
-
-        [Display(Name = "Account Status:")]
-        //public isActive AcccountStatus { get; set; }
-        public UserAcccountStatus UserAcccountStatus { get; set; }
-
-        [Required]
         public Boolean Fired { get; set; }
+        public Boolean isActive { get; set; }
 
         public StockPortfolio StockPortfolio { get;  set; }
         public BankAccount Account { get; set; }
