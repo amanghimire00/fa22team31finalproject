@@ -65,6 +65,13 @@ namespace fa22team31finalproject.Utilities
                 //FirstName is included as an example
                 dbUser.FirstName = aum.User.FirstName;
                 dbUser.LastName = aum.User.LastName;
+                dbUser.MI = aum.User.MI;
+                dbUser.Address = aum.User.Address;
+                dbUser.City = aum.User.City;
+                dbUser.State = aum.User.State;
+                dbUser.ZipCode = aum.User.ZipCode;
+                dbUser.DOB = aum.User.DOB;
+
 
                 //update the database
                 _context.Update(dbUser);
