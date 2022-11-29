@@ -6,13 +6,11 @@
 <h1>Welcome to Longhorn Bank!</h1>
 
 
-<a asp-action="Login" asp-controller="Account" class="btn btn-success">Login</a>
-
-<a asp-action="Register" asp-controller="Account" class="btn btn-success">Register</a>
+<a asp-action="Register" asp-controller="Account" class="btn btn-success">Register for an Account</a>
 
 @if (User.Identity.IsAuthenticated)
 {
-    <a asp-action="Index" asp-controller="Accounts" class="btn btn-info">Accounts SUmmary</a>
+    <a asp-action="Index" asp-controller="Accounts" class="btn btn-info">Accounts Summary</a>
 
     if (User.IsInRole("Admin"))
     {
