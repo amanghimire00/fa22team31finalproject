@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace fa22team31finalproject.Models
 {
     public enum StockTransactionType { Purchase, Sell }
-    public class StockTransaction:Stock
+    public class StockTransaction
     {
         private const Int32 Stock_Purchase_Fee = 10;
         private const Int32 Stock_Selling_Fee = 15;
@@ -38,7 +38,7 @@ namespace fa22team31finalproject.Models
         {
             get
             {
-                return SharesQuantity * StockPrice;
+                return SharesQuantity * PurchasePrice;
             }
         }
         public AppUser AppUser { get; set; }

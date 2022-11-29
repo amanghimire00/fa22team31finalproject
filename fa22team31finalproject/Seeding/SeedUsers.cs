@@ -30,7 +30,14 @@ namespace fa22team31finalproject.Seeding
                     //TODO: Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
                     FirstName = "Admin",
-                    LastName = "Example"
+                    LastName = "Example",
+                    MI = "M",
+                    Address = "123 L",
+                    City = "Austin",
+                    State = "TX",
+                    ZipCode = "78701",
+                    DOB = "11/28/22"
+
                 },
                 Password = "Abc123!",
                 RoleName = "Admin"
@@ -49,7 +56,13 @@ namespace fa22team31finalproject.Seeding
                     //TODO: Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
                     FirstName = "Bevo",
-                    LastName = "Longhorn"
+                    LastName = "Longhorn",
+                    MI = "M",
+                    Address = "123 L",
+                    City = "Austin",
+                    State = "TX",
+                    ZipCode = "78701",
+                    DOB = "11/28/22"
                 },
                 Password = "Password123!",
                 RoleName = "Customer"

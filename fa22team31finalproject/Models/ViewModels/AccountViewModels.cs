@@ -52,6 +52,28 @@ namespace fa22team31finalproject.Models
         [Display(Name = "Last Name")]
         public String LastName { get; set; }
 
+        [Display(Name = "Middle Initial")]
+        public String MI { get; set; }
+
+        [Display(Name = "Street Address:")]
+        [Required(ErrorMessage = "Street Address is required.")]
+        public String Address { get; set; }
+
+        [Display(Name = "City:")]
+        [Required(ErrorMessage = "City is required.")]
+        public String City { get; set; }
+
+        [Display(Name = "State:")]
+        [Required(ErrorMessage = "State is required.")]
+        public String State { get; set; }
+
+        [Display(Name = "ZipCode:")]
+        [Required(ErrorMessage = "ZipCode is required.")]
+        public String ZipCode { get; set; }
+
+        [Display(Name = "Birthday (MM/DD/YYYY):")]
+        [Required(ErrorMessage = "Birthday is required.")]
+        public String DOB { get; set; }
 
         //NOTE: Here is the logic for putting in a password
         [Required]
