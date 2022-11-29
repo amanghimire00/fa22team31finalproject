@@ -31,9 +31,6 @@ namespace fa22team31finalproject.Models
         [Required(ErrorMessage = "Stock Ticker is required!")]
         public String StockTicker { get; set; }
 
-        public Stock Stock { get; set; }
-        public StockPortfolio StockPortfolio { get; set; }
-
         public Decimal StockBalance
         {
             get

@@ -7,6 +7,8 @@ namespace fa22team31finalproject.Models
 {
     public class StockPortfolio
     {
+        public Int32 StockPortfolioID { get; set;
+        }
         [Display(Name = "Account Number:")]
         [Required(ErrorMessage = "Account Number is required.")]
         public Int32 AccountNumber { get; set; }
