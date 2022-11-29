@@ -1,0 +1,48 @@
+﻿@model fa22team31finalproject.Models.StockTransaction
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>StockTransaction</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SharesQuantity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SharesQuantity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PurchasePrice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PurchasePrice)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StockTransactionType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StockTransactionType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StickPurchaseDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StickPurchaseDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StockTicker)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StockTicker)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.StockTransactionID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
