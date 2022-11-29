@@ -7,8 +7,6 @@ using Microsoft.AspNetCore.Identity;
 //Be sure to remove the []
 using fa22team31finalproject.DAL;
 using fa22team31finalproject.Models;
-using fa22team31finalproject.DAL;
-using fa22team31finalproject.Models;
 
 //create a web application builder
 var builder = WebApplication.CreateBuilder(args);
