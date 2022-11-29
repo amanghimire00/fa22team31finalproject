@@ -12,8 +12,8 @@ using fa22team31finalproject.DAL;
 namespace fa22team31finalproject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221129011549_Setup")]
-    partial class Setup
+    [Migration("20221129220657_moreupdates")]
+    partial class moreupdates
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,40 +26,6 @@ namespace fa22team31finalproject.Migrations
             SqlServerModelBuilderExtensions.HasServiceTierSql(modelBuilder, "'Basic'");
             SqlServerModelBuilderExtensions.HasPerformanceLevelSql(modelBuilder, "'Basic'");
 
-            modelBuilder.Entity("fa22team31finalproject.Models.Account", b =>
-                {
-                    b.Property<int>("AccountID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AccountID"), 1L, 1);
-
-                    b.Property<string>("AccountName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("AccountNumber")
-                        .HasColumnType("int");
-
-                    b.Property<int>("AccountStatus")
-                        .HasColumnType("int");
-
-                    b.Property<int>("AccountType")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Balance")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("TransactionID")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("AccountID");
-
-                    b.HasIndex("TransactionID");
-
-                    b.ToTable("Accounts");
-                });
-
             modelBuilder.Entity("fa22team31finalproject.Models.AppUser", b =>
                 {
                     b.Property<string>("Id")
@@ -68,7 +34,7 @@ namespace fa22team31finalproject.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<int?>("AccountID")
+                    b.Property<int?>("AccountBankAccountID")
                         .HasColumnType("int");
 
                     b.Property<string>("Address")
@@ -92,6 +58,9 @@ namespace fa22team31finalproject.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Fired")
                         .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
@@ -138,9 +107,6 @@ namespace fa22team31finalproject.Migrations
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
-                    b.Property<int>("UserAcccountStatus")
-                        .HasColumnType("int");
-
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -149,9 +115,12 @@ namespace fa22team31finalproject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("isActive")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("AccountID");
+                    b.HasIndex("AccountBankAccountID");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -162,6 +131,40 @@ namespace fa22team31finalproject.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("fa22team31finalproject.Models.BankAccount", b =>
+                {
+                    b.Property<int>("BankAccountID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BankAccountID"), 1L, 1);
+
+                    b.Property<string>("AccountName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("AccountNumber")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("AccountStatus")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AccountType")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Balance")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("TransactionID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("BankAccountID");
+
+                    b.HasIndex("TransactionID");
+
+                    b.ToTable("Accounts");
                 });
 
             modelBuilder.Entity("fa22team31finalproject.Models.Dispute", b =>
@@ -480,22 +483,22 @@ namespace fa22team31finalproject.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("fa22team31finalproject.Models.Account", b =>
+            modelBuilder.Entity("fa22team31finalproject.Models.AppUser", b =>
+                {
+                    b.HasOne("fa22team31finalproject.Models.BankAccount", "Account")
+                        .WithMany("AppUser")
+                        .HasForeignKey("AccountBankAccountID");
+
+                    b.Navigation("Account");
+                });
+
+            modelBuilder.Entity("fa22team31finalproject.Models.BankAccount", b =>
                 {
                     b.HasOne("fa22team31finalproject.Models.Transaction", "Transaction")
                         .WithMany("Account")
                         .HasForeignKey("TransactionID");
 
                     b.Navigation("Transaction");
-                });
-
-            modelBuilder.Entity("fa22team31finalproject.Models.AppUser", b =>
-                {
-                    b.HasOne("fa22team31finalproject.Models.Account", "Account")
-                        .WithMany("AppUser")
-                        .HasForeignKey("AccountID");
-
-                    b.Navigation("Account");
                 });
 
             modelBuilder.Entity("fa22team31finalproject.Models.Stock", b =>
@@ -588,14 +591,14 @@ namespace fa22team31finalproject.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("fa22team31finalproject.Models.Account", b =>
-                {
-                    b.Navigation("AppUser");
-                });
-
             modelBuilder.Entity("fa22team31finalproject.Models.AppUser", b =>
                 {
                     b.Navigation("StockPortfolio");
+                });
+
+            modelBuilder.Entity("fa22team31finalproject.Models.BankAccount", b =>
+                {
+                    b.Navigation("AppUser");
                 });
 
             modelBuilder.Entity("fa22team31finalproject.Models.StockType", b =>

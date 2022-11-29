@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace fa22team31finalproject.Migrations
 {
-    public partial class Setup : Migration
+    public partial class moreupdates : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -118,9 +118,9 @@ namespace fa22team31finalproject.Migrations
                 name: "Accounts",
                 columns: table => new
                 {
-                    AccountID = table.Column<int>(type: "int", nullable: false)
+                    BankAccountID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    AccountNumber = table.Column<int>(type: "int", nullable: false),
+                    AccountNumber = table.Column<long>(type: "bigint", nullable: false),
                     AccountName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Balance = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     AccountType = table.Column<int>(type: "int", nullable: false),
@@ -129,7 +129,7 @@ namespace fa22team31finalproject.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Accounts", x => x.AccountID);
+                    table.PrimaryKey("PK_Accounts", x => x.BankAccountID);
                     table.ForeignKey(
                         name: "FK_Accounts_Transactions_TransactionID",
                         column: x => x.TransactionID,
@@ -150,8 +150,9 @@ namespace fa22team31finalproject.Migrations
                     State = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ZipCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DOB = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UserAcccountStatus = table.Column<int>(type: "int", nullable: false),
-                    AccountID = table.Column<int>(type: "int", nullable: true),
+                    Fired = table.Column<bool>(type: "bit", nullable: false),
+                    isActive = table.Column<bool>(type: "bit", nullable: false),
+                    AccountBankAccountID = table.Column<int>(type: "int", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -171,10 +172,10 @@ namespace fa22team31finalproject.Migrations
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AspNetUsers_Accounts_AccountID",
-                        column: x => x.AccountID,
+                        name: "FK_AspNetUsers_Accounts_AccountBankAccountID",
+                        column: x => x.AccountBankAccountID,
                         principalTable: "Accounts",
-                        principalColumn: "AccountID");
+                        principalColumn: "BankAccountID");
                 });
 
             migrationBuilder.CreateTable(
@@ -357,9 +358,9 @@ namespace fa22team31finalproject.Migrations
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspNetUsers_AccountID",
+                name: "IX_AspNetUsers_AccountBankAccountID",
                 table: "AspNetUsers",
-                column: "AccountID");
+                column: "AccountBankAccountID");
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
