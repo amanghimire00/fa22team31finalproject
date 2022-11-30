@@ -13,7 +13,7 @@ namespace fa22team31finalproject.Seeding
 {
 
 
-    public static class SeedBankAccount
+    public static class SeedBankAccounts
     {
         public static void SeedAllBankAccounts(AppDbContext db)
         {

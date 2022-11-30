@@ -187,7 +187,6 @@ namespace fa22team31finalproject.Controllers
             List<BankAccount> allAccounts = _context.Accounts.ToList();          
             MultiSelectList mslAll = new MultiSelectList(allAccounts.OrderBy(d => d.AccountType), "Checking", "Savings", "IRA");
 
-            MultiSelectList mslAllAccounts = null;
             //return the MultiSelectList
             return mslAllAccounts;
         }
