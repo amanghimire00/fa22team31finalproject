@@ -1,4 +1,3 @@
-
 using fa22team31finalproject.DAL;
 using fa22team31finalproject.Models;
 using fa22team31finalproject.Utilities;
@@ -12,12 +11,39 @@ using Microsoft.AspNetCore.Identity;
 namespace fa22team31finalproject.Seeding
 {
 
-    public static class SeedUsersTutorial
+    public static class SeedCustomers
     {
         public async static Task<IdentityResult> SeedAllUsers(UserManager<AppUser> userManager, AppDbContext context)
         {
             //Create a list of AddUserModels
             List<AddUserModel> AllUsers = new List<AddUserModel>();
+
+            AllUsers.Add(new AddUserModel()
+            {
+                User = new AppUser()
+                {
+                    //populate the user properties that are from the 
+                    //IdentityUser base class
+                    UserName = "admin@example.com",
+                    Email = "admin@example.com",
+                    PhoneNumber = "(512)555-1234",
+
+                    //TODO: Add additional fields that you created on the AppUser class
+                    //FirstName is included as an example
+                    FirstName = "Admin",
+                    LastName = "Example",
+                    MI = "J",
+                    Address = "???",
+                    City = "??",
+                    State = "??",
+                    ZipCode = "??",
+                    DOB = "??",
+                    Fired = false,
+                    isActive = true,
+                },
+                Password = "Abc123!",
+                RoleName = "Admin"
+            });
 
 
             AllUsers.Add(new AddUserModel()
