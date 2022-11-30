@@ -17,7 +17,7 @@ namespace fa22team31finalproject.Utilities
             //
             //numbers 
             //should start
-            const Int32 START_NUMBER = 0;
+            const int START_NUMBER = 2290000001;
 
             Int32 intMaxAccountID; //the current maximum
                                      //
