@@ -50,6 +50,7 @@ namespace fa22team31finalproject.Controllers
         [Authorize(Roles = "Customer")]
         public IActionResult Create()
         {
+            ViewBag.BankAccounts = GetBankAccountSelectList();
             return View();
         }
 
@@ -61,25 +62,13 @@ namespace fa22team31finalproject.Controllers
         [Authorize]
         public async Task<IActionResult> Create([Bind("BankAccountID,AccountNumber,AccountName,Balance,AccountType,AccountStatus")] BankAccount bankAccount)
         {
-            bankAccount.BankAccountID = Utilities.GenerateNextAccountID.GetNextAccountID(_context);
-            //change this if you do extra credit
-            //order.User = await _userManager.FindByNameAsync(order.User.UserName);
-
-
-            _context.Add(bankAccount);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Create", "BankAccounts", new { BankAccountID = bankAccount.BankAccountID });
-
-
-
-
-            //if (ModelState.IsValid)
-            //{
-            //    _context.Add(bankAccount);
-            //    await _context.SaveChangesAsync();
-            //   return RedirectToAction(nameof(Index));
-            //}
-            //return View(bankAccount);
+            if (ModelState.IsValid)
+            {
+                _context.Add(bankAccount);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(bankAccount);
         }
 
         // GET: BankAccounts/Edit/5
@@ -95,7 +84,10 @@ namespace fa22team31finalproject.Controllers
             {
                 return NotFound();
             }
+
+            ViewBag.BankAccounts = GetBankAccountSelectList();
             return View(bankAccount);
+
         }
 
         // POST: BankAccounts/Edit/5
@@ -114,6 +106,7 @@ namespace fa22team31finalproject.Controllers
             {
                 try
                 {
+                    ViewBag.BankAccounts = GetBankAccountSelectList();
                     _context.Update(bankAccount);
                     await _context.SaveChangesAsync();
                 }
@@ -148,6 +141,7 @@ namespace fa22team31finalproject.Controllers
                 return NotFound();
             }
 
+            ViewBag.BankAccounts = GetBankAccountSelectList();
             return View(bankAccount);
         }
 
@@ -165,7 +159,8 @@ namespace fa22team31finalproject.Controllers
             {
                 _context.Accounts.Remove(bankAccount);
             }
-            
+
+            ViewBag.BankAccounts = GetBankAccountSelectList();
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
@@ -174,5 +169,24 @@ namespace fa22team31finalproject.Controllers
         {
           return _context.Accounts.Any(e => e.BankAccountID == id);
         }
+        //this is for account types
+        private MultiSelectList GetBankAccountSelectList()
+        {
+            //Create a new list of Suppliers and get the list of the suppliers
+            //from the database
+            List<BankAccount> allAccounts = _context.Accounts.ToList();
+
+            //Multi-select lists do not require a selection, so you don't need
+            //to add a dummy record like you do for select lists
+
+            //use the MultiSelectList constructor method to get a new MultiSelectList
+            MultiSelectList mslAll = new MultiSelectList(allAccounts.OrderBy(d => d.AccountType), "Checking", "Saving", "IRA");
+
+            //return the MultiSelectList
+            return mslAll;
+        }
+        //this is for account status
+        
+        
     }
 }
