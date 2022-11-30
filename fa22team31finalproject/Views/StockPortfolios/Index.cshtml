@@ -21,9 +21,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.CashBalance)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AccountNickname)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -39,9 +36,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CashBalance)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AccountNickname)
-            </td>
+
             <td>
                 <a asp-action="Edit" asp-route-id="@item.StockPortfolioID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.StockPortfolioID">Details</a> |

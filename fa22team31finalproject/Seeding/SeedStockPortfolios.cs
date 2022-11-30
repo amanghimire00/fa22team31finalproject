@@ -25,7 +25,7 @@ namespace fa22team31finalproject.Seeding
             {
                 AppUser = db.Users.FirstOrDefault(u => u.UserName == "Dixon@aool.com"),
                 AccountNumber = 2290000001,
-                AccountNickname = "Shan's Stock",
+                AccountName = "Shan's Stock",
                 CashBalance = 0.00m,
 
             });
@@ -35,7 +35,7 @@ namespace fa22team31finalproject.Seeding
             {
                 AppUser = db.Users.FirstOrDefault(u => u.UserName == "mb@aool.com"),
                 AccountNumber = 2290000009,
-                AccountNickname = "Michelle's Stock",
+                AccountName = "Michelle's Stock",
                 CashBalance = 8888.88m,
 
             });
@@ -45,7 +45,7 @@ namespace fa22team31finalproject.Seeding
             {
                 AppUser = db.Users.FirstOrDefault(u => u.UserName == "nelson.Kelly@aool.com"),
                 AccountNumber = 2290000011,
-                AccountNickname = "Kelly's Stock",
+                AccountName = "Kelly's Stock",
                 CashBalance = 420.00m,
 
             });
@@ -55,7 +55,7 @@ namespace fa22team31finalproject.Seeding
             {
                 AppUser = db.Users.FirstOrDefault(u => u.UserName == "johnsmith187@aool.com"),
                 AccountNumber = 2290000018,
-                AccountNickname = "John's Stock",
+                AccountName = "John's Stock",
                 CashBalance = 0.00m,
 
             });
@@ -65,14 +65,14 @@ namespace fa22team31finalproject.Seeding
             {
                 AppUser = db.Users.FirstOrDefault(u => u.UserName == "cbaker@freezing.co.uk"),
                 AccountNumber = 2290000024,
-                AccountNickname = "CBaker's Stock",
+                AccountName = "CBaker's Stock",
                 CashBalance = 6900.00m,
 
             });
 
             //create a counter and flag to help with debugging
             int intStockPortfolioID = 0;
-            String strAccountNickname = "Start";
+            String strAccountName = "Start";
 
             //we are now going to add the data to the database
             //this could cause errors, so we need to put this code
@@ -84,11 +84,11 @@ namespace fa22team31finalproject.Seeding
                 {
                     //updates the counters to get info on where the problem is
                     intStockPortfolioID = seedStockPortfolio.StockPortfolioID;
-                    strAccountNickname = seedStockPortfolio.AccountNickname;
+                    strAccountName = seedStockPortfolio.AccountName;
 
                     //try to find the artistRating in the database based on whether there already exists and artist review with
                     //the same artist name and the same appuser's first + last name associated with it
-                    StockPortfolio dbStockPortfolio = db.StockPortfolios.FirstOrDefault(c => c.AccountNickname == seedStockPortfolio.AccountNickname);
+                    StockPortfolio dbStockPortfolio = db.StockPortfolios.FirstOrDefault(c => c.AccountName == seedStockPortfolio.AccountName);
 
                     //if the artistRating isn't in the database, dbStockPortfolio will be null
                     if (dbStockPortfolio == null)
@@ -104,7 +104,7 @@ namespace fa22team31finalproject.Seeding
                         //but you will need it to re-set seeded data with more fields
                         dbStockPortfolio.AppUser = seedStockPortfolio.AppUser;
                         dbStockPortfolio.AccountNumber = seedStockPortfolio.AccountNumber;
-                        dbStockPortfolio.AccountNickname = seedStockPortfolio.AccountNickname;
+                        dbStockPortfolio.AccountName = seedStockPortfolio.AccountName;
                         dbStockPortfolio.CashBalance = seedStockPortfolio.CashBalance;
 
 
@@ -121,10 +121,8 @@ namespace fa22team31finalproject.Seeding
                 StringBuilder msg = new StringBuilder();
 
                 msg.Append("There was an error adding the ");
-                msg.Append(strAccountNickname);
-                msg.Append(" strArtistReviewCustomer and strArtistReviewArtist (StockPortfolioID = ");
+                msg.Append(strAccountName);
                 msg.Append(intStockPortfolioID);
-                msg.Append(")");
 
                 //have this method throw the exception to the calling method
                 //this code wraps the exception from the database with the 

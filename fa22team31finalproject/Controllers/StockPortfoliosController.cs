@@ -54,7 +54,7 @@ namespace fa22team31finalproject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("StockPortfolioID,AccountNumber,AccountName,CashBalance,AccountNickname")] StockPortfolio stockPortfolio)
+        public async Task<IActionResult> Create([Bind("StockPortfolioID,AccountNumber,AccountName,CashBalance")] StockPortfolio stockPortfolio)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace fa22team31finalproject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("StockPortfolioID,AccountNumber,AccountName,CashBalance,AccountNickname")] StockPortfolio stockPortfolio)
+        public async Task<IActionResult> Edit(int id, [Bind("StockPortfolioID,AccountNumber,AccountName,CashBalance")] StockPortfolio stockPortfolio)
         {
             if (id != stockPortfolio.StockPortfolioID)
             {
