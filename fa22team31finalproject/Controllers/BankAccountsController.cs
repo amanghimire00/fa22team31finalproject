@@ -63,7 +63,7 @@ namespace fa22team31finalproject.Controllers
         [Authorize]
         public async Task<IActionResult> Create([Bind("BankAccountID,AccountNumber,AccountName,Balance,AccountType,AccountStatus")] BankAccount bankAccount)
         {
-            bankAccount.BankAccountID = Utilities.GenerateNextAccountID.GetNextAccountID(_context);
+            bankAccount.BankAccountID = (int) Utilities.GenerateNextAccountID.GetNextAccountID(_context);
             //change this if you do extra credit
             //order.User = await _userManager.FindByNameAsync(order.User.UserName);
 

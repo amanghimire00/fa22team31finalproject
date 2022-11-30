@@ -7,7 +7,7 @@ namespace fa22team31finalproject.Utilities
 {
     public static class GenerateNextAccountID
     {
-        public static Int32 GetNextAccountID(AppDbContext _context)
+        public static Int64 GetNextAccountID(AppDbContext _context)
         {
             //set a constant to designate where the
             //
@@ -17,16 +17,16 @@ namespace fa22team31finalproject.Utilities
             //
             //numbers 
             //should start
-            const int START_NUMBER = 2290000001;
+            const Int64 START_NUMBER = 2290000001;
 
-            Int32 intMaxAccountID; //the current maximum
+            Int64 intMaxAccountID; //the current maximum
                                      //
                                      //
                                      //
                                      //
                                      //
                                      //number
-            Int32 intNextAccountID; //the product number for the next class
+            Int64 intNextAccountID; //the product number for the next class
 
             if (_context.Accounts.Count() == 0) //there are no orders in the database yet
             {

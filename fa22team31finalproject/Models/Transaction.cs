@@ -11,7 +11,6 @@ namespace fa22team31finalproject.Models
         public String TransactionID { get; set; }
 
         [Display(Name = "Transcation Number")]
-        [Required]
         public Int32 TransactionNumber { get; set; }
         public TransactionType TransactionType { get; set; }
 
@@ -25,6 +24,6 @@ namespace fa22team31finalproject.Models
 
         [Display(Name = "Approved?")]
         public bool isApproved { get; set; }
-        public List<BankAccount> Account { get; set; }
+        public List<TransactionDetail> TransactionDetails { get; set; }
     }
 }
