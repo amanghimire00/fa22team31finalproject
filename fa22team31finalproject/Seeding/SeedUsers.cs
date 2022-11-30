@@ -61,7 +61,7 @@ namespace fa22team31finalproject.Seeding
                     //FirstName is included as an example
                     FirstName = "Michelle",
                     LastName = "Banks",
-                    MI = "nan",
+                    MI = "",
                     Address = "1300 Tall Pine Lane",
                     City = "San Antonio",
                     State = "TX",
@@ -142,7 +142,7 @@ namespace fa22team31finalproject.Seeding
                     //FirstName is included as an example
                     FirstName = "Lim",
                     LastName = "Chou",
-                    MI = "nan",
+                    MI = "",
                     Address = "1600 Teresa Lane",
                     City = "San Antonio",
                     State = "TX",
@@ -844,7 +844,7 @@ namespace fa22team31finalproject.Seeding
                     //FirstName is included as an example
                     FirstName = "Jorge",
                     LastName = "Rodriguez",
-                    MI = "nan",
+                    MI = "",
                     Address = "6788 Cotter Street",
                     City = "Houston",
                     State = "TX",
@@ -1357,7 +1357,7 @@ namespace fa22team31finalproject.Seeding
                     //FirstName is included as an example
                     FirstName = "Derek",
                     LastName = "Dreibrodt",
-                    MI = "nan",
+                    MI = "",
                     Address = "423 Brentwood Dr",
                     City = "Austin",
                     State = "TX",
@@ -1384,7 +1384,7 @@ namespace fa22team31finalproject.Seeding
                     //FirstName is included as an example
                     FirstName = "Jacob",
                     LastName = "Foster",
-                    MI = "nan",
+                    MI = "",
                     Address = "700 Fancy St",
                     City = "Austin",
                     State = "TX",
@@ -1708,7 +1708,7 @@ namespace fa22team31finalproject.Seeding
                     //FirstName is included as an example
                     FirstName = "Leon",
                     LastName = "Swanson",
-                    MI = "nan",
+                    MI = "",
                     Address = "245 River Rd",
                     City = "Austin",
                     State = "TX",
@@ -1951,7 +1951,7 @@ namespace fa22team31finalproject.Seeding
                     //FirstName is included as an example
                     FirstName = "Derek",
                     LastName = "Dreibrodt",
-                    MI = "nan",
+                    MI = "",
                     Address = "423 Brentwood Dr",
                     City = "Austin",
                     State = "TX",
@@ -1978,7 +1978,7 @@ namespace fa22team31finalproject.Seeding
                     //FirstName is included as an example
                     FirstName = "Jacob",
                     LastName = "Foster",
-                    MI = "nan",
+                    MI = "",
                     Address = "700 Fancy St",
                     City = "Austin",
                     State = "TX",
