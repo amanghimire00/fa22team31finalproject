@@ -188,7 +188,7 @@ namespace fa22team31finalproject.Controllers
             MultiSelectList mslAllAccounts = new MultiSelectList(allAccounts.OrderBy(d => d.AccountType), "Checking", "Savings", "IRA");
 
             //return the MultiSelectList
-            return mslAll;
+            return mslAllAccounts;
         }
 
        
