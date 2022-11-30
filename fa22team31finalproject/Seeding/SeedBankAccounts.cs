@@ -24,7 +24,7 @@ namespace fa22team31finalproject.Seeding
             AllBankAccounts.Add(new BankAccount
             {
                 AccountNumber = 2290000002,
-                Customer = "willsheff@email.com",
+                AppUser = db.Users.FirstOrDefault(u => u.UserName == "willsheff@email.com"),
                 AccountName = "William's Savings",
                 Balance = 40035.50m,
                 AccountType = AccountType.Savings,

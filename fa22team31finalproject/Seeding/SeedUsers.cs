@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Identity;
 namespace fa22team31finalproject.Seeding
 {
 
-    public static class SeedUsers
+    public static class SeedUsersTutorial
     {
         public async static Task<IdentityResult> SeedAllUsers(UserManager<AppUser> userManager, AppDbContext context)
         {
@@ -28,7 +28,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "cbaker@freezing.co.uk",
                     Email = "cbaker@freezing.co.uk",
-                    PhoneNumber = "5125571146.0",
+                    PhoneNumber = "5125571146",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -38,8 +38,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "1245 Lake Austin Blvd.",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78733.0",
-                    DOB = "1991-02-07 00:00:00",
+                    ZipCode = "78733",
+                    DOB = new DateTime(1991, 2, 7),
                     Fired = false,
                     isActive = true,
                 },
@@ -55,18 +55,18 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "mb@aool.com",
                     Email = "mb@aool.com",
-                    PhoneNumber = "2102678873.0",
+                    PhoneNumber = "2102678873",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
                     FirstName = "Michelle",
                     LastName = "Banks",
-                    MI = "",
+                    MI = "nan",
                     Address = "1300 Tall Pine Lane",
                     City = "San Antonio",
                     State = "TX",
-                    ZipCode = "78261.0",
-                    DOB = "1990-06-23 00:00:00",
+                    ZipCode = "78261",
+                    DOB = new DateTime(1990, 6, 23),
                     Fired = false,
                     isActive = true,
                 },
@@ -82,7 +82,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "fd@aool.com",
                     Email = "fd@aool.com",
-                    PhoneNumber = "8175659699.0",
+                    PhoneNumber = "8175659699",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -92,12 +92,12 @@ namespace fa22team31finalproject.Seeding
                     Address = "62 Browning Rd",
                     City = "Houston",
                     State = "TX",
-                    ZipCode = "77019.0",
-                    DOB = "1986-05-06 00:00:00",
+                    ZipCode = "77019",
+                    DOB = new DateTime(1986, 5, 6),
                     Fired = false,
                     isActive = true,
                 },
-                Password = "666666.0",
+                Password = "666666",
                 RoleName = "Customer"
             });
 
@@ -109,7 +109,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "wendy@ggmail.com",
                     Email = "wendy@ggmail.com",
-                    PhoneNumber = "5125943222.0",
+                    PhoneNumber = "5125943222",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -119,8 +119,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "202 Bellmont Hall",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78713.0",
-                    DOB = "1964-12-21 00:00:00",
+                    ZipCode = "78713",
+                    DOB = new DateTime(1964, 12, 21),
                     Fired = false,
                     isActive = true,
                 },
@@ -136,18 +136,18 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "limchou@yaho.com",
                     Email = "limchou@yaho.com",
-                    PhoneNumber = "2107724599.0",
+                    PhoneNumber = "2107724599",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
                     FirstName = "Lim",
                     LastName = "Chou",
-                    MI = "",
+                    MI = "nan",
                     Address = "1600 Teresa Lane",
                     City = "San Antonio",
                     State = "TX",
-                    ZipCode = "78266.0",
-                    DOB = "1950-06-14 00:00:00",
+                    ZipCode = "78266",
+                    DOB = new DateTime(1950, 6, 14),
                     Fired = false,
                     isActive = true,
                 },
@@ -163,7 +163,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "Dixon@aool.com",
                     Email = "Dixon@aool.com",
-                    PhoneNumber = "2142643255.0",
+                    PhoneNumber = "2142643255",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -173,8 +173,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "234 Holston Circle",
                     City = "Dallas",
                     State = "TX",
-                    ZipCode = "75208.0",
-                    DOB = "1930-05-09 00:00:00",
+                    ZipCode = "75208",
+                    DOB = new DateTime(1930, 5, 9),
                     Fired = false,
                     isActive = true,
                 },
@@ -190,7 +190,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "louann@ggmail.com",
                     Email = "louann@ggmail.com",
-                    PhoneNumber = "8172556749.0",
+                    PhoneNumber = "8172556749",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -200,8 +200,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "600 S 8th Street W",
                     City = "Houston",
                     State = "TX",
-                    ZipCode = "77010.0",
-                    DOB = "1930-02-24 00:00:00",
+                    ZipCode = "77010",
+                    DOB = new DateTime(1930, 2, 24),
                     Fired = false,
                     isActive = true,
                 },
@@ -217,7 +217,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "tfreeley@minntonka.ci.state.mn.us",
                     Email = "tfreeley@minntonka.ci.state.mn.us",
-                    PhoneNumber = "8173255687.0",
+                    PhoneNumber = "8173255687",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -227,8 +227,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "4448 Fairview Ave.",
                     City = "Houston",
                     State = "TX",
-                    ZipCode = "77009.0",
-                    DOB = "1935-09-01 00:00:00",
+                    ZipCode = "77009",
+                    DOB = new DateTime(1935, 9, 1),
                     Fired = false,
                     isActive = true,
                 },
@@ -244,7 +244,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "mgar@aool.com",
                     Email = "mgar@aool.com",
-                    PhoneNumber = "8176593544.0",
+                    PhoneNumber = "8176593544",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -254,8 +254,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "594 Longview",
                     City = "Houston",
                     State = "TX",
-                    ZipCode = "77003.0",
-                    DOB = "1990-07-03 00:00:00",
+                    ZipCode = "77003",
+                    DOB = new DateTime(1990, 7, 3),
                     Fired = false,
                     isActive = true,
                 },
@@ -271,7 +271,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "chaley@thug.com",
                     Email = "chaley@thug.com",
-                    PhoneNumber = "2148475583.0",
+                    PhoneNumber = "2148475583",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -281,8 +281,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "One Cowboy Pkwy",
                     City = "Dallas",
                     State = "TX",
-                    ZipCode = "75261.0",
-                    DOB = "1985-09-17 00:00:00",
+                    ZipCode = "75261",
+                    DOB = new DateTime(1985, 9, 17),
                     Fired = false,
                     isActive = true,
                 },
@@ -298,7 +298,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "jeff@ggmail.com",
                     Email = "jeff@ggmail.com",
-                    PhoneNumber = "5126978613.0",
+                    PhoneNumber = "5126978613",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -308,8 +308,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "337 38th St.",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78705.0",
-                    DOB = "1995-01-23 00:00:00",
+                    ZipCode = "78705",
+                    DOB = new DateTime(1995, 1, 23),
                     Fired = false,
                     isActive = true,
                 },
@@ -325,7 +325,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "wjhearniii@umch.edu",
                     Email = "wjhearniii@umch.edu",
-                    PhoneNumber = "2148965621.0",
+                    PhoneNumber = "2148965621",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -335,8 +335,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "4225 North First",
                     City = "Dallas",
                     State = "TX",
-                    ZipCode = "75237.0",
-                    DOB = "1994-01-08 00:00:00",
+                    ZipCode = "75237",
+                    DOB = new DateTime(1994, 1, 8),
                     Fired = false,
                     isActive = true,
                 },
@@ -352,7 +352,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "hicks43@ggmail.com",
                     Email = "hicks43@ggmail.com",
-                    PhoneNumber = "2105788965.0",
+                    PhoneNumber = "2105788965",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -362,8 +362,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "32 NE Garden Ln., Ste 910",
                     City = "San Antonio",
                     State = "TX",
-                    ZipCode = "78239.0",
-                    DOB = "1990-10-06 00:00:00",
+                    ZipCode = "78239",
+                    DOB = new DateTime(1990, 10, 6),
                     Fired = false,
                     isActive = true,
                 },
@@ -379,7 +379,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "bradsingram@mall.utexas.edu",
                     Email = "bradsingram@mall.utexas.edu",
-                    PhoneNumber = "5124678821.0",
+                    PhoneNumber = "5124678821",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -389,8 +389,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "6548 La Posada Ct.",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78736.0",
-                    DOB = "1984-04-12 00:00:00",
+                    ZipCode = "78736",
+                    DOB = new DateTime(1984, 4, 12),
                     Fired = false,
                     isActive = true,
                 },
@@ -406,7 +406,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "mother.Ingram@aool.com",
                     Email = "mother.Ingram@aool.com",
-                    PhoneNumber = "5124653365.0",
+                    PhoneNumber = "5124653365",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -416,8 +416,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "4564 Elm St.",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78731.0",
-                    DOB = "1983-04-04 00:00:00",
+                    ZipCode = "78731",
+                    DOB = new DateTime(1983, 4, 4),
                     Fired = false,
                     isActive = true,
                 },
@@ -433,7 +433,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "victoria@aool.com",
                     Email = "victoria@aool.com",
-                    PhoneNumber = "5129457399.0",
+                    PhoneNumber = "5129457399",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -443,8 +443,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "6639 Butterfly Ln.",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78761.0",
-                    DOB = "1961-02-03 00:00:00",
+                    ZipCode = "78761",
+                    DOB = new DateTime(1961, 2, 3),
                     Fired = false,
                     isActive = true,
                 },
@@ -460,7 +460,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "lineback@flush.net",
                     Email = "lineback@flush.net",
-                    PhoneNumber = "2102449976.0",
+                    PhoneNumber = "2102449976",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -470,8 +470,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "1300 Netherland St",
                     City = "San Antonio",
                     State = "TX",
-                    ZipCode = "78293.0",
-                    DOB = "1946-09-03 00:00:00",
+                    ZipCode = "78293",
+                    DOB = new DateTime(1946, 9, 3),
                     Fired = false,
                     isActive = true,
                 },
@@ -487,7 +487,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "elowe@netscrape.net",
                     Email = "elowe@netscrape.net",
-                    PhoneNumber = "2105344627.0",
+                    PhoneNumber = "2105344627",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -497,8 +497,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "3201 Pine Drive",
                     City = "San Antonio",
                     State = "TX",
-                    ZipCode = "78279.0",
-                    DOB = "1992-02-07 00:00:00",
+                    ZipCode = "78279",
+                    DOB = new DateTime(1992, 2, 7),
                     Fired = false,
                     isActive = true,
                 },
@@ -514,7 +514,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "luce_chuck@ggmail.com",
                     Email = "luce_chuck@ggmail.com",
-                    PhoneNumber = "2106983548.0",
+                    PhoneNumber = "2106983548",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -524,8 +524,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "2345 Rolling Clouds",
                     City = "San Antonio",
                     State = "TX",
-                    ZipCode = "78268.0",
-                    DOB = "1942-10-25 00:00:00",
+                    ZipCode = "78268",
+                    DOB = new DateTime(1942, 10, 25),
                     Fired = false,
                     isActive = true,
                 },
@@ -541,7 +541,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "mackcloud@pimpdaddy.com",
                     Email = "mackcloud@pimpdaddy.com",
-                    PhoneNumber = "5124748138.0",
+                    PhoneNumber = "5124748138",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -551,8 +551,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "2504 Far West Blvd.",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78731.0",
-                    DOB = "1965-08-06 00:00:00",
+                    ZipCode = "78731",
+                    DOB = new DateTime(1965, 8, 6),
                     Fired = false,
                     isActive = true,
                 },
@@ -568,7 +568,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "liz@ggmail.com",
                     Email = "liz@ggmail.com",
-                    PhoneNumber = "5124579845.0",
+                    PhoneNumber = "5124579845",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -578,8 +578,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "7861 Chevy Chase",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78732.0",
-                    DOB = "1959-04-13 00:00:00",
+                    ZipCode = "78732",
+                    DOB = new DateTime(1959, 4, 13),
                     Fired = false,
                     isActive = true,
                 },
@@ -595,7 +595,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "mclarence@aool.com",
                     Email = "mclarence@aool.com",
-                    PhoneNumber = "8174955201.0",
+                    PhoneNumber = "8174955201",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -605,8 +605,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "87 Alcedo St.",
                     City = "Houston",
                     State = "TX",
-                    ZipCode = "77045.0",
-                    DOB = "1990-01-06 00:00:00",
+                    ZipCode = "77045",
+                    DOB = new DateTime(1990, 1, 6),
                     Fired = false,
                     isActive = true,
                 },
@@ -622,7 +622,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "smartinmartin.Martin@aool.com",
                     Email = "smartinmartin.Martin@aool.com",
-                    PhoneNumber = "8178746718.0",
+                    PhoneNumber = "8178746718",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -632,8 +632,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "8295 Sunset Blvd.",
                     City = "Houston",
                     State = "TX",
-                    ZipCode = "77030.0",
-                    DOB = "1987-10-09 00:00:00",
+                    ZipCode = "77030",
+                    DOB = new DateTime(1987, 10, 9),
                     Fired = false,
                     isActive = true,
                 },
@@ -649,7 +649,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "cmiller@mapster.com",
                     Email = "cmiller@mapster.com",
-                    PhoneNumber = "8177458615.0",
+                    PhoneNumber = "8177458615",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -659,8 +659,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "8962 Main St.",
                     City = "Houston",
                     State = "TX",
-                    ZipCode = "77031.0",
-                    DOB = "1984-07-21 00:00:00",
+                    ZipCode = "77031",
+                    DOB = new DateTime(1984, 7, 21),
                     Fired = false,
                     isActive = true,
                 },
@@ -676,7 +676,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "nelson.Kelly@aool.com",
                     Email = "nelson.Kelly@aool.com",
-                    PhoneNumber = "5122926966.0",
+                    PhoneNumber = "5122926966",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -686,8 +686,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "2601 Red River",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78703.0",
-                    DOB = "1956-07-04 00:00:00",
+                    ZipCode = "78703",
+                    DOB = new DateTime(1956, 7, 4),
                     Fired = false,
                     isActive = true,
                 },
@@ -703,7 +703,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "jojoe@ggmail.com",
                     Email = "jojoe@ggmail.com",
-                    PhoneNumber = "2143125897.0",
+                    PhoneNumber = "2143125897",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -713,8 +713,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "1249 4th SW St.",
                     City = "Dallas",
                     State = "TX",
-                    ZipCode = "75238.0",
-                    DOB = "1963-01-29 00:00:00",
+                    ZipCode = "75238",
+                    DOB = new DateTime(1963, 1, 29),
                     Fired = false,
                     isActive = true,
                 },
@@ -730,7 +730,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "orielly@foxnets.com",
                     Email = "orielly@foxnets.com",
-                    PhoneNumber = "2103450925.0",
+                    PhoneNumber = "2103450925",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -740,8 +740,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "8800 Gringo Drive",
                     City = "San Antonio",
                     State = "TX",
-                    ZipCode = "78260.0",
-                    DOB = "1983-01-07 00:00:00",
+                    ZipCode = "78260",
+                    DOB = new DateTime(1983, 1, 7),
                     Fired = false,
                     isActive = true,
                 },
@@ -757,7 +757,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "or@aool.com",
                     Email = "or@aool.com",
-                    PhoneNumber = "2142345566.0",
+                    PhoneNumber = "2142345566",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -767,8 +767,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "1300 Elliott Pl",
                     City = "Dallas",
                     State = "TX",
-                    ZipCode = "75260.0",
-                    DOB = "1980-03-31 00:00:00",
+                    ZipCode = "75260",
+                    DOB = new DateTime(1980, 3, 31),
                     Fired = false,
                     isActive = true,
                 },
@@ -784,7 +784,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "megrhodes@freezing.co.uk",
                     Email = "megrhodes@freezing.co.uk",
-                    PhoneNumber = "5123744746.0",
+                    PhoneNumber = "5123744746",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -794,8 +794,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "4587 Enfield Rd.",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78707.0",
-                    DOB = "1944-08-12 00:00:00",
+                    ZipCode = "78707",
+                    DOB = new DateTime(1944, 8, 12),
                     Fired = false,
                     isActive = true,
                 },
@@ -811,7 +811,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "erynrice@aool.com",
                     Email = "erynrice@aool.com",
-                    PhoneNumber = "5123876657.0",
+                    PhoneNumber = "5123876657",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -821,8 +821,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "3405 Rio Grande",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78705.0",
-                    DOB = "1934-08-02 00:00:00",
+                    ZipCode = "78705",
+                    DOB = new DateTime(1934, 8, 2),
                     Fired = false,
                     isActive = true,
                 },
@@ -838,18 +838,18 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "jorge@hootmail.com",
                     Email = "jorge@hootmail.com",
-                    PhoneNumber = "8178904374.0",
+                    PhoneNumber = "8178904374",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
                     FirstName = "Jorge",
                     LastName = "Rodriguez",
-                    MI = "",
+                    MI = "nan",
                     Address = "6788 Cotter Street",
                     City = "Houston",
                     State = "TX",
-                    ZipCode = "77057.0",
-                    DOB = "1989-08-11 00:00:00",
+                    ZipCode = "77057",
+                    DOB = new DateTime(1989, 8, 11),
                     Fired = false,
                     isActive = true,
                 },
@@ -865,7 +865,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "ra@aoo.com",
                     Email = "ra@aoo.com",
-                    PhoneNumber = "5128752943.0",
+                    PhoneNumber = "5128752943",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -875,8 +875,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "4965 Oak Hill",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78732.0",
-                    DOB = "1967-08-27 00:00:00",
+                    ZipCode = "78732",
+                    DOB = new DateTime(1967, 8, 27),
                     Fired = false,
                     isActive = true,
                 },
@@ -892,7 +892,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "st-jean@home.com",
                     Email = "st-jean@home.com",
-                    PhoneNumber = "2104145678.0",
+                    PhoneNumber = "2104145678",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -902,8 +902,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "255 Toncray Dr.",
                     City = "San Antonio",
                     State = "TX",
-                    ZipCode = "78292.0",
-                    DOB = "1950-07-08 00:00:00",
+                    ZipCode = "78292",
+                    DOB = new DateTime(1950, 7, 8),
                     Fired = false,
                     isActive = true,
                 },
@@ -919,7 +919,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "ss34@ggmail.com",
                     Email = "ss34@ggmail.com",
-                    PhoneNumber = "5123497810.0",
+                    PhoneNumber = "5123497810",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -929,8 +929,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "332 Avenue C",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78705.0",
-                    DOB = "1977-10-29 00:00:00",
+                    ZipCode = "78705",
+                    DOB = new DateTime(1977, 10, 29),
                     Fired = false,
                     isActive = true,
                 },
@@ -946,7 +946,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "willsheff@email.com",
                     Email = "willsheff@email.com",
-                    PhoneNumber = "5124510084.0",
+                    PhoneNumber = "5124510084",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -956,8 +956,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "2365 51st St.",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78709.0",
-                    DOB = "1941-04-21 00:00:00",
+                    ZipCode = "78709",
+                    DOB = new DateTime(1941, 4, 21),
                     Fired = false,
                     isActive = true,
                 },
@@ -973,7 +973,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "sheff44@ggmail.com",
                     Email = "sheff44@ggmail.com",
-                    PhoneNumber = "5125479167.0",
+                    PhoneNumber = "5125479167",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -983,8 +983,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "3886 Avenue A",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78705.0",
-                    DOB = "1937-11-10 00:00:00",
+                    ZipCode = "78705",
+                    DOB = new DateTime(1937, 11, 10),
                     Fired = false,
                     isActive = true,
                 },
@@ -1000,7 +1000,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "johnsmith187@aool.com",
                     Email = "johnsmith187@aool.com",
-                    PhoneNumber = "2108321888.0",
+                    PhoneNumber = "2108321888",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1010,8 +1010,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "23 Hidden Forge Dr.",
                     City = "San Antonio",
                     State = "TX",
-                    ZipCode = "78280.0",
-                    DOB = "1954-10-26 00:00:00",
+                    ZipCode = "78280",
+                    DOB = new DateTime(1954, 10, 26),
                     Fired = false,
                     isActive = true,
                 },
@@ -1027,7 +1027,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "dustroud@mail.com",
                     Email = "dustroud@mail.com",
-                    PhoneNumber = "2142346667.0",
+                    PhoneNumber = "2142346667",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1037,8 +1037,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "1212 Rita Rd",
                     City = "Dallas",
                     State = "TX",
-                    ZipCode = "75221.0",
-                    DOB = "1932-09-01 00:00:00",
+                    ZipCode = "75221",
+                    DOB = new DateTime(1932, 9, 1),
                     Fired = false,
                     isActive = true,
                 },
@@ -1054,7 +1054,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "ericstuart@aool.com",
                     Email = "ericstuart@aool.com",
-                    PhoneNumber = "5128178335.0",
+                    PhoneNumber = "5128178335",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1064,8 +1064,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "5576 Toro Ring",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78746.0",
-                    DOB = "1930-12-28 00:00:00",
+                    ZipCode = "78746",
+                    DOB = new DateTime(1930, 12, 28),
                     Fired = false,
                     isActive = true,
                 },
@@ -1081,7 +1081,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "peterstump@hootmail.com",
                     Email = "peterstump@hootmail.com",
-                    PhoneNumber = "8174560903.0",
+                    PhoneNumber = "8174560903",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1091,8 +1091,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "1300 Kellen Circle",
                     City = "Houston",
                     State = "TX",
-                    ZipCode = "77018.0",
-                    DOB = "1989-08-13 00:00:00",
+                    ZipCode = "77018",
+                    DOB = new DateTime(1989, 8, 13),
                     Fired = false,
                     isActive = true,
                 },
@@ -1108,7 +1108,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "tanner@ggmail.com",
                     Email = "tanner@ggmail.com",
-                    PhoneNumber = "8174590929.0",
+                    PhoneNumber = "8174590929",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1118,8 +1118,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "4347 Almstead",
                     City = "Houston",
                     State = "TX",
-                    ZipCode = "77044.0",
-                    DOB = "1982-05-21 00:00:00",
+                    ZipCode = "77044",
+                    DOB = new DateTime(1982, 5, 21),
                     Fired = false,
                     isActive = true,
                 },
@@ -1135,7 +1135,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "taylordjay@aool.com",
                     Email = "taylordjay@aool.com",
-                    PhoneNumber = "5124748452.0",
+                    PhoneNumber = "5124748452",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1145,8 +1145,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "467 Nueces St.",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78705.0",
-                    DOB = "1960-01-08 00:00:00",
+                    ZipCode = "78705",
+                    DOB = new DateTime(1960, 1, 8),
                     Fired = false,
                     isActive = true,
                 },
@@ -1162,7 +1162,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "TayTaylor@aool.com",
                     Email = "TayTaylor@aool.com",
-                    PhoneNumber = "5124512631.0",
+                    PhoneNumber = "5124512631",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1172,8 +1172,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "345 Longview Dr.",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78705.0",
-                    DOB = "1975-07-27 00:00:00",
+                    ZipCode = "78705",
+                    DOB = new DateTime(1975, 7, 27),
                     Fired = false,
                     isActive = true,
                 },
@@ -1189,7 +1189,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "teefrank@hootmail.com",
                     Email = "teefrank@hootmail.com",
-                    PhoneNumber = "8178765543.0",
+                    PhoneNumber = "8178765543",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1199,8 +1199,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "5590 Lavell Dr",
                     City = "Houston",
                     State = "TX",
-                    ZipCode = "77004.0",
-                    DOB = "1968-04-06 00:00:00",
+                    ZipCode = "77004",
+                    DOB = new DateTime(1968, 4, 6),
                     Fired = false,
                     isActive = true,
                 },
@@ -1216,7 +1216,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "tuck33@ggmail.com",
                     Email = "tuck33@ggmail.com",
-                    PhoneNumber = "2148471154.0",
+                    PhoneNumber = "2148471154",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1226,8 +1226,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "312 Main St.",
                     City = "Dallas",
                     State = "TX",
-                    ZipCode = "75315.0",
-                    DOB = "1978-05-19 00:00:00",
+                    ZipCode = "75315",
+                    DOB = new DateTime(1978, 5, 19),
                     Fired = false,
                     isActive = true,
                 },
@@ -1243,7 +1243,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "avelasco@yaho.com",
                     Email = "avelasco@yaho.com",
-                    PhoneNumber = "2143985638.0",
+                    PhoneNumber = "2143985638",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1253,8 +1253,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "679 W. 4th",
                     City = "Dallas",
                     State = "TX",
-                    ZipCode = "75207.0",
-                    DOB = "1963-10-06 00:00:00",
+                    ZipCode = "75207",
+                    DOB = new DateTime(1963, 10, 6),
                     Fired = false,
                     isActive = true,
                 },
@@ -1270,7 +1270,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "westj@pioneer.net",
                     Email = "westj@pioneer.net",
-                    PhoneNumber = "2148475244.0",
+                    PhoneNumber = "2148475244",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1280,8 +1280,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "RR 3287",
                     City = "Dallas",
                     State = "TX",
-                    ZipCode = "75323.0",
-                    DOB = "1993-10-14 00:00:00",
+                    ZipCode = "75323",
+                    DOB = new DateTime(1993, 10, 14),
                     Fired = false,
                     isActive = true,
                 },
@@ -1297,7 +1297,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "louielouie@aool.com",
                     Email = "louielouie@aool.com",
-                    PhoneNumber = "2145650098.0",
+                    PhoneNumber = "2145650098",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1307,8 +1307,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "2500 Padre Blvd",
                     City = "Dallas",
                     State = "TX",
-                    ZipCode = "75220.0",
-                    DOB = "1952-05-31 00:00:00",
+                    ZipCode = "75220",
+                    DOB = new DateTime(1952, 5, 31),
                     Fired = false,
                     isActive = true,
                 },
@@ -1324,7 +1324,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "rwood@voyager.net",
                     Email = "rwood@voyager.net",
-                    PhoneNumber = "5124545242.0",
+                    PhoneNumber = "5124545242",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1334,8 +1334,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "447 Westlake Dr.",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78746.0",
-                    DOB = "1992-04-24 00:00:00",
+                    ZipCode = "78746",
+                    DOB = new DateTime(1992, 4, 24),
                     Fired = false,
                     isActive = true,
                 },
@@ -1351,18 +1351,18 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "dman@wdwebsolutions.com",
                     Email = "dman@wdwebsolutions.com",
-                    PhoneNumber = "5556409287.0",
+                    PhoneNumber = "5556409287",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
                     FirstName = "Derek",
                     LastName = "Dreibrodt",
-                    MI = "",
+                    MI = "nan",
                     Address = "423 Brentwood Dr",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78705.0",
-                    DOB = "2001-01-01 00:00:00",
+                    ZipCode = "78705",
+                    DOB = new DateTime(2001, 1, 1),
                     Fired = false,
                     isActive = true,
                 },
@@ -1378,25 +1378,25 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "jman@outlook.com",
                     Email = "jman@outlook.com",
-                    PhoneNumber = "5558471234.0",
+                    PhoneNumber = "5558471234",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
                     FirstName = "Jacob",
                     LastName = "Foster",
-                    MI = "",
+                    MI = "nan",
                     Address = "700 Fancy St",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78705.0",
-                    DOB = "2000-09-01 00:00:00",
+                    ZipCode = "78705",
+                    DOB = new DateTime(2000, 9, 1),
                     Fired = false,
                     isActive = true,
                 },
                 Password = "pres4baseball",
                 RoleName = "Customer"
             });
-
+            
             AllUsers.Add(new AddUserModel()
             {
                 User = new AppUser()
@@ -1405,7 +1405,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "t.jacobs@longhornbank.neet",
                     Email = "t.jacobs@longhornbank.neet",
-                    PhoneNumber = "8176593544.0",
+                    PhoneNumber = "8176593544",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1415,8 +1415,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "4564 Elm St.",
                     City = "Houston",
                     State = "TX",
-                    ZipCode = "77003.0",
-                    DOB = "1990-01-01 00:00:00",
+                    ZipCode = "77003",
+                    DOB = new DateTime(1900, 1, 1),
                     Fired = false,
                     isActive = true,
                 },
@@ -1432,7 +1432,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "e.rice@longhornbank.neet",
                     Email = "e.rice@longhornbank.neet",
-                    PhoneNumber = "2148475583.0",
+                    PhoneNumber = "2148475583",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1442,8 +1442,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "3405 Rio Grande",
                     City = "Dallas",
                     State = "TX",
-                    ZipCode = "75261.0",
-                    DOB = "1990-01-01 00:00:00",
+                    ZipCode = "75261",
+                    DOB = new DateTime(1900, 1, 1),
                     Fired = false,
                     isActive = true,
                 },
@@ -1459,7 +1459,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "b.ingram@longhornbank.neet",
                     Email = "b.ingram@longhornbank.neet",
-                    PhoneNumber = "5126978613.0",
+                    PhoneNumber = "5126978613",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1469,8 +1469,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "6548 La Posada Ct.",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78705.0",
-                    DOB = "1990-01-01 00:00:00",
+                    ZipCode = "78705",
+                    DOB = new DateTime(1900, 1, 1),
                     Fired = false,
                     isActive = true,
                 },
@@ -1486,7 +1486,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "a.taylor@longhornbank.neet",
                     Email = "a.taylor@longhornbank.neet",
-                    PhoneNumber = "2148965621.0",
+                    PhoneNumber = "2148965621",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1496,8 +1496,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "467 Nueces St.",
                     City = "Dallas",
                     State = "TX",
-                    ZipCode = "75237.0",
-                    DOB = "1990-01-01 00:00:00",
+                    ZipCode = "75237",
+                    DOB = new DateTime(1900, 1, 1),
                     Fired = false,
                     isActive = true,
                 },
@@ -1513,7 +1513,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "g.martinez@longhornbank.neet",
                     Email = "g.martinez@longhornbank.neet",
-                    PhoneNumber = "2105788965.0",
+                    PhoneNumber = "2105788965",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1523,8 +1523,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "8295 Sunset Blvd.",
                     City = "San Antonio",
                     State = "TX",
-                    ZipCode = "78239.0",
-                    DOB = "1990-01-01 00:00:00",
+                    ZipCode = "78239",
+                    DOB = new DateTime(1900, 1, 1),
                     Fired = false,
                     isActive = true,
                 },
@@ -1540,7 +1540,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "m.sheffield@longhornbank.neet",
                     Email = "m.sheffield@longhornbank.neet",
-                    PhoneNumber = "5124678821.0",
+                    PhoneNumber = "5124678821",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1550,8 +1550,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "3886 Avenue A",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78736.0",
-                    DOB = "1990-01-01 00:00:00",
+                    ZipCode = "78736",
+                    DOB = new DateTime(1900, 1, 1),
                     Fired = false,
                     isActive = true,
                 },
@@ -1567,7 +1567,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "j.macleod@longhornbank.neet",
                     Email = "j.macleod@longhornbank.neet",
-                    PhoneNumber = "5124653365.0",
+                    PhoneNumber = "5124653365",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1577,8 +1577,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "2504 Far West Blvd.",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78731.0",
-                    DOB = "1990-01-01 00:00:00",
+                    ZipCode = "78731",
+                    DOB = new DateTime(1900, 1, 1),
                     Fired = false,
                     isActive = true,
                 },
@@ -1594,7 +1594,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "j.tanner@longhornbank.neet",
                     Email = "j.tanner@longhornbank.neet",
-                    PhoneNumber = "5129457399.0",
+                    PhoneNumber = "5129457399",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1604,8 +1604,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "4347 Almstead",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78761.0",
-                    DOB = "1990-01-01 00:00:00",
+                    ZipCode = "78761",
+                    DOB = new DateTime(1900, 1, 1),
                     Fired = false,
                     isActive = true,
                 },
@@ -1621,7 +1621,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "m.rhodes@longhornbank.neet",
                     Email = "m.rhodes@longhornbank.neet",
-                    PhoneNumber = "2102449976.0",
+                    PhoneNumber = "2102449976",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1631,8 +1631,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "4587 Enfield Rd.",
                     City = "San Antonio",
                     State = "TX",
-                    ZipCode = "78293.0",
-                    DOB = "1990-01-01 00:00:00",
+                    ZipCode = "78293",
+                    DOB = new DateTime(1900, 1, 1),
                     Fired = false,
                     isActive = true,
                 },
@@ -1648,7 +1648,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "e.stuart@longhornbank.neet",
                     Email = "e.stuart@longhornbank.neet",
-                    PhoneNumber = "2105344627.0",
+                    PhoneNumber = "2105344627",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1658,8 +1658,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "5576 Toro Ring",
                     City = "San Antonio",
                     State = "TX",
-                    ZipCode = "78279.0",
-                    DOB = "1990-01-01 00:00:00",
+                    ZipCode = "78279",
+                    DOB = new DateTime(1900, 1, 1),
                     Fired = false,
                     isActive = true,
                 },
@@ -1675,7 +1675,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "l.chung@longhornbank.neet",
                     Email = "l.chung@longhornbank.neet",
-                    PhoneNumber = "2106983548.0",
+                    PhoneNumber = "2106983548",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1685,8 +1685,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "234 RR 12",
                     City = "San Antonio",
                     State = "TX",
-                    ZipCode = "78268.0",
-                    DOB = "1990-01-01 00:00:00",
+                    ZipCode = "78268",
+                    DOB = new DateTime(1900, 1, 1),
                     Fired = false,
                     isActive = true,
                 },
@@ -1702,18 +1702,18 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "l.swanson@longhornbank.neet",
                     Email = "l.swanson@longhornbank.neet",
-                    PhoneNumber = "5124748138.0",
+                    PhoneNumber = "5124748138",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
                     FirstName = "Leon",
                     LastName = "Swanson",
-                    MI = "",
+                    MI = "nan",
                     Address = "245 River Rd",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78731.0",
-                    DOB = "1990-01-01 00:00:00",
+                    ZipCode = "78731",
+                    DOB = new DateTime(1900, 1, 1),
                     Fired = false,
                     isActive = true,
                 },
@@ -1729,7 +1729,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "w.loter@longhornbank.neet",
                     Email = "w.loter@longhornbank.neet",
-                    PhoneNumber = "5124579845.0",
+                    PhoneNumber = "5124579845",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1739,8 +1739,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "3453 RR 3235",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78732.0",
-                    DOB = "1990-01-01 00:00:00",
+                    ZipCode = "78732",
+                    DOB = new DateTime(1900, 1, 1),
                     Fired = false,
                     isActive = true,
                 },
@@ -1756,7 +1756,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "j.white@longhornbank.neet",
                     Email = "j.white@longhornbank.neet",
-                    PhoneNumber = "8174955201.0",
+                    PhoneNumber = "8174955201",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1766,8 +1766,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "12 Valley View",
                     City = "Houston",
                     State = "TX",
-                    ZipCode = "77045.0",
-                    DOB = "1990-01-01 00:00:00",
+                    ZipCode = "77045",
+                    DOB = new DateTime(1900, 1, 1),
                     Fired = false,
                     isActive = true,
                 },
@@ -1783,7 +1783,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "w.montgomery@longhornbank.neet",
                     Email = "w.montgomery@longhornbank.neet",
-                    PhoneNumber = "8178746718.0",
+                    PhoneNumber = "8178746718",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1793,8 +1793,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "210 Blanco Dr",
                     City = "Houston",
                     State = "TX",
-                    ZipCode = "77030.0",
-                    DOB = "1990-01-01 00:00:00",
+                    ZipCode = "77030",
+                    DOB = new DateTime(1900, 1, 1),
                     Fired = false,
                     isActive = true,
                 },
@@ -1810,7 +1810,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "h.morales@longhornbank.neet",
                     Email = "h.morales@longhornbank.neet",
-                    PhoneNumber = "8177458615.0",
+                    PhoneNumber = "8177458615",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1820,8 +1820,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "4501 RR 140",
                     City = "Houston",
                     State = "TX",
-                    ZipCode = "77031.0",
-                    DOB = "1990-01-01 00:00:00",
+                    ZipCode = "77031",
+                    DOB = new DateTime(1900, 1, 1),
                     Fired = false,
                     isActive = true,
                 },
@@ -1837,7 +1837,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "m.rankin@longhornbank.neet",
                     Email = "m.rankin@longhornbank.neet",
-                    PhoneNumber = "5122926966.0",
+                    PhoneNumber = "5122926966",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1847,8 +1847,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "340 Second St",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78703.0",
-                    DOB = "1990-01-01 00:00:00",
+                    ZipCode = "78703",
+                    DOB = new DateTime(1900, 1, 1),
                     Fired = false,
                     isActive = true,
                 },
@@ -1864,7 +1864,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "l.walker@longhornbank.neet",
                     Email = "l.walker@longhornbank.neet",
-                    PhoneNumber = "2143125897.0",
+                    PhoneNumber = "2143125897",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1874,8 +1874,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "9 Bison Circle",
                     City = "Dallas",
                     State = "TX",
-                    ZipCode = "75238.0",
-                    DOB = "1990-01-01 00:00:00",
+                    ZipCode = "75238",
+                    DOB = new DateTime(1900, 1, 1),
                     Fired = false,
                     isActive = true,
                 },
@@ -1891,7 +1891,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "g.chang@longhornbank.neet",
                     Email = "g.chang@longhornbank.neet",
-                    PhoneNumber = "2103450925.0",
+                    PhoneNumber = "2103450925",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1901,8 +1901,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "9003 Joshua St",
                     City = "San Antonio",
                     State = "TX",
-                    ZipCode = "78260.0",
-                    DOB = "1990-01-01 00:00:00",
+                    ZipCode = "78260",
+                    DOB = new DateTime(1900, 1, 1),
                     Fired = false,
                     isActive = true,
                 },
@@ -1918,7 +1918,7 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "g.gonzalez@longhornbank.neet",
                     Email = "g.gonzalez@longhornbank.neet",
-                    PhoneNumber = "2142345566.0",
+                    PhoneNumber = "2142345566",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
@@ -1928,8 +1928,8 @@ namespace fa22team31finalproject.Seeding
                     Address = "103 Manor Rd",
                     City = "Dallas",
                     State = "TX",
-                    ZipCode = "75260.0",
-                    DOB = "1990-01-01 00:00:00",
+                    ZipCode = "75260",
+                    DOB = new DateTime(1900, 1, 1),
                     Fired = false,
                     isActive = true,
                 },
@@ -1945,18 +1945,18 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "dman@longhornbank.neet",
                     Email = "dman@longhornbank.neet",
-                    PhoneNumber = "5556409287.0",
+                    PhoneNumber = "5556409287",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
                     FirstName = "Derek",
                     LastName = "Dreibrodt",
-                    MI = "",
+                    MI = "nan",
                     Address = "423 Brentwood Dr",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78705.0",
-                    DOB = "1990-01-01 00:00:00",
+                    ZipCode = "78705",
+                    DOB = new DateTime(1900, 1, 1),
                     Fired = false,
                     isActive = true,
                 },
@@ -1972,18 +1972,18 @@ namespace fa22team31finalproject.Seeding
                     //IdentityUser base class
                     UserName = "jman@longhornbank.neet",
                     Email = "jman@longhornbank.neet",
-                    PhoneNumber = "5558471234.0",
+                    PhoneNumber = "5558471234",
 
                     // Add additional fields that you created on the AppUser class
                     //FirstName is included as an example
                     FirstName = "Jacob",
                     LastName = "Foster",
-                    MI = "",
+                    MI = "nan",
                     Address = "700 Fancy St",
                     City = "Austin",
                     State = "TX",
-                    ZipCode = "78705.0",
-                    DOB = "1990-01-01 00:00:00",
+                    ZipCode = "78705",
+                    DOB = new DateTime(1900, 1, 1),
                     Fired = false,
                     isActive = true,
                 },
@@ -2017,3 +2017,4 @@ namespace fa22team31finalproject.Seeding
         }
     }
 }
+
