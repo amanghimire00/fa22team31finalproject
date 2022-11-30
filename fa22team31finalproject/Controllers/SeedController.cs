@@ -56,11 +56,11 @@ namespace fa22team31finalproject.Controllers
             //this is the happy path - seeding worked!
             return View("Confirm");
         }
-        public async Task<IActionResult> SeedCustomers()
+        public async Task<IActionResult> SeedUsers()
         {
             try
             {
-                await Seeding.SeedCustomers.SeedAllUsers(_userManager, _context);
+                await Seeding.SeedUsers.SeedAllUsers(_userManager, _context);
             }
             catch (Exception ex)
             {

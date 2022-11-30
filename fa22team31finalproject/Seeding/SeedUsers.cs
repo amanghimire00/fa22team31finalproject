@@ -1,3 +1,4 @@
+
 using fa22team31finalproject.DAL;
 using fa22team31finalproject.Models;
 using fa22team31finalproject.Utilities;
@@ -11,39 +12,12 @@ using Microsoft.AspNetCore.Identity;
 namespace fa22team31finalproject.Seeding
 {
 
-    public static class SeedCustomers
+    public static class SeedUsers
     {
         public async static Task<IdentityResult> SeedAllUsers(UserManager<AppUser> userManager, AppDbContext context)
         {
             //Create a list of AddUserModels
             List<AddUserModel> AllUsers = new List<AddUserModel>();
-
-            AllUsers.Add(new AddUserModel()
-            {
-                User = new AppUser()
-                {
-                    //populate the user properties that are from the 
-                    //IdentityUser base class
-                    UserName = "admin@example.com",
-                    Email = "admin@example.com",
-                    PhoneNumber = "(512)555-1234",
-
-                    //TODO: Add additional fields that you created on the AppUser class
-                    //FirstName is included as an example
-                    FirstName = "Admin",
-                    LastName = "Example",
-                    MI = "J",
-                    Address = "???",
-                    City = "??",
-                    State = "??",
-                    ZipCode = "??",
-                    DOB = "??",
-                    Fired = false,
-                    isActive = true,
-                },
-                Password = "Abc123!",
-                RoleName = "Admin"
-            });
 
 
             AllUsers.Add(new AddUserModel()
@@ -1423,6 +1397,600 @@ namespace fa22team31finalproject.Seeding
                 RoleName = "Customer"
             });
 
+            AllUsers.Add(new AddUserModel()
+            {
+                User = new AppUser()
+                {
+                    //populate the user properties that are from the 
+                    //IdentityUser base class
+                    UserName = "t.jacobs@longhornbank.neet",
+                    Email = "t.jacobs@longhornbank.neet",
+                    PhoneNumber = "8176593544.0",
+
+                    // Add additional fields that you created on the AppUser class
+                    //FirstName is included as an example
+                    FirstName = "Todd",
+                    LastName = "Jacobs",
+                    MI = "L",
+                    Address = "4564 Elm St.",
+                    City = "Houston",
+                    State = "TX",
+                    ZipCode = "77003.0",
+                    DOB = "1990-01-01 00:00:00",
+                    Fired = false,
+                    isActive = true,
+                },
+                Password = "society",
+                RoleName = "Employee"
+            });
+
+            AllUsers.Add(new AddUserModel()
+            {
+                User = new AppUser()
+                {
+                    //populate the user properties that are from the 
+                    //IdentityUser base class
+                    UserName = "e.rice@longhornbank.neet",
+                    Email = "e.rice@longhornbank.neet",
+                    PhoneNumber = "2148475583.0",
+
+                    // Add additional fields that you created on the AppUser class
+                    //FirstName is included as an example
+                    FirstName = "Eryn",
+                    LastName = "Rice",
+                    MI = "M",
+                    Address = "3405 Rio Grande",
+                    City = "Dallas",
+                    State = "TX",
+                    ZipCode = "75261.0",
+                    DOB = "1990-01-01 00:00:00",
+                    Fired = false,
+                    isActive = true,
+                },
+                Password = "ricearoni",
+                RoleName = "Employee"
+            });
+
+            AllUsers.Add(new AddUserModel()
+            {
+                User = new AppUser()
+                {
+                    //populate the user properties that are from the 
+                    //IdentityUser base class
+                    UserName = "b.ingram@longhornbank.neet",
+                    Email = "b.ingram@longhornbank.neet",
+                    PhoneNumber = "5126978613.0",
+
+                    // Add additional fields that you created on the AppUser class
+                    //FirstName is included as an example
+                    FirstName = "Brad",
+                    LastName = "Ingram",
+                    MI = "S",
+                    Address = "6548 La Posada Ct.",
+                    City = "Austin",
+                    State = "TX",
+                    ZipCode = "78705.0",
+                    DOB = "1990-01-01 00:00:00",
+                    Fired = false,
+                    isActive = true,
+                },
+                Password = "ingram45",
+                RoleName = "Employee"
+            });
+
+            AllUsers.Add(new AddUserModel()
+            {
+                User = new AppUser()
+                {
+                    //populate the user properties that are from the 
+                    //IdentityUser base class
+                    UserName = "a.taylor@longhornbank.neet",
+                    Email = "a.taylor@longhornbank.neet",
+                    PhoneNumber = "2148965621.0",
+
+                    // Add additional fields that you created on the AppUser class
+                    //FirstName is included as an example
+                    FirstName = "Allison",
+                    LastName = "Taylor",
+                    MI = "R",
+                    Address = "467 Nueces St.",
+                    City = "Dallas",
+                    State = "TX",
+                    ZipCode = "75237.0",
+                    DOB = "1990-01-01 00:00:00",
+                    Fired = false,
+                    isActive = true,
+                },
+                Password = "nostalgic",
+                RoleName = "Admin"
+            });
+
+            AllUsers.Add(new AddUserModel()
+            {
+                User = new AppUser()
+                {
+                    //populate the user properties that are from the 
+                    //IdentityUser base class
+                    UserName = "g.martinez@longhornbank.neet",
+                    Email = "g.martinez@longhornbank.neet",
+                    PhoneNumber = "2105788965.0",
+
+                    // Add additional fields that you created on the AppUser class
+                    //FirstName is included as an example
+                    FirstName = "Gregory",
+                    LastName = "Martinez",
+                    MI = "R",
+                    Address = "8295 Sunset Blvd.",
+                    City = "San Antonio",
+                    State = "TX",
+                    ZipCode = "78239.0",
+                    DOB = "1990-01-01 00:00:00",
+                    Fired = false,
+                    isActive = true,
+                },
+                Password = "fungus",
+                RoleName = "Employee"
+            });
+
+            AllUsers.Add(new AddUserModel()
+            {
+                User = new AppUser()
+                {
+                    //populate the user properties that are from the 
+                    //IdentityUser base class
+                    UserName = "m.sheffield@longhornbank.neet",
+                    Email = "m.sheffield@longhornbank.neet",
+                    PhoneNumber = "5124678821.0",
+
+                    // Add additional fields that you created on the AppUser class
+                    //FirstName is included as an example
+                    FirstName = "Martin",
+                    LastName = "Sheffield",
+                    MI = "J",
+                    Address = "3886 Avenue A",
+                    City = "Austin",
+                    State = "TX",
+                    ZipCode = "78736.0",
+                    DOB = "1990-01-01 00:00:00",
+                    Fired = false,
+                    isActive = true,
+                },
+                Password = "longhorns",
+                RoleName = "Admin"
+            });
+
+            AllUsers.Add(new AddUserModel()
+            {
+                User = new AppUser()
+                {
+                    //populate the user properties that are from the 
+                    //IdentityUser base class
+                    UserName = "j.macleod@longhornbank.neet",
+                    Email = "j.macleod@longhornbank.neet",
+                    PhoneNumber = "5124653365.0",
+
+                    // Add additional fields that you created on the AppUser class
+                    //FirstName is included as an example
+                    FirstName = "Jennifer",
+                    LastName = "MacLeod",
+                    MI = "D",
+                    Address = "2504 Far West Blvd.",
+                    City = "Austin",
+                    State = "TX",
+                    ZipCode = "78731.0",
+                    DOB = "1990-01-01 00:00:00",
+                    Fired = false,
+                    isActive = true,
+                },
+                Password = "smitty",
+                RoleName = "Admin"
+            });
+
+            AllUsers.Add(new AddUserModel()
+            {
+                User = new AppUser()
+                {
+                    //populate the user properties that are from the 
+                    //IdentityUser base class
+                    UserName = "j.tanner@longhornbank.neet",
+                    Email = "j.tanner@longhornbank.neet",
+                    PhoneNumber = "5129457399.0",
+
+                    // Add additional fields that you created on the AppUser class
+                    //FirstName is included as an example
+                    FirstName = "Jeremy",
+                    LastName = "Tanner",
+                    MI = "S",
+                    Address = "4347 Almstead",
+                    City = "Austin",
+                    State = "TX",
+                    ZipCode = "78761.0",
+                    DOB = "1990-01-01 00:00:00",
+                    Fired = false,
+                    isActive = true,
+                },
+                Password = "tanman",
+                RoleName = "Employee"
+            });
+
+            AllUsers.Add(new AddUserModel()
+            {
+                User = new AppUser()
+                {
+                    //populate the user properties that are from the 
+                    //IdentityUser base class
+                    UserName = "m.rhodes@longhornbank.neet",
+                    Email = "m.rhodes@longhornbank.neet",
+                    PhoneNumber = "2102449976.0",
+
+                    // Add additional fields that you created on the AppUser class
+                    //FirstName is included as an example
+                    FirstName = "Megan",
+                    LastName = "Rhodes",
+                    MI = "C",
+                    Address = "4587 Enfield Rd.",
+                    City = "San Antonio",
+                    State = "TX",
+                    ZipCode = "78293.0",
+                    DOB = "1990-01-01 00:00:00",
+                    Fired = false,
+                    isActive = true,
+                },
+                Password = "countryrhodes",
+                RoleName = "Admin"
+            });
+
+            AllUsers.Add(new AddUserModel()
+            {
+                User = new AppUser()
+                {
+                    //populate the user properties that are from the 
+                    //IdentityUser base class
+                    UserName = "e.stuart@longhornbank.neet",
+                    Email = "e.stuart@longhornbank.neet",
+                    PhoneNumber = "2105344627.0",
+
+                    // Add additional fields that you created on the AppUser class
+                    //FirstName is included as an example
+                    FirstName = "Eric",
+                    LastName = "Stuart",
+                    MI = "F",
+                    Address = "5576 Toro Ring",
+                    City = "San Antonio",
+                    State = "TX",
+                    ZipCode = "78279.0",
+                    DOB = "1990-01-01 00:00:00",
+                    Fired = false,
+                    isActive = true,
+                },
+                Password = "stewboy",
+                RoleName = "Admin"
+            });
+
+            AllUsers.Add(new AddUserModel()
+            {
+                User = new AppUser()
+                {
+                    //populate the user properties that are from the 
+                    //IdentityUser base class
+                    UserName = "l.chung@longhornbank.neet",
+                    Email = "l.chung@longhornbank.neet",
+                    PhoneNumber = "2106983548.0",
+
+                    // Add additional fields that you created on the AppUser class
+                    //FirstName is included as an example
+                    FirstName = "Lisa",
+                    LastName = "Chung",
+                    MI = "N",
+                    Address = "234 RR 12",
+                    City = "San Antonio",
+                    State = "TX",
+                    ZipCode = "78268.0",
+                    DOB = "1990-01-01 00:00:00",
+                    Fired = false,
+                    isActive = true,
+                },
+                Password = "lisssa",
+                RoleName = "Employee"
+            });
+
+            AllUsers.Add(new AddUserModel()
+            {
+                User = new AppUser()
+                {
+                    //populate the user properties that are from the 
+                    //IdentityUser base class
+                    UserName = "l.swanson@longhornbank.neet",
+                    Email = "l.swanson@longhornbank.neet",
+                    PhoneNumber = "5124748138.0",
+
+                    // Add additional fields that you created on the AppUser class
+                    //FirstName is included as an example
+                    FirstName = "Leon",
+                    LastName = "Swanson",
+                    MI = "nan",
+                    Address = "245 River Rd",
+                    City = "Austin",
+                    State = "TX",
+                    ZipCode = "78731.0",
+                    DOB = "1990-01-01 00:00:00",
+                    Fired = false,
+                    isActive = true,
+                },
+                Password = "swansong",
+                RoleName = "Admin"
+            });
+
+            AllUsers.Add(new AddUserModel()
+            {
+                User = new AppUser()
+                {
+                    //populate the user properties that are from the 
+                    //IdentityUser base class
+                    UserName = "w.loter@longhornbank.neet",
+                    Email = "w.loter@longhornbank.neet",
+                    PhoneNumber = "5124579845.0",
+
+                    // Add additional fields that you created on the AppUser class
+                    //FirstName is included as an example
+                    FirstName = "Wanda",
+                    LastName = "Loter",
+                    MI = "K",
+                    Address = "3453 RR 3235",
+                    City = "Austin",
+                    State = "TX",
+                    ZipCode = "78732.0",
+                    DOB = "1990-01-01 00:00:00",
+                    Fired = false,
+                    isActive = true,
+                },
+                Password = "lottery",
+                RoleName = "Employee"
+            });
+
+            AllUsers.Add(new AddUserModel()
+            {
+                User = new AppUser()
+                {
+                    //populate the user properties that are from the 
+                    //IdentityUser base class
+                    UserName = "j.white@longhornbank.neet",
+                    Email = "j.white@longhornbank.neet",
+                    PhoneNumber = "8174955201.0",
+
+                    // Add additional fields that you created on the AppUser class
+                    //FirstName is included as an example
+                    FirstName = "Jason",
+                    LastName = "White",
+                    MI = "M",
+                    Address = "12 Valley View",
+                    City = "Houston",
+                    State = "TX",
+                    ZipCode = "77045.0",
+                    DOB = "1990-01-01 00:00:00",
+                    Fired = false,
+                    isActive = true,
+                },
+                Password = "evanescent",
+                RoleName = "Admin"
+            });
+
+            AllUsers.Add(new AddUserModel()
+            {
+                User = new AppUser()
+                {
+                    //populate the user properties that are from the 
+                    //IdentityUser base class
+                    UserName = "w.montgomery@longhornbank.neet",
+                    Email = "w.montgomery@longhornbank.neet",
+                    PhoneNumber = "8178746718.0",
+
+                    // Add additional fields that you created on the AppUser class
+                    //FirstName is included as an example
+                    FirstName = "Wilda",
+                    LastName = "Montgomery",
+                    MI = "K",
+                    Address = "210 Blanco Dr",
+                    City = "Houston",
+                    State = "TX",
+                    ZipCode = "77030.0",
+                    DOB = "1990-01-01 00:00:00",
+                    Fired = false,
+                    isActive = true,
+                },
+                Password = "monty3",
+                RoleName = "Admin"
+            });
+
+            AllUsers.Add(new AddUserModel()
+            {
+                User = new AppUser()
+                {
+                    //populate the user properties that are from the 
+                    //IdentityUser base class
+                    UserName = "h.morales@longhornbank.neet",
+                    Email = "h.morales@longhornbank.neet",
+                    PhoneNumber = "8177458615.0",
+
+                    // Add additional fields that you created on the AppUser class
+                    //FirstName is included as an example
+                    FirstName = "Hector",
+                    LastName = "Morales",
+                    MI = "N",
+                    Address = "4501 RR 140",
+                    City = "Houston",
+                    State = "TX",
+                    ZipCode = "77031.0",
+                    DOB = "1990-01-01 00:00:00",
+                    Fired = false,
+                    isActive = true,
+                },
+                Password = "hecktour",
+                RoleName = "Employee"
+            });
+
+            AllUsers.Add(new AddUserModel()
+            {
+                User = new AppUser()
+                {
+                    //populate the user properties that are from the 
+                    //IdentityUser base class
+                    UserName = "m.rankin@longhornbank.neet",
+                    Email = "m.rankin@longhornbank.neet",
+                    PhoneNumber = "5122926966.0",
+
+                    // Add additional fields that you created on the AppUser class
+                    //FirstName is included as an example
+                    FirstName = "Mary",
+                    LastName = "Rankin",
+                    MI = "T",
+                    Address = "340 Second St",
+                    City = "Austin",
+                    State = "TX",
+                    ZipCode = "78703.0",
+                    DOB = "1990-01-01 00:00:00",
+                    Fired = false,
+                    isActive = true,
+                },
+                Password = "rankmary",
+                RoleName = "Employee"
+            });
+
+            AllUsers.Add(new AddUserModel()
+            {
+                User = new AppUser()
+                {
+                    //populate the user properties that are from the 
+                    //IdentityUser base class
+                    UserName = "l.walker@longhornbank.neet",
+                    Email = "l.walker@longhornbank.neet",
+                    PhoneNumber = "2143125897.0",
+
+                    // Add additional fields that you created on the AppUser class
+                    //FirstName is included as an example
+                    FirstName = "Larry",
+                    LastName = "Walker",
+                    MI = "G",
+                    Address = "9 Bison Circle",
+                    City = "Dallas",
+                    State = "TX",
+                    ZipCode = "75238.0",
+                    DOB = "1990-01-01 00:00:00",
+                    Fired = false,
+                    isActive = true,
+                },
+                Password = "walkamile",
+                RoleName = "Admin"
+            });
+
+            AllUsers.Add(new AddUserModel()
+            {
+                User = new AppUser()
+                {
+                    //populate the user properties that are from the 
+                    //IdentityUser base class
+                    UserName = "g.chang@longhornbank.neet",
+                    Email = "g.chang@longhornbank.neet",
+                    PhoneNumber = "2103450925.0",
+
+                    // Add additional fields that you created on the AppUser class
+                    //FirstName is included as an example
+                    FirstName = "George",
+                    LastName = "Chang",
+                    MI = "M",
+                    Address = "9003 Joshua St",
+                    City = "San Antonio",
+                    State = "TX",
+                    ZipCode = "78260.0",
+                    DOB = "1990-01-01 00:00:00",
+                    Fired = false,
+                    isActive = true,
+                },
+                Password = "changalang",
+                RoleName = "Admin"
+            });
+
+            AllUsers.Add(new AddUserModel()
+            {
+                User = new AppUser()
+                {
+                    //populate the user properties that are from the 
+                    //IdentityUser base class
+                    UserName = "g.gonzalez@longhornbank.neet",
+                    Email = "g.gonzalez@longhornbank.neet",
+                    PhoneNumber = "2142345566.0",
+
+                    // Add additional fields that you created on the AppUser class
+                    //FirstName is included as an example
+                    FirstName = "Gwen",
+                    LastName = "Gonzalez",
+                    MI = "J",
+                    Address = "103 Manor Rd",
+                    City = "Dallas",
+                    State = "TX",
+                    ZipCode = "75260.0",
+                    DOB = "1990-01-01 00:00:00",
+                    Fired = false,
+                    isActive = true,
+                },
+                Password = "offbeat",
+                RoleName = "Employee"
+            });
+
+            AllUsers.Add(new AddUserModel()
+            {
+                User = new AppUser()
+                {
+                    //populate the user properties that are from the 
+                    //IdentityUser base class
+                    UserName = "dman@longhornbank.neet",
+                    Email = "dman@longhornbank.neet",
+                    PhoneNumber = "5556409287.0",
+
+                    // Add additional fields that you created on the AppUser class
+                    //FirstName is included as an example
+                    FirstName = "Derek",
+                    LastName = "Dreibrodt",
+                    MI = "nan",
+                    Address = "423 Brentwood Dr",
+                    City = "Austin",
+                    State = "TX",
+                    ZipCode = "78705.0",
+                    DOB = "1990-01-01 00:00:00",
+                    Fired = false,
+                    isActive = true,
+                },
+                Password = "nasus123",
+                RoleName = "Admin"
+            });
+
+            AllUsers.Add(new AddUserModel()
+            {
+                User = new AppUser()
+                {
+                    //populate the user properties that are from the 
+                    //IdentityUser base class
+                    UserName = "jman@longhornbank.neet",
+                    Email = "jman@longhornbank.neet",
+                    PhoneNumber = "5558471234.0",
+
+                    // Add additional fields that you created on the AppUser class
+                    //FirstName is included as an example
+                    FirstName = "Jacob",
+                    LastName = "Foster",
+                    MI = "nan",
+                    Address = "700 Fancy St",
+                    City = "Austin",
+                    State = "TX",
+                    ZipCode = "78705.0",
+                    DOB = "1990-01-01 00:00:00",
+                    Fired = false,
+                    isActive = true,
+                },
+                Password = "pres4baseball",
+                RoleName = "Admin"
+            });
+
             //create flag to help with errors
             String errorFlag = "Start";
 
@@ -1440,7 +2008,7 @@ namespace fa22team31finalproject.Seeding
             }
             catch (Exception ex)
             {
-                throw new Exception("There was a problem adding the user with email: " 
+                throw new Exception("There was a problem adding the user with email: "
                     + errorFlag, ex);
             }
 
