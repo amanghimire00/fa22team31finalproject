@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace fa22team31finalproject.Models
 {
-    public enum AccountType { Savings, Checkings, IRA }
+    public enum AccountType { Savings, Checking, IRA }
     public enum AccountStatus { Active, Inactive }
     public class BankAccount
     {        
@@ -14,6 +14,10 @@ namespace fa22team31finalproject.Models
         [Display(Name = "Bank Account Number:")]
         [Required(ErrorMessage = "Bank Account Number is required.")]
         public Int64 AccountNumber { get; set; }
+
+        [Display(Name = "Bank Account Customer:")]
+        [Required(ErrorMessage = "Bank Account Customer is required.")]
+        public String Customer { get; set; }
 
         [Display(Name = "Bank Account Nickname:")]
         [Required(ErrorMessage = "Bank Account Nickname is required.")]
@@ -27,7 +31,6 @@ namespace fa22team31finalproject.Models
         public AccountType AccountType { get; set; }
 
         [Display(Name = "Account Status:")]
-        //public isActive AcccountStatus { get; set; }
         public AccountStatus AccountStatus { get; set; }
 
         public List<AppUser> AppUser { get; set; }
