@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using fa22team31finalproject.DAL;
 
@@ -11,9 +12,10 @@ using fa22team31finalproject.DAL;
 namespace fa22team31finalproject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221130062327_TransactiionDisputes")]
+    partial class TransactiionDisputes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -182,20 +184,10 @@ namespace fa22team31finalproject.Migrations
                     b.Property<int>("DisputeStatus")
                         .HasColumnType("int");
 
-                    b.Property<int?>("TransactionDetailID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("TransactionID")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<int>("TransactionNum")
                         .HasColumnType("int");
 
                     b.HasKey("DisputeID");
-
-                    b.HasIndex("TransactionDetailID");
-
-                    b.HasIndex("TransactionID");
 
                     b.ToTable("Disputes");
                 });
@@ -533,21 +525,6 @@ namespace fa22team31finalproject.Migrations
                         .HasForeignKey("TransactionID");
 
                     b.Navigation("Transaction");
-                });
-
-            modelBuilder.Entity("fa22team31finalproject.Models.Dispute", b =>
-                {
-                    b.HasOne("fa22team31finalproject.Models.TransactionDetail", "TransactionDetail")
-                        .WithMany()
-                        .HasForeignKey("TransactionDetailID");
-
-                    b.HasOne("fa22team31finalproject.Models.Transaction", "Transaction")
-                        .WithMany()
-                        .HasForeignKey("TransactionID");
-
-                    b.Navigation("Transaction");
-
-                    b.Navigation("TransactionDetail");
                 });
 
             modelBuilder.Entity("fa22team31finalproject.Models.Stock", b =>

@@ -25,5 +25,6 @@ namespace fa22team31finalproject.Models
         [Display(Name = "Approved?")]
         public bool isApproved { get; set; }
         public List<TransactionDetail> TransactionDetails { get; set; }
+        public List<Dispute> Dispute { get; set; }
     }
 }

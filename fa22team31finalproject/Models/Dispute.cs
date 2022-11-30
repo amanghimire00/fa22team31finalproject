@@ -24,5 +24,8 @@ namespace fa22team31finalproject.Models
 
         [Display(Name = "Dispute Description")]
         public String DisputeDescription { get; set; }
+
+        public TransactionDetail TransactionDetail { get; set; }
+        public Transaction Transaction { get; set; }
     }
 }

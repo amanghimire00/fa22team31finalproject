@@ -13,8 +13,32 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Transaction.TransactionNumber)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.TransactionAmount)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transaction.TransactionDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transaction.TransactionType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BankAccount.AccountName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BankAccount.AccountNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transaction.TransactionComment)
+            </th>
+
+            @*dispute not connected to transaction details for some reason
+
+            <th>
+                @Html.DisplayNameFor(model => model.Dispute.DisputeStatus)
+            </th>*@
             <th></th>
         </tr>
     </thead>
@@ -22,8 +46,30 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.Transaction.TransactionNumber)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.TransactionAmount)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Transaction.TransactionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Transaction.TransactionType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BankAccount.AccountName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BankAccount.AccountNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Transaction.TransactionComment)
+            </td>
+            @*need to make disputes connected to transaction details
+            <td>
+                @Html.DisplayFor(modelItem => item.Dispute.DisputeStatus)
+            </td>*@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.TransactionDetailID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.TransactionDetailID">Details</a> |
