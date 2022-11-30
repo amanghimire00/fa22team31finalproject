@@ -9,6 +9,7 @@ using fa22team31finalproject.DAL;
 using fa22team31finalproject.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace fa22team31finalproject.Controllers
 {
@@ -60,13 +61,25 @@ namespace fa22team31finalproject.Controllers
         [Authorize]
         public async Task<IActionResult> Create([Bind("BankAccountID,AccountNumber,AccountName,Balance,AccountType,AccountStatus")] BankAccount bankAccount)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(bankAccount);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(bankAccount);
+            bankAccount.BankAccountID = Utilities.GenerateNextAccountID.GetNextAccountID(_context);
+            //change this if you do extra credit
+            //order.User = await _userManager.FindByNameAsync(order.User.UserName);
+
+
+            _context.Add(bankAccount);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Create", "BankAccounts", new { BankAccountID = bankAccount.BankAccountID });
+
+
+
+
+            //if (ModelState.IsValid)
+            //{
+            //    _context.Add(bankAccount);
+            //    await _context.SaveChangesAsync();
+            //   return RedirectToAction(nameof(Index));
+            //}
+            //return View(bankAccount);
         }
 
         // GET: BankAccounts/Edit/5
