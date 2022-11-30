@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using fa22team31finalproject.DAL;
 using fa22team31finalproject.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace fa22team31finalproject.Controllers
 {
@@ -44,8 +47,11 @@ namespace fa22team31finalproject.Controllers
         }
 
         // GET: BankAccounts/Create
+        [Authorize(Roles = "Customer")]
         public IActionResult Create()
         {
+            ViewBag.BankAccounts = GetBankAccountSelectList();
+            ViewBag.BankAccounts = GetBankAccountStatusSelectList();
             return View();
         }
 
@@ -54,15 +60,26 @@ namespace fa22team31finalproject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("BankAccountID,AccountNumber,AccountName,Balance,AccountType,AccountStatus")] BankAccount bankAccount)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(bankAccount);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(bankAccount);
+            bankAccount.BankAccountID = Utilities.GenerateNextAccountID.GetNextAccountID(_context);
+            //change this if you do extra credit
+            //order.User = await _userManager.FindByNameAsync(order.User.UserName);
+
+            //order.User = await _userManager.FindByNameAsync(User.Identity.Name);
+
+
+            _context.Add(bankAccount);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Create", "BankAccounts", new { bankAccountID = bankAccount.BankAccountID });
+            //if (ModelState.IsValid)
+            //{
+            //    _context.Add(bankAccount);
+            //    await _context.SaveChangesAsync();
+            //    return RedirectToAction(nameof(Index));
+            //}
+            //return View(bankAccount);
         }
 
         // GET: BankAccounts/Edit/5
@@ -78,7 +95,11 @@ namespace fa22team31finalproject.Controllers
             {
                 return NotFound();
             }
+
+            ViewBag.BankAccounts = GetBankAccountSelectList();
+            ViewBag.BankAccounts = GetBankAccountStatusSelectList();
             return View(bankAccount);
+
         }
 
         // POST: BankAccounts/Edit/5
@@ -97,6 +118,8 @@ namespace fa22team31finalproject.Controllers
             {
                 try
                 {
+                    ViewBag.BankAccounts = GetBankAccountSelectList();
+                    ViewBag.BankAccounts = GetBankAccountStatusSelectList();
                     _context.Update(bankAccount);
                     await _context.SaveChangesAsync();
                 }
@@ -113,6 +136,7 @@ namespace fa22team31finalproject.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
             return View(bankAccount);
         }
 
@@ -131,6 +155,7 @@ namespace fa22team31finalproject.Controllers
                 return NotFound();
             }
 
+            ViewBag.BankAccounts = GetBankAccountSelectList();
             return View(bankAccount);
         }
 
@@ -148,7 +173,8 @@ namespace fa22team31finalproject.Controllers
             {
                 _context.Accounts.Remove(bankAccount);
             }
-            
+
+            ViewBag.BankAccounts = GetBankAccountSelectList();
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
@@ -157,5 +183,26 @@ namespace fa22team31finalproject.Controllers
         {
           return _context.Accounts.Any(e => e.BankAccountID == id);
         }
+        //this is for account types
+        private MultiSelectList GetBankAccountSelectList()
+        {
+            
+            List<BankAccount> allAccounts = _context.Accounts.ToList();          
+            MultiSelectList mslAll = new MultiSelectList(allAccounts.OrderBy(d => d.AccountType), "Checking", "Saving", "IRA");
+
+            //return the MultiSelectList
+            return mslAll;
+        }
+        //this is for account status
+        private MultiSelectList GetBankAccountStatusSelectList()
+        {
+            List<BankAccount> allAccounts = _context.Accounts.ToList();
+            MultiSelectList mslAll = new MultiSelectList(allAccounts.OrderBy(d => d.AccountStatus), "Active", "Inactive");
+
+            //return the MultiSelectList
+            return mslAll;
+        }
+
+
     }
 }
