@@ -25,7 +25,7 @@ namespace fa22team31finalproject.Controllers
         // GET: BankAccounts
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Accounts.ToListAsync());
+            return View(await _context.Accounts.ToListAsync());
         }
 
         // GET: BankAccounts/Details/5
@@ -62,7 +62,7 @@ namespace fa22team31finalproject.Controllers
         [Authorize]
         public async Task<IActionResult> Create([Bind("BankAccountID,AccountNumber,AccountName,Balance,AccountType,AccountStatus")] BankAccount bankAccount)
         {
-            bankAccount.BankAccountID = (int) Utilities.GenerateNextAccountID.GetNextAccountID(_context);
+            bankAccount.BankAccountID = (int)Utilities.GenerateNextAccountID.GetNextAccountID(_context);
             //change this if you do extra credit
             //order.User = await _userManager.FindByNameAsync(order.User.UserName);
 
@@ -178,7 +178,7 @@ namespace fa22team31finalproject.Controllers
 
         private bool BankAccountExists(int id)
         {
-          return _context.Accounts.Any(e => e.BankAccountID == id);
+            return _context.Accounts.Any(e => e.BankAccountID == id);
         }
         //this is for account types
         private MultiSelectList GetBankAccountSelectList()
@@ -188,18 +188,8 @@ namespace fa22team31finalproject.Controllers
             MultiSelectList mslAll = new MultiSelectList(allAccounts.OrderBy(d => d.AccountType), "Checking", "Savings", "IRA");
 
             //return the MultiSelectList
-            return mslAll;
+            return mslAllAccounts;
         }
-        //this is for account status
-        private MultiSelectList GetBankAccountSelectList(BankAccount bankAccount)
-        {
-            List<BankAccount> allAccounts = _context.Accounts.ToList();
-            MultiSelectList mslAll = new MultiSelectList(allAccounts.OrderBy(d => d.AccountStatus), "Active", "Inactive");
-
-            //return the MultiSelectList
-            return mslAll;
-        }
-
-
+       
     }
 }
