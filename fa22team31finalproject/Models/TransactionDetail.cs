@@ -14,5 +14,6 @@ namespace fa22team31finalproject.Models
 
         public Transaction Transaction { get; set; }
         public BankAccount BankAccount { get; set; }
+        public Dispute Dispute { get; set; }
     }
 }
