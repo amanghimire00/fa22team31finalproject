@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Identity;
 namespace fa22team31finalproject.Seeding
 {
 
-    public static class SeedUsersTutorial
+    public static class SeedUsers
     {
         public async static Task<IdentityResult> SeedAllUsers(UserManager<AppUser> userManager, AppDbContext context)
         {

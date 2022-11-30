@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace fa22team31finalproject.Models
 {
     public enum AccountType { Savings, Checking, IRA }
-    public enum AccountStatus { Savings, Checking, IRA }
+    public enum AccountStatus { Active, Inactive }
     public class BankAccount
     {
         public Int32 BankAccountID { get; set; }
@@ -39,7 +39,7 @@ namespace fa22team31finalproject.Models
         [Display(Name = "Account Status:")]
         public AccountStatus AccountStatus { get; set; }
 
-        public List<AppUser> AppUser { get; set; }
+        public AppUser AppUser { get; set; }
         public Transaction Transaction { get; set; }
 
     }

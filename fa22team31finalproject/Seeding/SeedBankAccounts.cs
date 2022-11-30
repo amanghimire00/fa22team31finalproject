@@ -18,7 +18,7 @@ namespace fa22team31finalproject.Seeding
         public static void SeedAllBankAccounts(AppDbContext db)
         {
             List<BankAccount> AllBankAccounts = new List<BankAccount>();
-    
+
 
 
             AllBankAccounts.Add(new BankAccount
@@ -28,217 +28,217 @@ namespace fa22team31finalproject.Seeding
                 AccountName = "William's Savings",
                 Balance = 40035.50m,
                 AccountType = AccountType.Savings,
-            }) ; 
+            });
 
 
             AllBankAccounts.Add(new BankAccount
             {
                 AccountNumber = 2290000003,
-                Customer = "smartinmartin.Martin@aool.com",
+                AppUser = db.Users.FirstOrDefault(u => u.UserName == "smartinmartin.Martin@aool.com"),
                 AccountName = "Gregory's Checking",
                 Balance = 39779.49m,
                 AccountType = AccountType.Checking,
-            }) ; 
+            });
 
 
             AllBankAccounts.Add(new BankAccount
             {
                 AccountNumber = 2290000004,
-                Customer = "avelasco@yaho.com",
+                AppUser = db.Users.FirstOrDefault(u => u.UserName == "avelasco@yaho.com"),
                 AccountName = "Allen's Checking",
                 Balance = 47277.33m,
                 AccountType = AccountType.Checking,
-            }) ; 
+            });
 
 
             AllBankAccounts.Add(new BankAccount
             {
                 AccountNumber = 2290000005,
-                Customer = "rwood@voyager.net",
+                AppUser = db.Users.FirstOrDefault(u => u.UserName == "rwood@voyager.net"),
                 AccountName = "Reagan's Checking",
                 Balance = 70812.15m,
                 AccountType = AccountType.Checking,
-            }) ; 
+            });
 
 
             AllBankAccounts.Add(new BankAccount
             {
                 AccountNumber = 2290000006,
-                Customer = "nelson.Kelly@aool.com",
+                AppUser = db.Users.FirstOrDefault(u => u.UserName == "nelson.Kelly@aool.com"),
                 AccountName = "Kelly's Savings",
                 Balance = 21901.97m,
                 AccountType = AccountType.Savings,
-            }) ; 
+            });
 
 
             AllBankAccounts.Add(new BankAccount
             {
                 AccountNumber = 2290000007,
-                Customer = "erynrice@aool.com",
+                AppUser = db.Users.FirstOrDefault(u => u.UserName == "erynrice@aool.com"),
                 AccountName = "Eryn's Checking",
                 Balance = 70480.99m,
                 AccountType = AccountType.Checking,
-            }) ; 
+            });
 
 
             AllBankAccounts.Add(new BankAccount
             {
                 AccountNumber = 2290000008,
-                Customer = "westj@pioneer.net",
+                AppUser = db.Users.FirstOrDefault(u => u.UserName == "westj@pioneer.net"),
                 AccountName = "Jake's Savings",
                 Balance = 7916.40m,
                 AccountType = AccountType.Savings,
-            }) ; 
+            });
 
 
             AllBankAccounts.Add(new BankAccount
             {
                 AccountNumber = 2290000010,
-                Customer = "jeff@ggmail.com",
+                AppUser = db.Users.FirstOrDefault(u => u.UserName == "jeff@ggmail.com"),
                 AccountName = "Jeffrey's Savings",
                 Balance = 69576.83m,
                 AccountType = AccountType.Savings,
-            }) ; 
+            });
 
 
             AllBankAccounts.Add(new BankAccount
             {
                 AccountNumber = 2290000012,
-                Customer = "erynrice@aool.com",
+                AppUser = db.Users.FirstOrDefault(u => u.UserName == "erynrice@aool.com"),
                 AccountName = "Eryn's Checking 2",
                 Balance = 30279.33m,
                 AccountType = AccountType.Checking,
-            }) ; 
+            });
 
 
             AllBankAccounts.Add(new BankAccount
             {
                 AccountNumber = 2290000013,
-                Customer = "mackcloud@pimpdaddy.com",
+                AppUser = db.Users.FirstOrDefault(u => u.UserName == "mackcloud@pimpdaddy.com"),
                 AccountName = "Jennifer's IRA",
                 Balance = 53177.21m,
                 AccountType = AccountType.IRA,
-            }) ; 
+            });
 
 
             AllBankAccounts.Add(new BankAccount
             {
                 AccountNumber = 2290000014,
-                Customer = "ss34@ggmail.com",
+                AppUser = db.Users.FirstOrDefault(u => u.UserName == "ss34@ggmail.com"),
                 AccountName = "Sarah's Savings",
                 Balance = 11958.08m,
                 AccountType = AccountType.Savings,
-            }) ; 
+            });
 
 
             AllBankAccounts.Add(new BankAccount
             {
                 AccountNumber = 2290000015,
-                Customer = "tanner@ggmail.com",
+                AppUser = db.Users.FirstOrDefault(u => u.UserName == "tanner@ggmail.com"),
                 AccountName = "Jeremy's Savings",
                 Balance = 72990.47m,
                 AccountType = AccountType.Savings,
-            }) ; 
+            });
 
 
             AllBankAccounts.Add(new BankAccount
             {
                 AccountNumber = 2290000016,
-                Customer = "liz@ggmail.com",
+                AppUser = db.Users.FirstOrDefault(u => u.UserName == "liz@ggmail.com"),
                 AccountName = "Elizabeth's Savings",
                 Balance = 7417.20m,
                 AccountType = AccountType.Savings,
-            }) ; 
+            });
 
 
             AllBankAccounts.Add(new BankAccount
             {
                 AccountNumber = 2290000017,
-                Customer = "ra@aoo.com",
+                AppUser = db.Users.FirstOrDefault(u => u.UserName == "ra@aoo.com"),
                 AccountName = "Allen's IRA",
                 Balance = 75866.69m,
                 AccountType = AccountType.IRA,
-            }) ; 
+            });
 
 
             AllBankAccounts.Add(new BankAccount
             {
                 AccountNumber = 2290000019,
-                Customer = "mclarence@aool.com",
+                AppUser = db.Users.FirstOrDefault(u => u.UserName == "mclarence@aool.com"),
                 AccountName = "Clarence's Savings",
                 Balance = 1642.82m,
                 AccountType = AccountType.Savings,
-            }) ; 
+            });
 
 
             AllBankAccounts.Add(new BankAccount
             {
                 AccountNumber = 2290000020,
-                Customer = "ss34@ggmail.com",
+                AppUser = db.Users.FirstOrDefault(u => u.UserName == "ss34@ggmail.com"),
                 AccountName = "Sarah's Checking",
                 Balance = 84421.45m,
                 AccountType = AccountType.Checking,
-            }) ; 
+            });
 
 
             AllBankAccounts.Add(new BankAccount
             {
                 AccountNumber = 2290000021,
-                Customer = "cbaker@freezing.co.uk",
+                AppUser = db.Users.FirstOrDefault(u => u.UserName == "cbaker@freezing.co.uk"),
                 AccountName = "CBaker's Checking",
                 Balance = 4523.00m,
                 AccountType = AccountType.Checking,
-            }) ; 
+            });
 
 
             AllBankAccounts.Add(new BankAccount
             {
                 AccountNumber = 2290000022,
-                Customer = "cbaker@freezing.co.uk",
+                AppUser = db.Users.FirstOrDefault(u => u.UserName == "cbaker@freezing.co.uk"),
                 AccountName = "CBaker's Savings",
                 Balance = 1000.00m,
                 AccountType = AccountType.Savings,
-            }) ; 
+            });
 
 
             AllBankAccounts.Add(new BankAccount
             {
                 AccountNumber = 2290000023,
-                Customer = "cbaker@freezing.co.uk",
+                AppUser = db.Users.FirstOrDefault(u => u.UserName ==  "cbaker@freezing.co.uk"),
                 AccountName = "CBaker's IRA",
                 Balance = 1000.00m,
                 AccountType = AccountType.IRA,
-            }) ; 
+            });
 
 
             AllBankAccounts.Add(new BankAccount
             {
                 AccountNumber = 2290000025,
-                Customer = "chaley@thug.com",
+                AppUser = db.Users.FirstOrDefault(u => u.UserName == "chaley@thug.com"),
                 AccountName = "C-dawg's Checking",
                 Balance = 4.04m,
                 AccountType = AccountType.Checking,
-            }) ; 
+            });
 
 
             AllBankAccounts.Add(new BankAccount
             {
                 AccountNumber = 2290000026,
-                Customer = "chaley@thug.com",
+                AppUser = db.Users.FirstOrDefault(u => u.UserName == "chaley@thug.com"),
                 AccountName = "C-dawg's Savings",
                 Balance = 350.00m,
                 AccountType = AccountType.Savings,
-            }) ; 
+            });
 
 
             AllBankAccounts.Add(new BankAccount
             {
                 AccountNumber = 2290000027,
-                Customer = "mgar@aool.com",
+                AppUser = db.Users.FirstOrDefault(u => u.UserName == "mgar@aool.com"),
                 AccountName = "Margaret's IRA",
                 Balance = 3500.00m,
                 AccountType = AccountType.IRA,
-            }) ; 
+            });
 
             //create a counter and flag to help with debugging
             int intBankAccountID = 0;
