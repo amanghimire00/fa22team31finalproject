@@ -51,7 +51,6 @@ namespace fa22team31finalproject.Controllers
         public IActionResult Create()
         {
             ViewBag.BankAccounts = GetBankAccountSelectList();
-            ViewBag.BankAccounts = GetBankAccountStatusSelectList();
             return View();
         }
 
@@ -63,7 +62,7 @@ namespace fa22team31finalproject.Controllers
         [Authorize]
         public async Task<IActionResult> Create([Bind("BankAccountID,AccountNumber,AccountName,Balance,AccountType,AccountStatus")] BankAccount bankAccount)
         {
-            bankAccount.BankAccountID = Utilities.GenerateNextAccountID.GetNextAccountID(_context);
+            bankAccount.BankAccountID = (int)Utilities.GenerateNextAccountID.GetNextAccountID(_context);
             //change this if you do extra credit
             //order.User = await _userManager.FindByNameAsync(order.User.UserName);
 
@@ -97,7 +96,6 @@ namespace fa22team31finalproject.Controllers
             }
 
             ViewBag.BankAccounts = GetBankAccountSelectList();
-            ViewBag.BankAccounts = GetBankAccountStatusSelectList();
             return View(bankAccount);
 
         }
@@ -118,8 +116,8 @@ namespace fa22team31finalproject.Controllers
             {
                 try
                 {
+
                     ViewBag.BankAccounts = GetBankAccountSelectList();
-                    ViewBag.BankAccounts = GetBankAccountStatusSelectList();
                     _context.Update(bankAccount);
                     await _context.SaveChangesAsync();
                 }
@@ -135,8 +133,10 @@ namespace fa22team31finalproject.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
+                
             }
 
+            _context.SaveChanges();
             return View(bankAccount);
         }
 
@@ -194,7 +194,7 @@ namespace fa22team31finalproject.Controllers
             return mslAll;
         }
         //this is for account status
-        private MultiSelectList GetBankAccountStatusSelectList()
+        private MultiSelectList GetBankAccountSelectList(BankAccount bankAccount)
         {
             List<BankAccount> allAccounts = _context.Accounts.ToList();
             MultiSelectList mslAll = new MultiSelectList(allAccounts.OrderBy(d => d.AccountStatus), "Active", "Inactive");
