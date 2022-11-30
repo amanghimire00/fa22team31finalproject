@@ -51,6 +51,7 @@ namespace fa22team31finalproject.DAL
         public DbSet<StockTransaction> StockTransactions { get; set; }
         public DbSet<StockType> StockTypes { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<fa22team31finalproject.Models.TransactionDetail> TransactionDetail { get; set; }
     }
 
 }
