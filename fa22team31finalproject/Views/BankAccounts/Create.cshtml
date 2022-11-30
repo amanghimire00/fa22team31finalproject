@@ -25,14 +25,15 @@
             <div class="form-group">
                 <label asp-for="AccountType" class="control-label"></label>
                 <select asp-for="AccountType" asp-items="Html.GetEnumSelectList<AccountType>()" class="form-control">
-                    <option selected="selected" value="">All Account Types</option>
+                    <option selected="selected" value="">Please Select Account Type</option>
                 </select>
                 <span asp-validation-for="AccountType" class="text-danger"></span>
-            <div class="form-group">
-                <label asp-for="AccountStatus" class="control-label"></label>
-                <select asp-for="AccountStatus" class="form-control"></select>
-                <span asp-validation-for="AccountStatus" class="text-danger"></span>
-            </div>
+                <div class="form-group">
+                    <label asp-for="AccountStatus" class="control-label"></label>
+                    <select asp-for="AccountStatus" asp-items="Html.GetEnumSelectList<AccountStatus>()" class="form-control">
+                        <option selected="selected" value="">Please Select Account Status</option>
+                    </select>
+                    <span asp-validation-for="AccountType" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

@@ -51,6 +51,7 @@ namespace fa22team31finalproject.Controllers
         public IActionResult Create()
         {
             ViewBag.BankAccounts = GetBankAccountSelectList();
+            ViewBag.BankAccounts = GetBankAccountStatusSelectList();
             return View();
         }
 
@@ -64,6 +65,8 @@ namespace fa22team31finalproject.Controllers
         {
             if (ModelState.IsValid)
             {
+                ViewBag.BankAccounts = GetBankAccountSelectList();
+                ViewBag.BankAccounts = GetBankAccountStatusSelectList();
                 _context.Add(bankAccount);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -86,6 +89,7 @@ namespace fa22team31finalproject.Controllers
             }
 
             ViewBag.BankAccounts = GetBankAccountSelectList();
+            ViewBag.BankAccounts = GetBankAccountStatusSelectList();
             return View(bankAccount);
 
         }
@@ -107,6 +111,7 @@ namespace fa22team31finalproject.Controllers
                 try
                 {
                     ViewBag.BankAccounts = GetBankAccountSelectList();
+                    ViewBag.BankAccounts = GetBankAccountStatusSelectList();
                     _context.Update(bankAccount);
                     await _context.SaveChangesAsync();
                 }
@@ -123,6 +128,7 @@ namespace fa22team31finalproject.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
             return View(bankAccount);
         }
 
@@ -172,21 +178,23 @@ namespace fa22team31finalproject.Controllers
         //this is for account types
         private MultiSelectList GetBankAccountSelectList()
         {
-            //Create a new list of Suppliers and get the list of the suppliers
-            //from the database
-            List<BankAccount> allAccounts = _context.Accounts.ToList();
-
-            //Multi-select lists do not require a selection, so you don't need
-            //to add a dummy record like you do for select lists
-
-            //use the MultiSelectList constructor method to get a new MultiSelectList
+            
+            List<BankAccount> allAccounts = _context.Accounts.ToList();          
             MultiSelectList mslAll = new MultiSelectList(allAccounts.OrderBy(d => d.AccountType), "Checking", "Saving", "IRA");
 
             //return the MultiSelectList
             return mslAll;
         }
         //this is for account status
-        
-        
+        private MultiSelectList GetBankAccountStatusSelectList()
+        {
+            List<BankAccount> allAccounts = _context.Accounts.ToList();
+            MultiSelectList mslAll = new MultiSelectList(allAccounts.OrderBy(d => d.AccountStatus), "Active", "Inactive");
+
+            //return the MultiSelectList
+            return mslAll;
+        }
+
+
     }
 }
