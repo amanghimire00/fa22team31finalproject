@@ -112,32 +112,29 @@ namespace fa22team31finalproject.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            try
             {
-                try
-                {
+                BankAccount dbBankAccount = _context.Accounts
+                    .FirstOrDefault(c => c.BankAccountID == bankAccount.BankAccountID);
 
-                    ViewBag.BankAccounts = GetBankAccountSelectList();
-                    _context.Update(bankAccount);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!BankAccountExists(bankAccount.BankAccountID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
 
+                //update the course's scalar properties
+                dbBankAccount.AccountName = bankAccount.AccountName;
+                dbBankAccount.AccountStatus = bankAccount.AccountStatus;
+
+
+                //save the changes
+                _context.Accounts.Update(dbBankAccount);
+                _context.SaveChanges();
             }
 
-            _context.SaveChanges();
-            return View(bankAccount);
+            catch (Exception ex)
+            {
+                return View("Error", new string[] { "There was an error editing this account.", ex.Message });
+            }
+
+
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: BankAccounts/Delete/5

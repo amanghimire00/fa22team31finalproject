@@ -49,6 +49,7 @@ namespace fa22team31finalproject.Models
         [Display(Name = "Birthday (MM/DD/YYYY):")]
         [Required(ErrorMessage = "Birthday is required.")]
         public String DOB { get; set; }
+        //Turn this into datetime
         public Boolean Fired { get; set; }
         public Boolean isActive { get; set; }
 
