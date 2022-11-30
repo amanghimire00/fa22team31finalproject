@@ -54,7 +54,7 @@ namespace fa22team31finalproject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TransactionID,TransactionNumber,TransactionType,TransactionDate,TransactionComment,isApproved")] Transaction transaction)
+        public async Task<IActionResult> Create([Bind("TransactionID,TransactionNumber,TransactionType,TransactionDate,TransactionComment,TransactionApproved")] Transaction transaction)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace fa22team31finalproject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("TransactionID,TransactionNumber,TransactionType,TransactionDate,TransactionComment,isApproved")] Transaction transaction)
+        public async Task<IActionResult> Edit(string id, [Bind("TransactionID,TransactionNumber,TransactionType,TransactionDate,TransactionComment,TransactionApproved")] Transaction transaction)
         {
             if (id != transaction.TransactionID)
             {

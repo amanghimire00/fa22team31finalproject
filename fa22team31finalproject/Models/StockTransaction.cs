@@ -39,6 +39,8 @@ namespace fa22team31finalproject.Models
             }
         }
         public AppUser AppUser { get; set; }
+        public Stock Stock { get; set; }
+        public StockPortfolio StockPortfolio { get; set; }
 
     }
 }

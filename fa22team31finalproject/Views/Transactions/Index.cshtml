@@ -25,7 +25,7 @@
                 @Html.DisplayNameFor(model => model.TransactionComment)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.isApproved)
+                @Html.DisplayNameFor(model => model.TransactionApproved)
             </th>
             <th></th>
         </tr>
@@ -46,7 +46,7 @@
                 @Html.DisplayFor(modelItem => item.TransactionComment)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.isApproved)
+                @Html.DisplayFor(modelItem => item.TransactionApproved)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.TransactionID">Edit</a> |

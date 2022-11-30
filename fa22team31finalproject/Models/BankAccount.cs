@@ -33,6 +33,16 @@ namespace fa22team31finalproject.Models
         [DisplayFormat(DataFormatString = "{0:C}")]
         public Decimal Balance { get; set; }
 
+        [Display(Name = "Sum of Deposits:")]
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        [Range(1, 49999, ErrorMessage = "The number must be atleast one")]
+        public Decimal SumofDeposits { get; set; }
+
+        [Display(Name = "Sum of Withdrawals:")]
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        [Range(1, 49999, ErrorMessage = "The number must be atleast one")]
+        public Decimal SumofWithdrawals { get; set; }
+
         [Display(Name = "Account Type:")]
         public AccountType AccountType { get; set; }
 
@@ -40,7 +50,7 @@ namespace fa22team31finalproject.Models
         public AccountStatus AccountStatus { get; set; }
 
         public AppUser AppUser { get; set; }
-        public Transaction Transaction { get; set; }
+        public List<Transaction> Transaction { get; set; }
 
     }
 }

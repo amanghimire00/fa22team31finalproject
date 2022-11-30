@@ -54,6 +54,7 @@ namespace fa22team31finalproject.Models
         public Boolean isActive { get; set; }
 
         public StockPortfolio StockPortfolio { get;  set; }
-        public BankAccount Account { get; set; }
+
+        public List<BankAccount> BankAccount { get; set; }
     }
 }

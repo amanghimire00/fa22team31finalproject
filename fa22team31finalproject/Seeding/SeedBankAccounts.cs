@@ -19,8 +19,6 @@ namespace fa22team31finalproject.Seeding
         {
             List<BankAccount> AllBankAccounts = new List<BankAccount>();
 
-
-
             AllBankAccounts.Add(new BankAccount
             {
                 AccountNumber = 2290000002,

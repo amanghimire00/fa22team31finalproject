@@ -12,8 +12,8 @@ using fa22team31finalproject.DAL;
 namespace fa22team31finalproject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221130014839_regression")]
-    partial class regression
+    [Migration("20221130200029_setup2")]
+    partial class setup2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,9 +34,6 @@ namespace fa22team31finalproject.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<int?>("AccountBankAccountID")
-                        .HasColumnType("int");
-
                     b.Property<string>("Address")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -49,9 +46,8 @@ namespace fa22team31finalproject.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DOB")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("DOB")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -120,8 +116,6 @@ namespace fa22team31finalproject.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AccountBankAccountID");
-
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
 
@@ -154,15 +148,21 @@ namespace fa22team31finalproject.Migrations
                     b.Property<int>("AccountType")
                         .HasColumnType("int");
 
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<decimal>("Balance")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("TransactionID")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<decimal>("SumofDeposits")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("SumofWithdrawals")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("BankAccountID");
 
-                    b.HasIndex("TransactionID");
+                    b.HasIndex("AppUserId");
 
                     b.ToTable("Accounts");
                 });
@@ -184,10 +184,20 @@ namespace fa22team31finalproject.Migrations
                     b.Property<int>("DisputeStatus")
                         .HasColumnType("int");
 
+                    b.Property<int?>("TransactionDetailID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TransactionID")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int>("TransactionNum")
                         .HasColumnType("int");
 
                     b.HasKey("DisputeID");
+
+                    b.HasIndex("TransactionDetailID");
+
+                    b.HasIndex("TransactionID");
 
                     b.ToTable("Disputes");
                 });
@@ -249,9 +259,6 @@ namespace fa22team31finalproject.Migrations
                     b.Property<decimal>("CashBalance")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("StockTransactionID")
-                        .HasColumnType("int");
-
                     b.Property<string>("TransactionID")
                         .HasColumnType("nvarchar(450)");
 
@@ -260,8 +267,6 @@ namespace fa22team31finalproject.Migrations
                     b.HasIndex("AppUserForeignKey")
                         .IsUnique()
                         .HasFilter("[AppUserForeignKey] IS NOT NULL");
-
-                    b.HasIndex("StockTransactionID");
 
                     b.HasIndex("TransactionID");
 
@@ -288,6 +293,12 @@ namespace fa22team31finalproject.Migrations
                     b.Property<DateTime>("StickPurchaseDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("StockID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("StockPortfolioID")
+                        .HasColumnType("int");
+
                     b.Property<string>("StockTicker")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -298,6 +309,10 @@ namespace fa22team31finalproject.Migrations
                     b.HasKey("StockTransactionID");
 
                     b.HasIndex("AppUserId");
+
+                    b.HasIndex("StockID");
+
+                    b.HasIndex("StockPortfolioID");
 
                     b.ToTable("StockTransactions");
                 });
@@ -325,8 +340,19 @@ namespace fa22team31finalproject.Migrations
                     b.Property<string>("TransactionID")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<long>("AccountNumber")
+                        .HasColumnType("bigint");
+
+                    b.Property<int?>("BankAccountID")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("TransactionAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("TransactionApproved")
+                        .HasColumnType("int");
+
                     b.Property<string>("TransactionComment")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("TransactionDate")
@@ -338,12 +364,37 @@ namespace fa22team31finalproject.Migrations
                     b.Property<int>("TransactionType")
                         .HasColumnType("int");
 
-                    b.Property<bool>("isApproved")
-                        .HasColumnType("bit");
-
                     b.HasKey("TransactionID");
 
+                    b.HasIndex("BankAccountID");
+
                     b.ToTable("Transactions");
+                });
+
+            modelBuilder.Entity("fa22team31finalproject.Models.TransactionDetail", b =>
+                {
+                    b.Property<int>("TransactionDetailID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TransactionDetailID"), 1L, 1);
+
+                    b.Property<int?>("BankAccountID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TransactionAmount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TransactionID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("TransactionDetailID");
+
+                    b.HasIndex("BankAccountID");
+
+                    b.HasIndex("TransactionID");
+
+                    b.ToTable("TransactionDetail");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -483,22 +534,28 @@ namespace fa22team31finalproject.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("fa22team31finalproject.Models.AppUser", b =>
-                {
-                    b.HasOne("fa22team31finalproject.Models.BankAccount", "Account")
-                        .WithMany("AppUser")
-                        .HasForeignKey("AccountBankAccountID");
-
-                    b.Navigation("Account");
-                });
-
             modelBuilder.Entity("fa22team31finalproject.Models.BankAccount", b =>
                 {
+                    b.HasOne("fa22team31finalproject.Models.AppUser", "AppUser")
+                        .WithMany("BankAccount")
+                        .HasForeignKey("AppUserId");
+
+                    b.Navigation("AppUser");
+                });
+
+            modelBuilder.Entity("fa22team31finalproject.Models.Dispute", b =>
+                {
+                    b.HasOne("fa22team31finalproject.Models.TransactionDetail", "TransactionDetail")
+                        .WithMany()
+                        .HasForeignKey("TransactionDetailID");
+
                     b.HasOne("fa22team31finalproject.Models.Transaction", "Transaction")
-                        .WithMany("Account")
+                        .WithMany("Dispute")
                         .HasForeignKey("TransactionID");
 
                     b.Navigation("Transaction");
+
+                    b.Navigation("TransactionDetail");
                 });
 
             modelBuilder.Entity("fa22team31finalproject.Models.Stock", b =>
@@ -516,17 +573,11 @@ namespace fa22team31finalproject.Migrations
                         .WithOne("StockPortfolio")
                         .HasForeignKey("fa22team31finalproject.Models.StockPortfolio", "AppUserForeignKey");
 
-                    b.HasOne("fa22team31finalproject.Models.StockTransaction", "StockTransaction")
-                        .WithMany()
-                        .HasForeignKey("StockTransactionID");
-
                     b.HasOne("fa22team31finalproject.Models.Transaction", "Transaction")
                         .WithMany()
                         .HasForeignKey("TransactionID");
 
                     b.Navigation("AppUser");
-
-                    b.Navigation("StockTransaction");
 
                     b.Navigation("Transaction");
                 });
@@ -537,7 +588,43 @@ namespace fa22team31finalproject.Migrations
                         .WithMany()
                         .HasForeignKey("AppUserId");
 
+                    b.HasOne("fa22team31finalproject.Models.Stock", "Stock")
+                        .WithMany()
+                        .HasForeignKey("StockID");
+
+                    b.HasOne("fa22team31finalproject.Models.StockPortfolio", "StockPortfolio")
+                        .WithMany("StockTransaction")
+                        .HasForeignKey("StockPortfolioID");
+
                     b.Navigation("AppUser");
+
+                    b.Navigation("Stock");
+
+                    b.Navigation("StockPortfolio");
+                });
+
+            modelBuilder.Entity("fa22team31finalproject.Models.Transaction", b =>
+                {
+                    b.HasOne("fa22team31finalproject.Models.BankAccount", "BankAccount")
+                        .WithMany("Transaction")
+                        .HasForeignKey("BankAccountID");
+
+                    b.Navigation("BankAccount");
+                });
+
+            modelBuilder.Entity("fa22team31finalproject.Models.TransactionDetail", b =>
+                {
+                    b.HasOne("fa22team31finalproject.Models.BankAccount", "BankAccount")
+                        .WithMany()
+                        .HasForeignKey("BankAccountID");
+
+                    b.HasOne("fa22team31finalproject.Models.Transaction", "Transaction")
+                        .WithMany("TransactionDetails")
+                        .HasForeignKey("TransactionID");
+
+                    b.Navigation("BankAccount");
+
+                    b.Navigation("Transaction");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -593,12 +680,19 @@ namespace fa22team31finalproject.Migrations
 
             modelBuilder.Entity("fa22team31finalproject.Models.AppUser", b =>
                 {
+                    b.Navigation("BankAccount");
+
                     b.Navigation("StockPortfolio");
                 });
 
             modelBuilder.Entity("fa22team31finalproject.Models.BankAccount", b =>
                 {
-                    b.Navigation("AppUser");
+                    b.Navigation("Transaction");
+                });
+
+            modelBuilder.Entity("fa22team31finalproject.Models.StockPortfolio", b =>
+                {
+                    b.Navigation("StockTransaction");
                 });
 
             modelBuilder.Entity("fa22team31finalproject.Models.StockType", b =>
@@ -608,7 +702,9 @@ namespace fa22team31finalproject.Migrations
 
             modelBuilder.Entity("fa22team31finalproject.Models.Transaction", b =>
                 {
-                    b.Navigation("Account");
+                    b.Navigation("Dispute");
+
+                    b.Navigation("TransactionDetails");
                 });
 #pragma warning restore 612, 618
         }

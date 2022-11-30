@@ -28,6 +28,7 @@ namespace fa22team31finalproject.Models
         public String AccountNickname { get; set; }
 
         public Transaction Transaction { get; set; }
-        public StockTransaction StockTransaction { get; set; }
+
+        public List<StockTransaction> StockTransaction { get; set; }
     }
 }
