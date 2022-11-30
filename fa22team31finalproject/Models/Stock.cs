@@ -18,10 +18,12 @@ namespace fa22team31finalproject.Models
         [StringLength(5, MinimumLength = 1, ErrorMessage = "Maximum 5 characters")]
         public String TickerSymbol { get; set; }
 
+        [Display(Name = "Price of Stock:")]
+        [Required(ErrorMessage = "Your stock must have a price")]
+        [DisplayFormat(DataFormatString = "{0:C}")]
         public Decimal StockPrice { get; set; }
 
         [Display(Name = "Quantity of Stock:")]
-        [Required(ErrorMessage = "You must select at least one stock")]
         public Int32 SharesQuantity { get; set; }
 
         public Decimal StockBalance
