@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using fa22team31finalproject.DAL;
 
@@ -11,9 +12,10 @@ using fa22team31finalproject.DAL;
 namespace fa22team31finalproject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221130232653_DisputeRelationToTransactionDetail")]
+    partial class DisputeRelationToTransactionDetail
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -182,6 +184,9 @@ namespace fa22team31finalproject.Migrations
                     b.Property<int>("DisputeStatus")
                         .HasColumnType("int");
 
+                    b.Property<int?>("TransactionDetailID")
+                        .HasColumnType("int");
+
                     b.Property<string>("TransactionID")
                         .HasColumnType("nvarchar(450)");
 
@@ -189,6 +194,8 @@ namespace fa22team31finalproject.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("DisputeID");
+
+                    b.HasIndex("TransactionDetailID");
 
                     b.HasIndex("TransactionID");
 
@@ -371,9 +378,6 @@ namespace fa22team31finalproject.Migrations
                     b.Property<int?>("BankAccountID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("DisputeID")
-                        .HasColumnType("int");
-
                     b.Property<int>("TransactionAmount")
                         .HasColumnType("int");
 
@@ -383,8 +387,6 @@ namespace fa22team31finalproject.Migrations
                     b.HasKey("TransactionDetailID");
 
                     b.HasIndex("BankAccountID");
-
-                    b.HasIndex("DisputeID");
 
                     b.HasIndex("TransactionID");
 
@@ -539,11 +541,17 @@ namespace fa22team31finalproject.Migrations
 
             modelBuilder.Entity("fa22team31finalproject.Models.Dispute", b =>
                 {
+                    b.HasOne("fa22team31finalproject.Models.TransactionDetail", "TransactionDetail")
+                        .WithMany()
+                        .HasForeignKey("TransactionDetailID");
+
                     b.HasOne("fa22team31finalproject.Models.Transaction", "Transaction")
                         .WithMany("Dispute")
                         .HasForeignKey("TransactionID");
 
                     b.Navigation("Transaction");
+
+                    b.Navigation("TransactionDetail");
                 });
 
             modelBuilder.Entity("fa22team31finalproject.Models.Stock", b =>
@@ -606,17 +614,11 @@ namespace fa22team31finalproject.Migrations
                         .WithMany()
                         .HasForeignKey("BankAccountID");
 
-                    b.HasOne("fa22team31finalproject.Models.Dispute", "Dispute")
-                        .WithMany()
-                        .HasForeignKey("DisputeID");
-
                     b.HasOne("fa22team31finalproject.Models.Transaction", "Transaction")
                         .WithMany("TransactionDetails")
                         .HasForeignKey("TransactionID");
 
                     b.Navigation("BankAccount");
-
-                    b.Navigation("Dispute");
 
                     b.Navigation("Transaction");
                 });

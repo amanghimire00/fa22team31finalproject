@@ -33,12 +33,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Transaction.TransactionComment)
             </th>
-
-            @*dispute not connected to transaction details for some reason
-
             <th>
                 @Html.DisplayNameFor(model => model.Dispute.DisputeStatus)
-            </th>*@
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -66,13 +63,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Transaction.TransactionComment)
             </td>
-            @*need to make disputes connected to transaction details
             <td>
                 @Html.DisplayFor(modelItem => item.Dispute.DisputeStatus)
-            </td>*@
+            </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.TransactionDetailID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.TransactionDetailID">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.TransactionDetailID">Delete</a>
             </td>
         </tr>
