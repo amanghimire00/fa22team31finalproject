@@ -231,6 +231,59 @@ namespace fa22team31finalproject.Controllers
             }
         }
 
+
+        //Logic for change name
+        // GET: /Account/ChangeNAme
+        public async Task<IActionResult> Edit()
+        {
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+
+            if (user == null)
+            {
+                return View("Error", new String[] { "This account does not exist!" });
+            }
+
+            return View(user);
+
+        }
+
+        // POST: /Account/ChangeName
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(AppUser user)
+        {
+            //if user forgot a field, send them back to
+            //change password page to try again
+            if (ModelState.IsValid == false)
+            {
+                return View(user);
+            }
+
+            
+                AppUser userdb = await _userManager.FindByNameAsync(User.Identity.Name);
+
+
+                userdb.FirstName = user.FirstName;
+                userdb.LastName = user.LastName;
+                userdb.MI = user.MI;
+                userdb.Address = user.Address;
+                userdb.City = user.City;
+                userdb.State = user.State;
+                userdb.ZipCode = user.ZipCode;
+                userdb.PhoneNumber = user.PhoneNumber;
+
+
+                //save the changes
+                _context.Update(userdb);
+                await _context.SaveChangesAsync();
+
+
+
+            return View("Details", "Account");
+
+        }
+
         // POST: /Account/LogOff
         [HttpPost]
         [ValidateAntiForgeryToken]
