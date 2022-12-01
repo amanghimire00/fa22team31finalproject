@@ -66,17 +66,14 @@ namespace fa22team31finalproject.Controllers
         {
             bankAccount.AccountNumber = Utilities.GenerateNextAccountID.GetNextAccountID(_context);
 
-            bankAccount.AppUser = await _userManager.FindByNameAsync(User.Identity.Name);
-
             if (ModelState.IsValid)
             {
-                ViewBag.AllSuppliers = GetBankAccountSelectList();
                 return View(bankAccount);
             }
 
             _context.Add(bankAccount);
             await _context.SaveChangesAsync();
-            return RedirectToAction("Create", "BankAccounts", new { bankAccountID = bankAccount.BankAccountID });
+            return RedirectToAction(nameof(Index));
 
         }
 
