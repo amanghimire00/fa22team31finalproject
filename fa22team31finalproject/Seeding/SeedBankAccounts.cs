@@ -238,6 +238,15 @@ namespace fa22team31finalproject.Seeding
                 AccountType = AccountType.IRA,
             });
 
+            AllBankAccounts.Add(new BankAccount
+            {
+                AccountNumber = 2290000028,
+                AppUser = db.Users.FirstOrDefault(u => u.UserName == "dixon@aool.com"),
+                AccountName = "Shan's Checking",
+                Balance = 2657.81m,
+                AccountType = AccountType.Checking,
+            });
+
             //create a counter and flag to help with debugging
             int intBankAccountID = 0;
             String strBankAccountName = "Start";
