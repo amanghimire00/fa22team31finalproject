@@ -9,12 +9,18 @@
 <div style="text-align: left;"><img src="~/images/longhorn.png" width="250" alt="Longhorn Logo Image" /></div>
 <br />
 
-<h3>Invest, save, and manage with Longhorn Bank. Create your account now!</h3>
+@if (User.Identity.IsAuthenticated == false)
+{
+    <h3>Invest, save, and manage with Longhorn Bank. Create your account now!</h3>
+    <a asp-action="Create" asp-controller="BankAccounts" class="btn btn-success">Register for an Account</a>
+}
 
-<a asp-action="Create" asp-controller="BankAccounts" class="btn btn-success">Register for an Account</a>
+
 
 @if (User.Identity.IsAuthenticated)
 {
+    <h3>Welcome to your Longhorn Bank Home!</h3>
+    <a asp-action="Create" asp-controller="BankAccounts" class="btn btn-success">Register for an Account</a>
     <a asp-action="Index" asp-controller="BankAccounts" class="btn btn-info">Accounts Summary</a>
 
 
