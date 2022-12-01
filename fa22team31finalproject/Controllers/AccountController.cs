@@ -169,6 +169,9 @@ namespace fa22team31finalproject.Controllers
             ivm.HasPassword = true;
             ivm.UserID = user.Id;
             ivm.UserName = user.UserName;
+            ivm.FullName = user.FullName;
+            ivm.FullAddress = user.FullAddress;
+            ivm.PhoneNumber = user.PhoneNumber;
 
             //send data to the view
             return View(ivm);

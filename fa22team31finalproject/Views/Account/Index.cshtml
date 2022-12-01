@@ -10,18 +10,17 @@
     <hr />
     <dl class="dl-horizontal">
 
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FullName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FullName)
-        </dd>
+        <dt> Full Name:</dt>
+        <dd>@Html.DisplayFor(model => model.FullName)</dd>
 
         <dt>Email/User Name:</dt>
         <dd>@Model.Email</dd>
 
         <dt>Phone Number:</dt>
         <dd>@Model.PhoneNumber</dd>
+
+        <dt>Full Address:</dt>
+        <dd>@Html.DisplayFor(model => model.FullAddress)</dd>
 
         <dt>Password:</dt>
         <dd>
