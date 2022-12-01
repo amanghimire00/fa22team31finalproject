@@ -26,7 +26,7 @@ namespace fa22team31finalproject.Controllers
         }
 
         // GET: Transactions/Details/5
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Transactions == null)
             {
@@ -86,7 +86,7 @@ namespace fa22team31finalproject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("TransactionID,TransactionNumber,TransactionType,TransactionDate,TransactionComment,TransactionApproved")] Transaction transaction)
+        public async Task<IActionResult> Edit(int id, [Bind("TransactionID,TransactionNumber,TransactionType,TransactionDate,TransactionComment,TransactionApproved")] Transaction transaction)
         {
             if (id != transaction.TransactionID)
             {
@@ -117,7 +117,7 @@ namespace fa22team31finalproject.Controllers
         }
 
         // GET: Transactions/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Transactions == null)
             {
@@ -153,7 +153,7 @@ namespace fa22team31finalproject.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool TransactionExists(string id)
+        private bool TransactionExists(int id)
         {
           return _context.Transactions.Any(e => e.TransactionID == id);
         }
