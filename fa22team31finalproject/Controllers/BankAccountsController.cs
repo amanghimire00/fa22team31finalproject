@@ -17,6 +17,7 @@ namespace fa22team31finalproject.Controllers
     public class BankAccountsController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly UserManager<AppUser> _userManager;
 
         public BankAccountsController(AppDbContext context)
         {
@@ -63,23 +64,26 @@ namespace fa22team31finalproject.Controllers
         [Authorize]
         public async Task<IActionResult> Create([Bind("BankAccountID,AccountNumber,AccountName,Balance,AccountType,AccountStatus")] BankAccount bankAccount)
         {
-            bankAccount.BankAccountID = (int)Utilities.GenerateNextAccountID.GetNextAccountID(_context);
-            //change this if you do extra credit
-            //order.User = await _userManager.FindByNameAsync(order.User.UserName);
+            bankAccount.AccountNumber = Utilities.GenerateNextAccountID.GetNextAccountID(_context);
 
-            //order.User = await _userManager.FindByNameAsync(User.Identity.Name);
-
-            ModelState.Clear();
-            TryValidateModel(bankAccount);
+            bankAccount.AppUser = await _userManager.FindByNameAsync(User.Identity.Name);
 
             if (ModelState.IsValid)
             {
-                _context.Add(bankAccount);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Create", "BankAccounts", new { bankAccountID = bankAccount.BankAccountID });
+                ViewBag.AllSuppliers = GetBankAccountSelectList();
+                return View(bankAccount);
             }
 
-            return View(bankAccount);
+            _context.Add(bankAccount);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Create", "BankAccounts", new { bankAccountID = bankAccount.BankAccountID });
+            //if (ModelState.IsValid)
+            //{
+            //    _context.Add(bankAccount);
+            //    await _context.SaveChangesAsync();
+            //    return RedirectToAction(nameof(Index));
+            //}
+            //return View(bankAccount);
         }
 
         // GET: BankAccounts/Edit/5
