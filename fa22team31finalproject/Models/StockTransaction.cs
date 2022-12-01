@@ -14,10 +14,12 @@ namespace fa22team31finalproject.Models
 
         [Display(Name = "Quantity of Stock:")]
         [Required(ErrorMessage = "You must select at least one stock")]
+
         public Int32 SharesQuantity { get; set; }
 
         [Display(Name = "Purchase Price:")]
         [Required(ErrorMessage = "Purchase Price must be at least 1 cent")]
+        [DisplayFormat(DataFormatString = "{0:C}")]
         public Decimal PurchasePrice { get; set; }
 
         [Display(Name = "Stock Transaction Type")]

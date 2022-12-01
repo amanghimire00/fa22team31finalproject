@@ -10,6 +10,7 @@ namespace fa22team31finalproject.Models
         public Int32 TransactionDetailID { get; set; }
 
         [Range(0, 1000000, ErrorMessage = "Amount must be greater than 0")]
+        [DisplayFormat(DataFormatString = "{0:C}")]
         public Int32 TransactionAmount { get; set; }
 
         public Transaction Transaction { get; set; }
