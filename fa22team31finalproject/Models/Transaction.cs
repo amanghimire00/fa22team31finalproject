@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace fa22team31finalproject.Models
 {
-    public enum TransactionType { Deposit, Withdrawal, Transfer }
+    public enum TransactionType { Deposit, Withdraw, Transfer }
     public enum TransactionApproved { Yes, No }
     public class Transaction
     {
@@ -20,6 +20,7 @@ namespace fa22team31finalproject.Models
         //public Int64 AccountNumber { get; set; }
 
         [Display(Name = "Transaction Date")]
+        [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime TransactionDate { get; set; }
 
@@ -27,7 +28,6 @@ namespace fa22team31finalproject.Models
         public String TransactionComment { get; set; }
 
         [Display(Name = "Approved?")]
-
         public TransactionApproved TransactionApproved { get; set; }
 
         [Display(Name = "Transaction Amount:")]
@@ -38,6 +38,10 @@ namespace fa22team31finalproject.Models
         public AppUser AppUser { get; set; }
         public List<TransactionDetail> TransactionDetails { get; set; }
         public List<Dispute> Dispute { get; set; }
+
+
+        public Int64? ToAccount { get; set; }
+        public Int64? FromAccount { get; set; }
         //public AppUser AppUser { get; set; }
         public Transaction()
         {

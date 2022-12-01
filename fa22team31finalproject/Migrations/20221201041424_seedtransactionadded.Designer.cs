@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using fa22team31finalproject.DAL;
 
@@ -11,9 +12,10 @@ using fa22team31finalproject.DAL;
 namespace fa22team31finalproject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221201041424_seedtransactionadded")]
+    partial class seedtransactionadded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -173,9 +175,6 @@ namespace fa22team31finalproject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DisputeID"), 1L, 1);
 
-                    b.Property<string>("AppUserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<decimal>("CorrectAmount")
                         .HasColumnType("decimal(18,2)");
 
@@ -188,9 +187,10 @@ namespace fa22team31finalproject.Migrations
                     b.Property<int?>("TransactionID")
                         .HasColumnType("int");
 
-                    b.HasKey("DisputeID");
+                    b.Property<int>("TransactionNum")
+                        .HasColumnType("int");
 
-                    b.HasIndex("AppUserId");
+                    b.HasKey("DisputeID");
 
                     b.HasIndex("TransactionID");
 
@@ -553,15 +553,9 @@ namespace fa22team31finalproject.Migrations
 
             modelBuilder.Entity("fa22team31finalproject.Models.Dispute", b =>
                 {
-                    b.HasOne("fa22team31finalproject.Models.AppUser", "AppUser")
-                        .WithMany()
-                        .HasForeignKey("AppUserId");
-
                     b.HasOne("fa22team31finalproject.Models.Transaction", "Transaction")
                         .WithMany("Dispute")
                         .HasForeignKey("TransactionID");
-
-                    b.Navigation("AppUser");
 
                     b.Navigation("Transaction");
                 });

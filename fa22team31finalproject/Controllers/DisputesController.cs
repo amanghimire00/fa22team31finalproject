@@ -54,7 +54,7 @@ namespace fa22team31finalproject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DisputeID,DisputeStatus,TransactionNum,CorrectAmount,DisputeDescription")] Dispute dispute)
+        public async Task<IActionResult> Create([Bind("DisputeID,DisputeStatus,CorrectAmount,DisputeDescription")] Dispute dispute)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace fa22team31finalproject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("DisputeID,DisputeStatus,TransactionNum,CorrectAmount,DisputeDescription")] Dispute dispute)
+        public async Task<IActionResult> Edit(int id, [Bind("DisputeID,DisputeStatus,CorrectAmount,DisputeDescription")] Dispute dispute)
         {
             if (id != dispute.DisputeID)
             {
