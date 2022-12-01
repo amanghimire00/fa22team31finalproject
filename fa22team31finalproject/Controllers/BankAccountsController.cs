@@ -28,13 +28,23 @@ namespace fa22team31finalproject.Controllers
         // GET: BankAccounts
         public async Task<IActionResult> Index()
         {
-            List<BankAccount> bankAccounts;
+            List<BankAccount> bankAccounts = new List<BankAccount>();
+            if (User.IsInRole("Admin"))
+            {
+                bankAccounts = _context.Accounts.ToList();
+            }
+            else
+            {
+                bankAccounts = _context.Accounts.Where(r => r.AppUser.UserName == User.Identity.Name).ToList();
+            }
+            return View(bankAccounts);
+            /*List<BankAccount> bankAccounts;
             bankAccounts = _context.Accounts
                                 .Where(r => r.AppUser.UserName == User.Identity.Name)
                                 .ToList();
 
 
-            return View(await _context.Accounts.ToListAsync());
+            return View(await _context.Accounts.ToListAsync());*/
         }
 
         // GET: BankAccounts/Details/5

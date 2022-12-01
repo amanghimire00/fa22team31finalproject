@@ -4,7 +4,7 @@
     <form asp-action="LogOff" asp-controller="Account" method="post" id="logoutForm" class="navbar-right" )>
         <ul class="nav navbar-nav navbar-right">
             <li>
-                <a asp-action="Index" asp-controller="Account" title="Manage" class="nav-link">Hello @User.Identity.Name!</a>
+                <a asp-action="Index" asp-controller="Account" title="Manage" class="nav-link">Hello @User.Identity.Name</a>
             </li>
             <li><a href="javascript:document.getElementById('logoutForm').submit()"><span class="nav-link">Log Off</span></a></li>
         </ul>
