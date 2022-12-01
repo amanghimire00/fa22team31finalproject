@@ -28,14 +28,33 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Balance)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Transaction)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Transaction)
-        </dd>
     </dl>
 </div>
+<div>
+    <h5>Products on this Order</h5>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Transaction Number</th>
+                <th>Transaction Amount</th>
+                <th>Transaction Type</th>
+            </tr>
+            @foreach (Transaction tran in Model.Transaction)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(ModelItem => tran.TransactionNumber)</td>
+                    <td>@Html.DisplayFor(ModelItem => tran.TransactionAmount)</td>
+                    <td>@Html.DisplayFor(ModelItem => tran.TransactionType)</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@tran.TransactionID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@tran.TransactionID">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.BankAccountID">Edit</a> |
     <a asp-action="Index">Back to List</a>

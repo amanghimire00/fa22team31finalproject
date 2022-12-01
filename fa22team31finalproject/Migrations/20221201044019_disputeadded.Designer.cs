@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using fa22team31finalproject.DAL;
 
@@ -11,9 +12,10 @@ using fa22team31finalproject.DAL;
 namespace fa22team31finalproject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221201044019_disputeadded")]
+    partial class disputeadded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -186,6 +188,9 @@ namespace fa22team31finalproject.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("TransactionID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TransactionNum")
                         .HasColumnType("int");
 
                     b.HasKey("DisputeID");

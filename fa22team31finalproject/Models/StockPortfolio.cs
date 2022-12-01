@@ -19,6 +19,7 @@ namespace fa22team31finalproject.Models
 
         [Display(Name = "Cash Balance:")]
         [Required(ErrorMessage = "Cash Balance is required.")]
+        [DisplayFormat(DataFormatString = "{0:C}")]
         public Decimal CashBalance { get; set; }
 
         public AppUser AppUser { get; set; }
