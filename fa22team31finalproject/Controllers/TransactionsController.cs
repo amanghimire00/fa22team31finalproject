@@ -7,16 +7,21 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using fa22team31finalproject.DAL;
 using fa22team31finalproject.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace fa22team31finalproject.Controllers
 {
     public class TransactionsController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly UserManager<AppUser> _userManager;
 
-        public TransactionsController(AppDbContext context)
+        public TransactionsController(AppDbContext context, UserManager<AppUser> userManger)
         {
             _context = context;
+            _userManager = userManger;
         }
 
         // GET: Transactions
@@ -53,9 +58,20 @@ namespace fa22team31finalproject.Controllers
         }
 
         // GET: Transactions/Create
-        public IActionResult Create()
+        public async Task<IActionResult> CreateAsync([Bind("TransactionID,TransactionNumber,TransactionType,TransactionAmount,TransactionDate")] Transaction transaction)
         {
-            return View();
+            if (User.IsInRole("Customer"))
+            {
+                Transaction tran = new Transaction();
+                tran.AppUser = await _userManager.FindByNameAsync(User.Identity.Name);
+                return View(tran);
+            }
+            else
+            {
+                ViewBag.UserNames = await GetAllBankAccounts();
+                return View("SelectBankAccountForTransaction");
+            }
+
         }
 
         // POST: Transactions/Create
@@ -63,15 +79,19 @@ namespace fa22team31finalproject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TransactionID,TransactionNumber,TransactionType,TransactionDate,TransactionComment,TransactionApproved")] Transaction transaction)
+        public async Task<IActionResult> Create([Bind("TransactionID,TransactionNumber,TransactionType,TransactionDate,TransactionComment,TransactionApproved,TransactionAmount")] Transaction transaction)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(transaction);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(transaction);
+            transaction.TransactionNumber = (int)Utilities.GenerateNextTransactionID.GetNextTransactionID(_context);
+            transaction.TransactionDate = DateTime.Now;
+            //change this if you do extra credit
+            //order.User = await _userManager.FindByNameAsync(order.User.UserName);
+
+            transaction.AppUser = await _userManager.FindByNameAsync(User.Identity.Name);
+
+
+            _context.Add(transaction);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index), new { transactionNumber = transaction.TransactionNumber });
         }
 
         // GET: Transactions/Edit/5
@@ -162,9 +182,37 @@ namespace fa22team31finalproject.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> SelectBankAccountForTransaction(String SelectedBankAccount)
+        {
+            if (String.IsNullOrEmpty(SelectedBankAccount))
+            {
+                ViewBag.UserNames = await GetAllBankAccounts();
+                return View("SelectBankAccountForTransaction");
+            }
+            Transaction tran = new Transaction();
+            tran.AppUser = await _userManager.FindByNameAsync(SelectedBankAccount);
+            return View("Create", tran);
+        }
+
+        public async Task<SelectList> GetAllBankAccounts()
+        {
+            List<AppUser> allBankAccounts = new List<AppUser>();
+            foreach (AppUser dbUser in _context.Users)
+            {
+                if (await _userManager.IsInRoleAsync(dbUser, "Customer") == true)
+                {
+                    allBankAccounts.Add(dbUser);
+                }
+            }
+            SelectList s1 = new SelectList(allBankAccounts.OrderBy(c => c.Email), nameof(AppUser.UserName), nameof(AppUser.Email));
+            return s1;
+        }
         private bool TransactionExists(int id)
         {
           return _context.Transactions.Any(e => e.TransactionID == id);
         }
+
     }
 }
