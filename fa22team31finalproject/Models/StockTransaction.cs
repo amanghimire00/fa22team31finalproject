@@ -18,18 +18,14 @@ namespace fa22team31finalproject.Models
 
         [Display(Name = "Purchase Price:")]
         [Required(ErrorMessage = "Purchase Price must be at least 1 cent")]
-        public Int32 PurchasePrice { get; set; }
+        public Decimal PurchasePrice { get; set; }
 
         [Display(Name = "Stock Transaction Type")]
         public StockTransactionType StockTransactionType { get; set; }
 
         [Display(Name = "Date of Purchase:")]
         [Required(ErrorMessage = "Date is required!")]
-        public DateTime StickPurchaseDate { get; set; }
-
-        [Display(Name = "Stock:")]
-        [Required(ErrorMessage = "Stock Ticker is required!")]
-        public String StockTicker { get; set; }
+        public DateTime StockPurchaseDate { get; set; }
 
         public Decimal StockBalance
         {
@@ -39,6 +35,7 @@ namespace fa22team31finalproject.Models
             }
         }
         public AppUser AppUser { get; set; }
+        public BankAccount BankAccount { get; set; }
         public Stock Stock { get; set; }
         public StockPortfolio StockPortfolio { get; set; }
 
