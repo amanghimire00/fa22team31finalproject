@@ -52,7 +52,6 @@ namespace fa22team31finalproject.Controllers
         [Authorize(Roles = "Customer")]
         public IActionResult Create()
         {
-            ViewBag.BankAccounts = GetBankAccountSelectList();
             return View();
         }
 
@@ -91,7 +90,6 @@ namespace fa22team31finalproject.Controllers
                 return NotFound();
             }
 
-            ViewBag.BankAccounts = GetBankAccountSelectList();
             return View(bankAccount);
 
         }
@@ -148,7 +146,6 @@ namespace fa22team31finalproject.Controllers
                 return NotFound();
             }
 
-            ViewBag.BankAccounts = GetBankAccountSelectList();
             return View(bankAccount);
         }
 
@@ -167,7 +164,6 @@ namespace fa22team31finalproject.Controllers
                 _context.Accounts.Remove(bankAccount);
             }
 
-            ViewBag.BankAccounts = GetBankAccountSelectList();
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
@@ -177,15 +173,6 @@ namespace fa22team31finalproject.Controllers
             return _context.Accounts.Any(e => e.BankAccountID == id);
         }
         //this is for account types
-        private MultiSelectList GetBankAccountSelectList()
-        {
-            
-            List<BankAccount> allAccounts = _context.Accounts.ToList();          
-            MultiSelectList mslAllAccounts = new MultiSelectList(allAccounts.OrderBy(d => d.AccountType), "Checking", "Savings", "IRA");
-
-            //return the MultiSelectList
-            return mslAllAccounts;
-        }
 
        
     }
