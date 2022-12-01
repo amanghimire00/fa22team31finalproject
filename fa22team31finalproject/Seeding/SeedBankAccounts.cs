@@ -202,7 +202,7 @@ namespace fa22team31finalproject.Seeding
             AllBankAccounts.Add(new BankAccount
             {
                 AccountNumber = 2290000023,
-                AppUser = db.Users.FirstOrDefault(u => u.UserName ==  "cbaker@freezing.co.uk"),
+                AppUser = db.Users.FirstOrDefault(u => u.UserName == "cbaker@freezing.co.uk"),
                 AccountName = "CBaker's IRA",
                 Balance = 1000.00m,
                 AccountType = AccountType.IRA,
@@ -300,8 +300,8 @@ namespace fa22team31finalproject.Seeding
                 //database becomes the InnerException
                 throw new Exception(msg.ToString(), ex);
             }
-  
+
         }
     }
-        
+
 }
