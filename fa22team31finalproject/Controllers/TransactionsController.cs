@@ -22,7 +22,16 @@ namespace fa22team31finalproject.Controllers
         // GET: Transactions
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Transactions.ToListAsync());
+            List<Transaction> transactions = new List<Transaction>();
+            if (User.IsInRole("Admin"))
+            {
+                transactions = _context.Transactions.ToList();
+            }
+            else
+            {
+                transactions = _context.Transactions.Where(r => r.AppUser.UserName == User.Identity.Name).ToList();
+            }
+            return View(transactions);
         }
 
         // GET: Transactions/Details/5
