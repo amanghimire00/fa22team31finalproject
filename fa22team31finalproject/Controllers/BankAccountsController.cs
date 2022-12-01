@@ -77,13 +77,7 @@ namespace fa22team31finalproject.Controllers
             _context.Add(bankAccount);
             await _context.SaveChangesAsync();
             return RedirectToAction("Create", "BankAccounts", new { bankAccountID = bankAccount.BankAccountID });
-            //if (ModelState.IsValid)
-            //{
-            //    _context.Add(bankAccount);
-            //    await _context.SaveChangesAsync();
-            //    return RedirectToAction(nameof(Index));
-            //}
-            //return View(bankAccount);
+
         }
 
         // GET: BankAccounts/Edit/5
