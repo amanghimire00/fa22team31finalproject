@@ -15,16 +15,6 @@ namespace fa22team31finalproject.Models
         [Required(ErrorMessage = "Bank Account Number is required.")]
         public Int64 AccountNumber { get; set; }
 
-        public string HiddenAccountNumber
-        {
-            get
-            {
-                string accNum = AccountNumber.ToString();
-                return accNum.Substring(accNum.Length - 4).PadLeft(accNum.Length, 'X');
-            }
-        }
-
-
         [Display(Name = "Bank Account Nickname:")]
         [Required(ErrorMessage = "Bank Account Nickname is required.")]
         public String AccountName { get; set; }
