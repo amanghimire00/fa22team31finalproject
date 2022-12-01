@@ -19,14 +19,21 @@ namespace fa22team31finalproject.Controllers
         private readonly AppDbContext _context;
         private readonly UserManager<AppUser> _userManager;
 
-        public BankAccountsController(AppDbContext context)
+        public BankAccountsController(AppDbContext context, UserManager<AppUser> userManger)
         {
             _context = context;
+            _userManager = userManger;
         }
 
         // GET: BankAccounts
         public async Task<IActionResult> Index()
         {
+            List<BankAccount> bankAccounts;
+            bankAccounts = _context.Accounts
+                                .Where(r => r.AppUser.UserName == User.Identity.Name)
+                                .ToList();
+
+
             return View(await _context.Accounts.ToListAsync());
         }
 
@@ -65,14 +72,12 @@ namespace fa22team31finalproject.Controllers
         {
             bankAccount.AccountNumber = Utilities.GenerateNextAccountID.GetNextAccountID(_context);
 
-            if (ModelState.IsValid)
-            {
-                return View(bankAccount);
-            }
+            bankAccount.AppUser = await _userManager.FindByNameAsync(User.Identity.Name);
 
             _context.Add(bankAccount);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            return RedirectToAction(nameof(Index), new { accountNumber = bankAccount.AccountNumber });
 
         }
 

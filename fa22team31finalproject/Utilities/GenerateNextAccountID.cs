@@ -9,33 +9,16 @@ namespace fa22team31finalproject.Utilities
     {
         public static Int64 GetNextAccountID(AppDbContext _context)
         {
-            //set a constant to designate where the
-            //
-            //
-            //
-            //
-            //
-            //numbers 
+            //set a constant to designate where the number
             //should start
             const Int64 START_NUMBER = 2290000001;
 
             Int64 intMaxAccountID; //the current maximum
-                                     //
-                                     //
-                                     //
-                                     //
-                                     //
-                                     //number
             Int64 intNextAccountID; //the product number for the next class
 
-            if (_context.Accounts.Count() == 0) //there are no orders in the database yet
-            {
-                intMaxAccountID = START_NUMBER; //order numbers start at 101
-            }
-            else
-            {
-                intMaxAccountID = _context.Accounts.Max(c => c.BankAccountID); //this is the highest number in the database right now
-            }
+
+            intMaxAccountID = _context.Accounts.Max(c => c.AccountNumber); //this is the highest number in the database right now
+          
 
             //You added records to the datbase before you realized 
             //that you needed this and now you have numbers less than 100 
