@@ -25,6 +25,7 @@ namespace fa22team31finalproject.Models
 
         [Display(Name = "Date of Purchase:")]
         [Required(ErrorMessage = "Date is required!")]
+        [DataType(DataType.Date)]
         public DateTime StockPurchaseDate { get; set; }
 
         public Decimal StockBalance

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using fa22team31finalproject.DAL;
 
@@ -11,9 +12,10 @@ using fa22team31finalproject.DAL;
 namespace fa22team31finalproject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221201030627_setup2")]
+    partial class setup2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -334,14 +336,8 @@ namespace fa22team31finalproject.Migrations
                     b.Property<int?>("BankAccountID")
                         .HasColumnType("int");
 
-                    b.Property<long?>("FromAccount")
-                        .HasColumnType("bigint");
-
                     b.Property<int?>("StockPortfolioID")
                         .HasColumnType("int");
-
-                    b.Property<long?>("ToAccount")
-                        .HasColumnType("bigint");
 
                     b.Property<decimal>("TransactionAmount")
                         .HasColumnType("decimal(18,2)");

@@ -23,7 +23,7 @@ namespace fa22team31finalproject.Models
 
         public AppUser AppUser { get; set; }
 
-        public Transaction Transaction { get; set; }
+        public List<Transaction> Transaction { get; set; }
 
         public List<StockTransaction> StockTransaction { get; set; }
     }

@@ -47,6 +47,7 @@ namespace fa22team31finalproject.Models
         }
 
         [Display(Name = "Birthday (MM/DD/YYYY):")]
+        [DataType(DataType.Date)]
         [Required(ErrorMessage = "Birthday is required.")]
         public DateTime DOB { get; set; }
         //Turn this into datetime
