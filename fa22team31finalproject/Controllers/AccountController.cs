@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using fa22team31finalproject.DAL;
 using fa22team31finalproject.Models;
 using fa22team31finalproject.Utilities;
+using System.Net.Mail;
 
 
 namespace fa22team31finalproject.Controllers
@@ -78,16 +79,18 @@ namespace fa22team31finalproject.Controllers
                 //add the user to a different role - just specify the role name.
                 RoleName = "Customer"
             };
-
             //This code uses the AddUser utility to create a new user with the specified password
             IdentityResult result = await Utilities.AddUser.AddUserWithRoleAsync(aum, _userManager, _context);
+            
 
             if (result.Succeeded) //everything is okay
             {
                 //NOTE: This code logs the user into the account that they just created
                 //You may or may not want to log a user in directly after they register - check
                 //the business rules!
+
                 Microsoft.AspNetCore.Identity.SignInResult result2 = await _signInManager.PasswordSignInAsync(rvm.Email, rvm.Password, false, lockoutOnFailure: false);
+                //IdentityResult result3 =  EmailMessaging.SendEmail(rvm.Email, mm.Body, mm.Subject);
 
                 //Send the user to the home page
                 return RedirectToAction("Index", "Home");
