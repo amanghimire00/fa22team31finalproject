@@ -12,15 +12,24 @@
 
         <dt> Full Name:</dt>
         <dd>@Html.DisplayFor(model => model.FullName)</dd>
-
-        <dt>Email/User Name:</dt>
-        <dd>@Model.Email</dd>
-
-        <dt>Phone Number:</dt>
-        <dd>@Model.PhoneNumber</dd>
+        <dd>
+            [@Html.ActionLink("Edit your Name", "ChangeName")]
+        </dd>
 
         <dt>Full Address:</dt>
         <dd>@Html.DisplayFor(model => model.FullAddress)</dd>
+        <dd>
+            [@Html.ActionLink("Edit your address", "ChangePassword")]
+        </dd>
+
+        <dt>Phone Number:</dt>
+        <dd>@Model.PhoneNumber</dd>
+        <dd>
+            [@Html.ActionLink("Edit your phone number", "ChangePassword")]
+        </dd>
+
+        <dt>Email/User Name:</dt>
+        <dd>@Model.Email</dd>
 
         <dt>Password:</dt>
         <dd>
