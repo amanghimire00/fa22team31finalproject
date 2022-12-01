@@ -39,5 +39,17 @@ namespace fa22team31finalproject.Models
         public List<TransactionDetail> TransactionDetails { get; set; }
         public List<Dispute> Dispute { get; set; }
         //public AppUser AppUser { get; set; }
+        public Transaction()
+        {
+            if (TransactionDetails == null)
+            {
+                TransactionDetails = new List<TransactionDetail>();
+            }
+
+            if (Dispute == null)
+            {
+                Dispute = new List<Dispute>();
+            }
+        }
     }
 }

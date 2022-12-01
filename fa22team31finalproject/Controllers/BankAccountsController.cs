@@ -50,7 +50,28 @@ namespace fa22team31finalproject.Controllers
         // GET: BankAccounts/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Accounts == null)
+            if (id == null)
+            {
+                return View("Error", new String[] { "Please specify a order to view!" });
+            }
+
+            BankAccount ba = await _context.Accounts
+                .Include(r => r.Transaction)
+                .ThenInclude(r => r.TransactionDetails)
+                .Include(r => r.AppUser)
+                .FirstOrDefaultAsync(m => m.BankAccountID == id);
+
+            if (ba == null)
+            {
+                return View("Error", new String[] { "This order was not found!" });
+            }
+
+            if (User.IsInRole("Admin") == false && ba.AppUser.UserName != User.Identity.Name)
+            {
+                return View("Error", new String[] { "This is not your order!" });
+            }
+            return View(ba);
+            /*if (id == null || _context.Accounts == null)
             {
                 return NotFound();
             }
@@ -62,7 +83,7 @@ namespace fa22team31finalproject.Controllers
                 return NotFound();
             }
 
-            return View(bankAccount);
+            return View(bankAccount);*/
         }
 
         // GET: BankAccounts/Create
