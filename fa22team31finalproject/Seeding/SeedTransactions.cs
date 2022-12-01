@@ -26,8 +26,7 @@ namespace fa22team31finalproject.Seeding
                 TransactionNumber = 1,
                 AppUser = db.Users.FirstOrDefault(u => u.UserName == "cbaker@freezing.co.uk"),
                 TransactionType = TransactionType.Deposit,
-                ToAccount = 2290000021,
-                FromAccount = null,
+                BankAccount = db.Accounts.FirstOrDefault(u => u.AccountNumber == 2290000021),
                 TransactionAmount = 4000.00m,
                 TransactionDate = new DateTime(2022, 1, 15),
                 TransactionApproved = TransactionApproved.Yes,
@@ -41,8 +40,7 @@ namespace fa22team31finalproject.Seeding
                 TransactionNumber = 2,
                 AppUser = db.Users.FirstOrDefault(u => u.UserName == "cbaker@freezing.co.uk"),
                 TransactionType = TransactionType.Deposit,
-                ToAccount = 2290000022,
-                FromAccount = null,
+                BankAccount = db.Accounts.FirstOrDefault(u => u.AccountNumber == 2290000022),
                 TransactionAmount = 2200.00m,
                 TransactionDate = new DateTime(2022, 3, 5),
                 TransactionApproved = TransactionApproved.Yes,
@@ -56,8 +54,7 @@ namespace fa22team31finalproject.Seeding
                 TransactionNumber = 3,
                 AppUser = db.Users.FirstOrDefault(u => u.UserName == "cbaker@freezing.co.uk"),
                 TransactionType = TransactionType.Deposit,
-                ToAccount = 2290000022,
-                FromAccount = null,
+                BankAccount = db.Accounts.FirstOrDefault(u => u.AccountNumber == 2290000022),
                 TransactionAmount = 6000.00m,
                 TransactionDate = new DateTime(2022, 3, 9),
                 TransactionApproved = TransactionApproved.Yes,
@@ -71,8 +68,20 @@ namespace fa22team31finalproject.Seeding
                 TransactionNumber = 4,
                 AppUser = db.Users.FirstOrDefault(u => u.UserName == "cbaker@freezing.co.uk"),
                 TransactionType = TransactionType.Transfer,
-                ToAccount = 2290000021,
-                FromAccount = 2290000022,
+                BankAccount = db.Accounts.FirstOrDefault(u => u.AccountNumber == 2290000021),
+                TransactionAmount = 1200.00m,
+                TransactionDate = new DateTime(2022, 4, 14),
+                TransactionApproved = TransactionApproved.Yes,
+                TransactionComment = "Jacob Foster has a GPA of 1.92. LOL",
+
+            });
+
+            AllTransactions.Add(new Transaction
+            {
+                TransactionNumber = 4,
+                AppUser = db.Users.FirstOrDefault(u => u.UserName == "cbaker@freezing.co.uk"),
+                TransactionType = TransactionType.Transfer,                
+                BankAccount = db.Accounts.FirstOrDefault(u => u.AccountNumber == 2290000022),
                 TransactionAmount = 1200.00m,
                 TransactionDate = new DateTime(2022, 4, 14),
                 TransactionApproved = TransactionApproved.Yes,
@@ -86,8 +95,7 @@ namespace fa22team31finalproject.Seeding
                 TransactionNumber = 5,
                 AppUser = db.Users.FirstOrDefault(u => u.UserName == "cbaker@freezing.co.uk"),
                 TransactionType = TransactionType.Withdraw,
-                ToAccount = null,
-                FromAccount = 2290000022,
+                BankAccount = db.Accounts.FirstOrDefault(u => u.AccountNumber == 2290000022),                
                 TransactionAmount = 352.00m,
                 TransactionDate = new DateTime(2022, 4, 21),
                 TransactionApproved = TransactionApproved.Yes,
@@ -101,8 +109,7 @@ namespace fa22team31finalproject.Seeding
                 TransactionNumber = 6,
                 AppUser = db.Users.FirstOrDefault(u => u.UserName == "cbaker@freezing.co.uk"),
                 TransactionType = TransactionType.Deposit,
-                ToAccount = 2290000023,
-                FromAccount = null,
+                BankAccount = db.Accounts.FirstOrDefault(u => u.AccountNumber == 2290000023),
                 TransactionAmount = 1500.00m,
                 TransactionDate = new DateTime(2022, 3, 8),
                 TransactionApproved = TransactionApproved.Yes,
@@ -116,8 +123,20 @@ namespace fa22team31finalproject.Seeding
                 TransactionNumber = 7,
                 AppUser = db.Users.FirstOrDefault(u => u.UserName == "cbaker@freezing.co.uk"),
                 TransactionType = TransactionType.Transfer,
-                ToAccount = 2290000021,
-                FromAccount = 2290000024,
+                BankAccount = db.Accounts.FirstOrDefault(u => u.AccountNumber == 2290000021),
+                TransactionAmount = 3000.00m,
+                TransactionDate = new DateTime(2022, 4, 20),
+                TransactionApproved = TransactionApproved.Yes,
+                TransactionComment = "",
+
+            });
+
+            AllTransactions.Add(new Transaction
+            {
+                TransactionNumber = 7,
+                AppUser = db.Users.FirstOrDefault(u => u.UserName == "cbaker@freezing.co.uk"),
+                TransactionType = TransactionType.Transfer,
+                BankAccount = db.Accounts.FirstOrDefault(u => u.AccountNumber == 2290000024),
                 TransactionAmount = 3000.00m,
                 TransactionDate = new DateTime(2022, 4, 20),
                 TransactionApproved = TransactionApproved.Yes,
@@ -131,8 +150,7 @@ namespace fa22team31finalproject.Seeding
                 TransactionNumber = 8,
                 AppUser = db.Users.FirstOrDefault(u => u.UserName == "cbaker@freezing.co.uk"),
                 TransactionType = TransactionType.Withdraw,
-                ToAccount = null,
-                FromAccount = 2290000021,
+                BankAccount = db.Accounts.FirstOrDefault(u => u.AccountNumber == 2290000021),
                 TransactionAmount = 578.12m,
                 TransactionDate = new DateTime(2022, 4, 19),
                 TransactionApproved = TransactionApproved.Yes,
@@ -146,8 +164,20 @@ namespace fa22team31finalproject.Seeding
                 TransactionNumber = 9,
                 AppUser = db.Users.FirstOrDefault(u => u.UserName == "chaley@thug.com"),
                 TransactionType = TransactionType.Transfer,
-                ToAccount = 2290000025,
-                FromAccount = 2290000026,
+                BankAccount = db.Accounts.FirstOrDefault(u => u.AccountNumber == 2290000025),
+                TransactionAmount = 52.00m,
+                TransactionDate = new DateTime(2022, 4, 29),
+                TransactionApproved = TransactionApproved.Yes,
+                TransactionComment = "",
+
+            });
+
+            AllTransactions.Add(new Transaction
+            {
+                TransactionNumber = 9,
+                AppUser = db.Users.FirstOrDefault(u => u.UserName == "chaley@thug.com"),
+                TransactionType = TransactionType.Transfer,
+                BankAccount = db.Accounts.FirstOrDefault(u => u.AccountNumber == 2290000026),
                 TransactionAmount = 52.00m,
                 TransactionDate = new DateTime(2022, 4, 29),
                 TransactionApproved = TransactionApproved.Yes,
@@ -161,8 +191,7 @@ namespace fa22team31finalproject.Seeding
                 TransactionNumber = 10,
                 AppUser = db.Users.FirstOrDefault(u => u.UserName == "ss34@ggmail.com"),
                 TransactionType = TransactionType.Withdraw,
-                ToAccount = null,
-                FromAccount = 2290000020,
+                BankAccount = db.Accounts.FirstOrDefault(u => u.AccountNumber == 2290000020),
                 TransactionAmount = 4000.00m,
                 TransactionDate = new DateTime(2022, 3, 7),
                 TransactionApproved = TransactionApproved.Yes,
@@ -176,8 +205,7 @@ namespace fa22team31finalproject.Seeding
                 TransactionNumber = 11,
                 AppUser = db.Users.FirstOrDefault(u => u.UserName == "liz@ggmail.com"),
                 TransactionType = TransactionType.Deposit,
-                ToAccount = 2290000016,
-                FromAccount = null,
+                BankAccount = db.Accounts.FirstOrDefault(u => u.AccountNumber == 2290000016),
                 TransactionAmount = 6000.00m,
                 TransactionDate = new DateTime(2022, 5, 1),
                 TransactionApproved = TransactionApproved.No,
@@ -222,8 +250,7 @@ namespace fa22team31finalproject.Seeding
                         dbTransaction.TransactionNumber = seedTransaction.TransactionNumber;
                         dbTransaction.AppUser = seedTransaction.AppUser;
                         dbTransaction.TransactionType = seedTransaction.TransactionType;
-                        dbTransaction.ToAccount = seedTransaction.ToAccount;
-                        dbTransaction.FromAccount = seedTransaction.FromAccount;
+                        dbTransaction.BankAccount = seedTransaction.BankAccount;
                         dbTransaction.TransactionAmount = seedTransaction.TransactionAmount;
                         dbTransaction.TransactionDate = seedTransaction.TransactionDate;
                         dbTransaction.TransactionApproved = seedTransaction.TransactionApproved;
