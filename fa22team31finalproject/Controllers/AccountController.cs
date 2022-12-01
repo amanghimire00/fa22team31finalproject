@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using fa22team31finalproject.DAL;
 using fa22team31finalproject.Models;
 using fa22team31finalproject.Utilities;
+using System.Net.Mail;
 
 
 namespace fa22team31finalproject.Controllers
@@ -78,16 +79,18 @@ namespace fa22team31finalproject.Controllers
                 //add the user to a different role - just specify the role name.
                 RoleName = "Customer"
             };
-
             //This code uses the AddUser utility to create a new user with the specified password
             IdentityResult result = await Utilities.AddUser.AddUserWithRoleAsync(aum, _userManager, _context);
+            
 
             if (result.Succeeded) //everything is okay
             {
                 //NOTE: This code logs the user into the account that they just created
                 //You may or may not want to log a user in directly after they register - check
                 //the business rules!
+
                 Microsoft.AspNetCore.Identity.SignInResult result2 = await _signInManager.PasswordSignInAsync(rvm.Email, rvm.Password, false, lockoutOnFailure: false);
+                //IdentityResult result3 =  EmailMessaging.SendEmail(rvm.Email, mm.Body, mm.Subject);
 
                 //Send the user to the home page
                 return RedirectToAction("Index", "Home");
@@ -226,6 +229,59 @@ namespace fa22team31finalproject.Controllers
                 //send the user back to the change password page to try again
                 return View(cpvm);
             }
+        }
+
+
+        //Logic for change name
+        // GET: /Account/ChangeNAme
+        public async Task<IActionResult> Edit()
+        {
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+
+            if (user == null)
+            {
+                return View("Error", new String[] { "This account does not exist!" });
+            }
+
+            return View(user);
+
+        }
+
+        // POST: /Account/ChangeName
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(AppUser user)
+        {
+            //if user forgot a field, send them back to
+            //change password page to try again
+            if (ModelState.IsValid == false)
+            {
+                return View(user);
+            }
+
+            
+                AppUser userdb = await _userManager.FindByNameAsync(User.Identity.Name);
+
+
+                userdb.FirstName = user.FirstName;
+                userdb.LastName = user.LastName;
+                userdb.MI = user.MI;
+                userdb.Address = user.Address;
+                userdb.City = user.City;
+                userdb.State = user.State;
+                userdb.ZipCode = user.ZipCode;
+                userdb.PhoneNumber = user.PhoneNumber;
+
+
+                //save the changes
+                _context.Update(userdb);
+                await _context.SaveChangesAsync();
+
+
+
+            return View("Details", "Account");
+
         }
 
         // POST: /Account/LogOff
