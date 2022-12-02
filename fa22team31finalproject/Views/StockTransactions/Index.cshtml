@@ -12,17 +12,24 @@
 <table class="table">
     <thead>
         <tr
+
+            <th></th>
+            <th>PortfolioOwner</th>
             <th>
-                @Html.DisplayNameFor(model => model.Stock.StockName)
+                @Html.DisplayNameFor(model => model.StockTransactionType)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SharesQuantity)
+                @Html.DisplayNameFor(model => model.StockPortfolio.AccountNumber)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.PurchasePrice)
             </th>
+
             <th>
-                @Html.DisplayNameFor(model => model.StockTransactionType)
+                @Html.DisplayNameFor(model => model.SharesQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stock.TickerSymbol)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.StockPurchaseDate)
@@ -35,19 +42,27 @@
 
         <tr>
             <td>
-               @Html.DisplayFor(modelItem => item.Stock.StockName)
+                    @Html.DisplayFor(modelItem => item.AppUser.UserName)
             </td>
+
             <td>
-                @Html.DisplayFor(modelItem => item.SharesQuantity)
+                @Html.DisplayFor(modelItem => item.StockTransactionType)
             </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StockPortfolio.AccountNumber)
+                </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PurchasePrice)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.StockTransactionType)
+                @Html.DisplayFor(modelItem => item.SharesQuantity)
+            </td>
+
+            <td>
+                    @Html.DisplayFor(modelItem => item.Stock.TickerSymbol)
             </td>
             <td>
-                    @Html.DisplayFor(modelItem => item.StockPurchaseDate)
+                @Html.DisplayFor(modelItem => item.StockPurchaseDate)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.StockTransactionID">Edit</a> |

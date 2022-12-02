@@ -24,16 +24,19 @@ namespace fa22team31finalproject.Controllers
         // GET: Disputes
         public async Task<IActionResult> Index()
         {
+            var query = from t in _context.Users
+                        select t;
+            List<Dispute> disputes = new List<Dispute>();
             if (User.IsInRole("Admin") || User.IsInRole("Employee"))
             {
-                return View(await _context.Disputes.Include(u => u.Transaction).ThenInclude(t => t.AppUser).ToListAsync());
+                disputes = (await _context.Disputes.Include(u => u.Transaction).ThenInclude(t => t.AppUser).ToListAsync());
             }
             else
             {
-                return View(await _context.Disputes.Include(u => u.Transaction).ThenInclude(t => t.AppUser).Where(r => r.AppUser.UserName == User.Identity.Name).ToListAsync());
+                disputes = (await _context.Disputes.Include(u => u.Transaction).ThenInclude(t => t.AppUser).Where(r => r.AppUser.UserName == User.Identity.Name).ToListAsync());
 
             }
-
+            return View(disputes);
         }
 
         // GET: Disputes/Details/5

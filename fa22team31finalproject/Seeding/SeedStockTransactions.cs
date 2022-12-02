@@ -72,7 +72,7 @@ namespace fa22team31finalproject.Seeding
                     intStockTransactionID = seedStockTransaction.StockTransactionID;
 
                     //try to find the artist in the database
-                    StockTransaction dbStockTransaction = db.StockTransactions.FirstOrDefault(c => c.BankAccount == seedStockTransaction.BankAccount);
+                    StockTransaction dbStockTransaction = db.StockTransactions.FirstOrDefault(c => c.Stock.TickerSymbol == seedStockTransaction.Stock.TickerSymbol);
                     //Change db.Accounts to db.StockTransactions post migration
 
                     //if the artist isn't in the database, dbStockTransaction will be null

@@ -39,7 +39,7 @@ namespace fa22team31finalproject.Seeding
 
             //create a counter and flag to help with debugging
             int intDisputeID = 0;
-            decimal decCorrectAmount = 0;
+            int intTransactionNumber = 0;
 
             //we are now going to add the data to the database
             //this could cause errors, so we need to put this code
@@ -51,10 +51,10 @@ namespace fa22team31finalproject.Seeding
                 {
                     //updates the counters to get info on where the problem is
                     intDisputeID = seedDispute.DisputeID;
-                    decCorrectAmount = seedDispute.CorrectAmount;
+                    intTransactionNumber = seedDispute.Transaction.TransactionNumber;
 
                     //try to find the artist in the database
-                    Dispute dbDispute = db.Disputes.FirstOrDefault(c => c.DisputeID == seedDispute.DisputeID);
+                    Dispute dbDispute = db.Disputes.FirstOrDefault(c => c.Transaction.TransactionNumber == seedDispute.Transaction.TransactionNumber);
                     //Change db.Accounts to db.Disputes post migration
 
                     //if the artist isn't in the database, dbDispute will be null
@@ -88,7 +88,7 @@ namespace fa22team31finalproject.Seeding
                 StringBuilder msg = new StringBuilder();
 
                 msg.Append("There was an error adding the ");
-                msg.Append(decCorrectAmount);
+                msg.Append(intTransactionNumber);
                 msg.Append(" Correct Amount (DisputeID = ");
                 msg.Append(intDisputeID);
                 msg.Append(")");

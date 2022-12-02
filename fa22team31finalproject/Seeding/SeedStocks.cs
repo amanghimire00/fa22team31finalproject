@@ -239,7 +239,7 @@ namespace fa22team31finalproject.Seeding
                     //try to find the artistRating in the database based on whether there already exists and artist review with
                     //the same artist name and the same appuser's first + last name associated with it
                     Stock dbStock = db.Stocks.FirstOrDefault(c => (c.TickerSymbol == seedStock.TickerSymbol) &&
-                                                                                       (c.StockName == seedStock.StockName)
+                                                                                       (c.StockID == seedStock.StockID)
                                                                                   );
 
                     //if the artistRating isn't in the database, dbStock will be null
