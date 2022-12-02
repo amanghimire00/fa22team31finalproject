@@ -231,86 +231,66 @@ namespace fa22team31finalproject.Controllers
             }
         }
 
-        public ActionResult ChangeName()
-        {
-            return View();
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        /*public async Task<ActionResult> ChangeName(ChangeNameViewModel cnvm)
-        {
-            //if user forgot a field, send them back to
-            //change password page to try again
-            if (ModelState.IsValid == false)
-            {
-                return View(cnvm);
-            }
-
-            //Find the logged in user using the UserManager
-            AppUser userLoggedIn = await _userManager.FindByNameAsync(User.Identity.Name);
-
-            //Attempt to change the password using the UserManager
-            var result = await _userManager.ChangeNameAsync(userLoggedIn, cnvm.FirstName, cnvm.MI, cnvm.LastName);
-
-            //if the attempt to change the password worked
-            if (result.Succeeded)
-            {
-                //sign in the user with the new password
-                await _signInManager.SignInAsync(userLoggedIn, isPersistent: false);
-
-                //send the user back to the home page
-                return RedirectToAction("Index", "Home");
-            }
-            else //attempt to change the password didn't work
-            {
-                //Add all the errors from the result to the model state
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError("", error.Description);
-                }
-
-                //send the user back to the change password page to try again
-                return View(cnvm);
-            }
-        }*/
-
 
         //Logic for change name
         // GET: /Account/ChangeNAme
-        public async Task<IActionResult> Edit()
+        public ActionResult ChangeName()
         {
-            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
 
-
-            if (user == null)
-            {
-                return View("Error", new String[] { "This account does not exist!" });
-            }
-
-            return View(user);
+            return View();
 
         }
 
-        // POST: /Account/ChangeName
+        //POST Change Name
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(AppUser user)
+        public async Task<IActionResult> ChangeName(ChangeNameViewModel cnvm)
         {
             //if user forgot a field, send them back to
             //change password page to try again
             if (ModelState.IsValid == false)
             {
-                return View(user);
+                return View(cnvm);
+            }
+            AppUser userdb = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            userdb.FirstName = cnvm.FirstName;
+            userdb.MI = cnvm.MI;
+            userdb.LastName = cnvm.LastName;
+
+            //save the changes
+            _context.Update(userdb);
+            await _context.SaveChangesAsync();
+
+
+
+            return RedirectToAction("Index", "Home");
+
+        }
+
+        //Logic for change address
+        public ActionResult ChangeAddress()
+        {
+            return View();
+        }
+
+        // POST: /Account/Change address
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangeAddress(ChangeAddressViewModel cavm)
+        {
+            //if user forgot a field, send them back to
+            //change password page to try again
+            if (ModelState.IsValid == false)
+            {
+                return View(cavm);
             }
                 AppUser userdb = await _userManager.FindByNameAsync(User.Identity.Name);
-                userdb.FirstName = user.FirstName;
-                userdb.LastName = user.LastName;
-                userdb.MI = user.MI;
-                userdb.Address = user.Address;
-                userdb.City = user.City;
-                userdb.State = user.State;
-                userdb.ZipCode = user.ZipCode;
-                userdb.PhoneNumber = user.PhoneNumber;
+
+                userdb.Address = cavm.Address;
+                userdb.City = cavm.City;
+                userdb.State = cavm.State;
+                userdb.ZipCode = cavm.ZipCode;
 
                 //save the changes
                 _context.Update(userdb);
@@ -318,7 +298,37 @@ namespace fa22team31finalproject.Controllers
 
 
 
-            return View("Details", "Account");
+            return RedirectToAction("Index", "Home");
+
+        }
+
+        //logic for change phone number
+        public ActionResult ChangePhoneNumber()
+        {
+            return View();
+        }
+
+        // POST: /Account/Change phone number
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangePhoneNumber(ChangePhoneNumberViewModel cpm)
+        {
+            //if user forgot a field, send them back to
+            //change password page to try again
+            if (ModelState.IsValid == false)
+            {
+                return View(cpm);
+            }
+            AppUser userdb = await _userManager.FindByNameAsync(User.Identity.Name);
+            userdb.PhoneNumber = cpm.PhoneNumber;
+
+            //save the changes
+            _context.Update(userdb);
+            await _context.SaveChangesAsync();
+
+
+
+            return RedirectToAction("Index", "Home");
 
         }
 
