@@ -146,6 +146,7 @@ namespace fa22team31finalproject.Controllers
         }
 
         // GET: Transactions/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Transactions == null)
@@ -164,6 +165,7 @@ namespace fa22team31finalproject.Controllers
         }
 
         // POST: Transactions/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)

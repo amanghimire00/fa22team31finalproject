@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using fa22team31finalproject.DAL;
 using fa22team31finalproject.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace fa22team31finalproject.Controllers
 {
@@ -117,6 +119,7 @@ namespace fa22team31finalproject.Controllers
         }
 
         // GET: TransactionDetails/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.TransactionDetail == null)
@@ -135,6 +138,7 @@ namespace fa22team31finalproject.Controllers
         }
 
         // POST: TransactionDetails/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

@@ -56,8 +56,8 @@ namespace fa22team31finalproject.Controllers
             }
 
             BankAccount ba = await _context.Accounts
-                .Include(r => r.Transaction)
-                .ThenInclude(r => r.TransactionDetails)
+                //Include(r => r.Transactions)
+               // .ThenInclude(r => r.TransactionDetails)
                 .Include(r => r.AppUser)
                 .FirstOrDefaultAsync(m => m.BankAccountID == id);
 
@@ -167,6 +167,7 @@ namespace fa22team31finalproject.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: BankAccounts/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -184,7 +185,7 @@ namespace fa22team31finalproject.Controllers
 
             return View(bankAccount);
         }
-
+        [Authorize(Roles = "Admin")]
         // POST: BankAccounts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

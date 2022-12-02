@@ -7,9 +7,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using fa22team31finalproject.DAL;
 using fa22team31finalproject.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace fa22team31finalproject.Controllers
+
 {
+    [Authorize(Roles = "Admin")]
     public class StockTypesController : Controller
     {
         private readonly AppDbContext _context;

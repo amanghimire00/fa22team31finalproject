@@ -15,16 +15,13 @@
             <th>
                 @Html.DisplayNameFor(model => model.StockName)
             </th>
+            <th>@Html.DisplayNameFor(model => model.StockType.StockTypeName)</th>
             <th>
                 @Html.DisplayNameFor(model => model.TickerSymbol)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.StockPrice)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SharesQuantity)
-            </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -33,14 +30,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.StockName)
             </td>
+                <td>@Html.DisplayFor(modelItem => item.StockType.StockTypeName)</td>
             <td>
                 @Html.DisplayFor(modelItem => item.TickerSymbol)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.StockPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SharesQuantity)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.StockID">Edit</a> |

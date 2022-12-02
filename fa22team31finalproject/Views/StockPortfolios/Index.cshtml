@@ -15,6 +15,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.AccountNumber)
             </th>
+            <th>Customer</th>
             <th>
                 @Html.DisplayNameFor(model => model.AccountName)
             </th>
@@ -31,6 +32,9 @@
                 @Html.DisplayFor(modelItem => item.AccountNumber)
             </td>
             <td>
+                    @Html.DisplayFor(modelItem => item.AppUser.UserName)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.AccountName)
             </td>
             <td>
@@ -39,8 +43,7 @@
 
             <td>
                 <a asp-action="Edit" asp-route-id="@item.StockPortfolioID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.StockPortfolioID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.StockPortfolioID">Delete</a>
+                <a asp-action="Details" asp-route-id="@item.StockPortfolioID">Details</a>
             </td>
         </tr>
 }

@@ -19,24 +19,31 @@
                     <li class="nav-item">
                         <a asp-controller="Home" asp-action="Index" class="nav-link">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a asp-controller="BankAccounts" asp-action="Index" class="nav-link">Account Summary</a>
-                    </li>
+                    
 
                     @if (User.Identity.IsAuthenticated)
                     {
+                        <li class="nav-item">
+                            <a asp-controller="BankAccounts" asp-action="Index" class="nav-link">Account Summary</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="StockPortfolios" asp-action="Index" class="nav-link">Stock Portfolios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="Stocks" asp-action="Index" class="nav-link">Stock</a>
+                        </li>
                         <li class="nav-item">
                             <a asp-controller="Transactions" asp-action="Index" class="nav-link">Transactions</a>
                         </li>
 
                         if (User.IsInRole("Admin"))
                         {
-                            <li class="nav-item">
-                                <a asp-controller="Departments" asp-action="Index" class="nav-link">Departments</a>
-                            </li>
 
                             <li class="nav-item">
                                 <a asp-controller="RoleAdmin" asp-action="Index" class="nav-link">Manage Users</a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="StockTypes" asp-action="Index" class="nav-link">Stock Type</a>
                             </li>
                         }
 

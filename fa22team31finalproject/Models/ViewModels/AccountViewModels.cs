@@ -113,6 +113,19 @@ namespace fa22team31finalproject.Models
         [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
+    public class ChangeNameViewModel
+    {
+        [Required]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Display(Name = "Middle Initial")]
+        public string MI { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+    }
 
     //NOTE: This is the view model used to display basic user information
     //on the index page

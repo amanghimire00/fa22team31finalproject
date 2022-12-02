@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using fa22team31finalproject.DAL;
 using fa22team31finalproject.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace fa22team31finalproject.Controllers
 {
@@ -22,18 +24,22 @@ namespace fa22team31finalproject.Controllers
         // GET: Stocks
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Stocks.ToListAsync());
+            var query = from d in _context.StockTypes
+                        select d;
+            return View(await _context.Stocks.Include(d => d.StockType).ToListAsync());
         }
 
         // GET: Stocks/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            var query = from d in _context.StockTypes
+                        select d;
             if (id == null || _context.Stocks == null)
             {
                 return NotFound();
             }
 
-            var stock = await _context.Stocks
+            var stock = await _context.Stocks.Include(d => d.StockType)
                 .FirstOrDefaultAsync(m => m.StockID == id);
             if (stock == null)
             {
@@ -117,6 +123,7 @@ namespace fa22team31finalproject.Controllers
         }
 
         // GET: Stocks/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Stocks == null)
@@ -135,6 +142,7 @@ namespace fa22team31finalproject.Controllers
         }
 
         // POST: Stocks/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

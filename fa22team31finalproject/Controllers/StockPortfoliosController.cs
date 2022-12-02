@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using fa22team31finalproject.DAL;
 using fa22team31finalproject.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace fa22team31finalproject.Controllers
 {
@@ -22,7 +24,7 @@ namespace fa22team31finalproject.Controllers
         // GET: StockPortfolios
         public async Task<IActionResult> Index()
         {
-              return View(await _context.StockPortfolios.ToListAsync());
+              return View(await _context.StockPortfolios.Include(d => d.AppUser).ToListAsync());
         }
 
         // GET: StockPortfolios/Details/5
@@ -33,7 +35,7 @@ namespace fa22team31finalproject.Controllers
                 return NotFound();
             }
 
-            var stockPortfolio = await _context.StockPortfolios
+            var stockPortfolio = await _context.StockPortfolios.Include(d => d.AppUser)
                 .FirstOrDefaultAsync(m => m.StockPortfolioID == id);
             if (stockPortfolio == null)
             {
@@ -117,6 +119,7 @@ namespace fa22team31finalproject.Controllers
         }
 
         // GET: StockPortfolios/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.StockPortfolios == null)
@@ -135,6 +138,7 @@ namespace fa22team31finalproject.Controllers
         }
 
         // POST: StockPortfolios/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
