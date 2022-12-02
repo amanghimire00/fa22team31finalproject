@@ -231,8 +231,8 @@ namespace fa22team31finalproject.Seeding
 
                     //try to find the artistRating in the database based on whether there already exists and artist review with
                     //the same artist name and the same appuser's first + last name associated with it
-                    Transaction dbTransaction = db.Transactions.FirstOrDefault(c => (c.TransactionID== seedTransaction.TransactionID) |
-                                                                                       (c.TransactionNumber == seedTransaction.TransactionNumber)
+                    Transaction dbTransaction = db.Transactions.FirstOrDefault(c => (c.TransactionID== seedTransaction.TransactionID) &&
+                                                                                       (c.TransactionType == seedTransaction.TransactionType)
                                                                                   );
 
                     //if the artistRating isn't in the database, dbTransaction will be null

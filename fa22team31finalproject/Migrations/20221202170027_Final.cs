@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace fa22team31finalproject.Migrations
 {
-    public partial class setup0 : Migration
+    public partial class Final : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -206,6 +206,27 @@ namespace fa22team31finalproject.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "StockPortfolios",
+                columns: table => new
+                {
+                    StockPortfolioID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    AccountNumber = table.Column<long>(type: "bigint", nullable: false),
+                    AccountName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CashBalance = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    AppUserForeignKey = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_StockPortfolios", x => x.StockPortfolioID);
+                    table.ForeignKey(
+                        name: "FK_StockPortfolios_AspNetUsers_AppUserForeignKey",
+                        column: x => x.AppUserForeignKey,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Stocks",
                 columns: table => new
                 {
@@ -240,7 +261,10 @@ namespace fa22team31finalproject.Migrations
                     TransactionApproved = table.Column<int>(type: "int", nullable: false),
                     TransactionAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     BankAccountID = table.Column<int>(type: "int", nullable: true),
-                    AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    ToAccount = table.Column<long>(type: "bigint", nullable: true),
+                    FromAccount = table.Column<long>(type: "bigint", nullable: true),
+                    StockPortfolioID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -255,6 +279,51 @@ namespace fa22team31finalproject.Migrations
                         column: x => x.AppUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Transactions_StockPortfolios_StockPortfolioID",
+                        column: x => x.StockPortfolioID,
+                        principalTable: "StockPortfolios",
+                        principalColumn: "StockPortfolioID");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "StockTransactions",
+                columns: table => new
+                {
+                    StockTransactionID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SharesQuantity = table.Column<int>(type: "int", nullable: false),
+                    PurchasePrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    StockTransactionType = table.Column<int>(type: "int", nullable: false),
+                    StockPurchaseDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    BankAccountID = table.Column<int>(type: "int", nullable: true),
+                    StockID = table.Column<int>(type: "int", nullable: true),
+                    StockPortfolioID = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_StockTransactions", x => x.StockTransactionID);
+                    table.ForeignKey(
+                        name: "FK_StockTransactions_Accounts_BankAccountID",
+                        column: x => x.BankAccountID,
+                        principalTable: "Accounts",
+                        principalColumn: "BankAccountID");
+                    table.ForeignKey(
+                        name: "FK_StockTransactions_AspNetUsers_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_StockTransactions_StockPortfolios_StockPortfolioID",
+                        column: x => x.StockPortfolioID,
+                        principalTable: "StockPortfolios",
+                        principalColumn: "StockPortfolioID");
+                    table.ForeignKey(
+                        name: "FK_StockTransactions_Stocks_StockID",
+                        column: x => x.StockID,
+                        principalTable: "Stocks",
+                        principalColumn: "StockID");
                 });
 
             migrationBuilder.CreateTable(
@@ -264,43 +333,21 @@ namespace fa22team31finalproject.Migrations
                     DisputeID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DisputeStatus = table.Column<int>(type: "int", nullable: false),
-                    TransactionNum = table.Column<int>(type: "int", nullable: false),
                     CorrectAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     DisputeDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     TransactionID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Disputes", x => x.DisputeID);
                     table.ForeignKey(
-                        name: "FK_Disputes_Transactions_TransactionID",
-                        column: x => x.TransactionID,
-                        principalTable: "Transactions",
-                        principalColumn: "TransactionID");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "StockPortfolios",
-                columns: table => new
-                {
-                    StockPortfolioID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    AccountNumber = table.Column<long>(type: "bigint", nullable: false),
-                    AccountName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CashBalance = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    AppUserForeignKey = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    TransactionID = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_StockPortfolios", x => x.StockPortfolioID);
-                    table.ForeignKey(
-                        name: "FK_StockPortfolios_AspNetUsers_AppUserForeignKey",
-                        column: x => x.AppUserForeignKey,
+                        name: "FK_Disputes_AspNetUsers_AppUserId",
+                        column: x => x.AppUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_StockPortfolios_Transactions_TransactionID",
+                        name: "FK_Disputes_Transactions_TransactionID",
                         column: x => x.TransactionID,
                         principalTable: "Transactions",
                         principalColumn: "TransactionID");
@@ -335,47 +382,6 @@ namespace fa22team31finalproject.Migrations
                         column: x => x.TransactionID,
                         principalTable: "Transactions",
                         principalColumn: "TransactionID");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "StockTransactions",
-                columns: table => new
-                {
-                    StockTransactionID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    SharesQuantity = table.Column<int>(type: "int", nullable: false),
-                    PurchasePrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    StockTransactionType = table.Column<int>(type: "int", nullable: false),
-                    StickPurchaseDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    StockTicker = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    BankAccountID = table.Column<int>(type: "int", nullable: true),
-                    StockID = table.Column<int>(type: "int", nullable: true),
-                    StockPortfolioID = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_StockTransactions", x => x.StockTransactionID);
-                    table.ForeignKey(
-                        name: "FK_StockTransactions_Accounts_BankAccountID",
-                        column: x => x.BankAccountID,
-                        principalTable: "Accounts",
-                        principalColumn: "BankAccountID");
-                    table.ForeignKey(
-                        name: "FK_StockTransactions_AspNetUsers_AppUserId",
-                        column: x => x.AppUserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_StockTransactions_StockPortfolios_StockPortfolioID",
-                        column: x => x.StockPortfolioID,
-                        principalTable: "StockPortfolios",
-                        principalColumn: "StockPortfolioID");
-                    table.ForeignKey(
-                        name: "FK_StockTransactions_Stocks_StockID",
-                        column: x => x.StockID,
-                        principalTable: "Stocks",
-                        principalColumn: "StockID");
                 });
 
             migrationBuilder.CreateIndex(
@@ -423,6 +429,11 @@ namespace fa22team31finalproject.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Disputes_AppUserId",
+                table: "Disputes",
+                column: "AppUserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Disputes_TransactionID",
                 table: "Disputes",
                 column: "TransactionID");
@@ -433,11 +444,6 @@ namespace fa22team31finalproject.Migrations
                 column: "AppUserForeignKey",
                 unique: true,
                 filter: "[AppUserForeignKey] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_StockPortfolios_TransactionID",
-                table: "StockPortfolios",
-                column: "TransactionID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Stocks_StockTypeId",
@@ -488,6 +494,11 @@ namespace fa22team31finalproject.Migrations
                 name: "IX_Transactions_BankAccountID",
                 table: "Transactions",
                 column: "BankAccountID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Transactions_StockPortfolioID",
+                table: "Transactions",
+                column: "StockPortfolioID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -517,9 +528,6 @@ namespace fa22team31finalproject.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "StockPortfolios");
-
-            migrationBuilder.DropTable(
                 name: "Stocks");
 
             migrationBuilder.DropTable(
@@ -533,6 +541,9 @@ namespace fa22team31finalproject.Migrations
 
             migrationBuilder.DropTable(
                 name: "Accounts");
+
+            migrationBuilder.DropTable(
+                name: "StockPortfolios");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
