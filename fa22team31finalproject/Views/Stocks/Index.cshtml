@@ -6,9 +6,13 @@
 
 <h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
+
 <table class="table">
     <thead>
         <tr>
@@ -39,8 +43,12 @@
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.StockID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.StockID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.StockID">Delete</a>
+                <a asp-action="Details" asp-route-id="@item.StockID">Details</a> 
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Delete" asp-route-id="@item.StockID">| Delete</a>
+                    }
+                
             </td>
         </tr>
 }

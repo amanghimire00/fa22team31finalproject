@@ -13,6 +13,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Transaction.TransactionNumber)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.DisputeStatus)
             </th>
             <th>
@@ -28,6 +31,9 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.Transaction.TransactionNumber)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.DisputeStatus)
             </td>
 
@@ -39,8 +45,12 @@
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.DisputeID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.DisputeID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.DisputeID">Delete</a>
+                <a asp-action="Details" asp-route-id="@item.DisputeID">Details</a> 
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Delete" asp-route-id="@item.DisputeID">| Delete</a>
+                    }
+                
             </td>
         </tr>
 }

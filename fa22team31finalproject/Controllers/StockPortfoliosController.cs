@@ -12,6 +12,7 @@ using System.Data;
 
 namespace fa22team31finalproject.Controllers
 {
+    [Authorize]
     public class StockPortfoliosController : Controller
     {
         private readonly AppDbContext _context;
@@ -24,7 +25,16 @@ namespace fa22team31finalproject.Controllers
         // GET: StockPortfolios
         public async Task<IActionResult> Index()
         {
-              return View(await _context.StockPortfolios.Include(d => d.AppUser).ToListAsync());
+            List<StockPortfolio> stockPortfolios = new List<StockPortfolio>();
+            if (User.IsInRole("Admin"))
+            {
+                stockPortfolios = _context.StockPortfolios.ToList();
+            }
+            else
+            {
+                stockPortfolios = _context.StockPortfolios.Where(r => r.AppUser.UserName == User.Identity.Name).Include(d => d.AppUser).ToList();
+            }
+            return View(stockPortfolios);
         }
 
         // GET: StockPortfolios/Details/5

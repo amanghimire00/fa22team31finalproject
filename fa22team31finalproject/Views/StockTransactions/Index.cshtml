@@ -44,8 +44,11 @@
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.StockTransactionID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.StockTransactionID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.StockTransactionID">Delete</a>
+                <a asp-action="Details" asp-route-id="@item.StockTransactionID">Details</a> 
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Delete" asp-route-id="@item.StockTransactionID">| Delete</a>
+                    }
             </td>
         </tr>
 }

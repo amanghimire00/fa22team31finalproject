@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace fa22team31finalproject.Controllers
 {
-
+    [Authorize]
     public class BankAccountsController : Controller
     {
         private readonly AppDbContext _context;
@@ -56,8 +56,6 @@ namespace fa22team31finalproject.Controllers
             }
 
             BankAccount ba = await _context.Accounts
-                //Include(r => r.Transactions)
-               // .ThenInclude(r => r.TransactionDetails)
                 .Include(r => r.AppUser)
                 .FirstOrDefaultAsync(m => m.BankAccountID == id);
 

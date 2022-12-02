@@ -12,6 +12,7 @@ using System.Data;
 
 namespace fa22team31finalproject.Controllers
 {
+    [Authorize]
     public class TransactionDetailsController : Controller
     {
         private readonly AppDbContext _context;

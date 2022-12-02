@@ -18,10 +18,13 @@
             @Html.DisplayFor(model => model.TransactionAmount)
         </dd>
     </dl>
+    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="TransactionDetailID" />
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a asp-action="Index">Back to List</a>
+        </form>
+    }
     
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="TransactionDetailID" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
 </div>

@@ -13,6 +13,7 @@ using System.Data;
 
 namespace fa22team31finalproject.Controllers
 {
+    [Authorize]
     public class TransactionsController : Controller
     {
         private readonly AppDbContext _context;
@@ -47,7 +48,7 @@ namespace fa22team31finalproject.Controllers
                 return NotFound();
             }
 
-            var transaction = await _context.Transactions
+            var transaction = await _context.Transactions.Include(d => d.AppUser)
                 .FirstOrDefaultAsync(m => m.TransactionID == id);
             if (transaction == null)
             {

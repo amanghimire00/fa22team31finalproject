@@ -12,6 +12,7 @@ using System.Data;
 
 namespace fa22team31finalproject.Controllers
 {
+    [Authorize]
     public class DisputesController : Controller
     {
         private readonly AppDbContext _context;
@@ -20,11 +21,19 @@ namespace fa22team31finalproject.Controllers
         {
             _context = context;
         }
-
         // GET: Disputes
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Disputes.ToListAsync());
+            if (User.IsInRole("Admin"))
+            {
+                return View(await _context.Disputes.ToListAsync());
+            }
+            else
+            {
+                return View(await _context.Disputes.Where(r => r.AppUser.UserName == User.Identity.Name).ToListAsync());
+
+            }
+
         }
 
         // GET: Disputes/Details/5
@@ -36,6 +45,7 @@ namespace fa22team31finalproject.Controllers
             }
 
             var dispute = await _context.Disputes
+                .Include(t => t.Transaction)
                 .FirstOrDefaultAsync(m => m.DisputeID == id);
             if (dispute == null)
             {
