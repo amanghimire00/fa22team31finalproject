@@ -231,13 +231,22 @@ namespace fa22team31finalproject.Controllers
         {
             //Create a new list of Suppliers and get the list of the suppliers
             //from the database
-            List<BankAccount> allAccounts = _context.Accounts.ToList();
+            List <BankAccount> ba = new List<BankAccount>();
+
+            if (User.IsInRole("Admin") || User.IsInRole("Employee"))
+            {
+                ba = _context.Accounts.Include(u => u.AppUser).ThenInclude(b => b.BankAccount).ToList();
+            }
+            else
+            {
+                ba = _context.Accounts.Include(u => u.AppUser).ThenInclude(b => b.BankAccount).Where(r => r.AppUser.UserName == User.Identity.Name).ToList();
+            }
 
             //Multi-select lists do not require a selection, so you don't need
             //to add a dummy record like you do for select lists
 
             //use the MultiSelectList constructor method to get a new MultiSelectList
-            MultiSelectList mslAllAccounts = new MultiSelectList(allAccounts.OrderBy(d => d.AccountName), "BankAccountID", "AccountName");
+            MultiSelectList mslAllAccounts = new MultiSelectList(ba.OrderBy(d => d.AccountName), "BankAccountID", "AccountName");
 
             //return the MultiSelectList
             return mslAllAccounts;
@@ -247,7 +256,16 @@ namespace fa22team31finalproject.Controllers
         {
             //Create a new list of departments and get the list of the departments
             //from the database
-            List<BankAccount> allAccounts = _context.Accounts.ToList();
+            List<BankAccount> ba = new List<BankAccount>();
+
+            if (User.IsInRole("Admin") || User.IsInRole("Employee"))
+            {
+                ba = _context.Accounts.Include(u => u.AppUser).ThenInclude(b => b.BankAccount).ToList();
+            }
+            else
+            {
+                ba = _context.Accounts.Include(u => u.AppUser).ThenInclude(b => b.BankAccount).Where(r => r.AppUser.UserName == User.Identity.Name).ToList();
+            }
 
             //loop through the list of course departments to find a list of department ids
             //create a list to store the department ids
@@ -260,7 +278,7 @@ namespace fa22team31finalproject.Controllers
             }
 
             //use the MultiSelectList constructor method to get a new MultiSelectList
-            MultiSelectList mslAllAccounts = new MultiSelectList(allAccounts.OrderBy(d => d.AccountName), "BankAccountID", "AccountName", selectedAccountsIDs);
+            MultiSelectList mslAllAccounts = new MultiSelectList(ba.OrderBy(d => d.AccountName), "BankAccountID", "AccountName", selectedAccountsIDs);
 
             //return the MultiSelectList
             return mslAllAccounts;
