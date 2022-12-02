@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace fa22team31finalproject.Models
 {
@@ -35,6 +36,10 @@ namespace fa22team31finalproject.Models
         [DisplayFormat(DataFormatString = "{0:C}")]
         public Decimal TransactionAmount { get; set; }
         public BankAccount BankAccount { get; set; }
+
+        [NotMapped]
+        public List<BankAccount> BankAccounts { get; set; }
+
         public AppUser AppUser { get; set; }
         public List<TransactionDetail> TransactionDetails { get; set; }
         public List<Dispute> Dispute { get; set; }

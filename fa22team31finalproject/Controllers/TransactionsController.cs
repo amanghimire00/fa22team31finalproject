@@ -65,11 +65,13 @@ namespace fa22team31finalproject.Controllers
             {
                 Transaction tran = new Transaction();
                 tran.AppUser = await _userManager.FindByNameAsync(User.Identity.Name);
+                ViewBag.AllAccounts = GetBankAccountSelectList();
                 return View(tran);
             }
             else
             {
                 ViewBag.UserNames = await GetAllBankAccounts();
+                ViewBag.AllAccounts = GetBankAccountSelectList();
                 return View("SelectBankAccountForTransaction");
             }
 
@@ -80,8 +82,15 @@ namespace fa22team31finalproject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TransactionID,TransactionNumber,TransactionType,TransactionDate,TransactionComment,TransactionApproved,TransactionAmount")] Transaction transaction)
+        public async Task<IActionResult> Create([Bind("TransactionID,TransactionNumber,TransactionType,TransactionDate,TransactionComment,TransactionApproved,TransactionAmount")] Transaction transaction, int[] SelectedAccounts)
         {
+
+            if (ModelState.IsValid == false)
+            {
+                ViewBag.AllAccounts = GetBankAccountSelectList();
+                return View(transaction);
+            }
+
             transaction.TransactionNumber = (int)Utilities.GenerateNextTransactionID.GetNextTransactionID(_context);
             transaction.TransactionDate = DateTime.Now;
             //change this if you do extra credit
@@ -92,6 +101,17 @@ namespace fa22team31finalproject.Controllers
 
             _context.Add(transaction);
             await _context.SaveChangesAsync();
+
+            foreach (int accountID in SelectedAccounts)
+            {
+                //find the department associated with that id
+                BankAccount dbAccount = _context.Accounts.Find(accountID);
+
+                //add the department to the course's list of departments and save changes
+                transaction.BankAccounts.Add(dbAccount);
+                _context.SaveChanges();
+            }
+
             return RedirectToAction(nameof(Index), new { transactionNumber = transaction.TransactionNumber });
         }
 
@@ -216,6 +236,45 @@ namespace fa22team31finalproject.Controllers
         {
           return _context.Transactions.Any(e => e.TransactionID == id);
         }
+        private MultiSelectList GetBankAccountSelectList()
+        {
+            //Create a new list of Suppliers and get the list of the suppliers
+            //from the database
+            List<BankAccount> allAccounts = _context.Accounts.ToList();
+
+            //Multi-select lists do not require a selection, so you don't need
+            //to add a dummy record like you do for select lists
+
+            //use the MultiSelectList constructor method to get a new MultiSelectList
+            MultiSelectList mslAllAccounts = new MultiSelectList(allAccounts.OrderBy(d => d.AccountName), "BankAccountID", "AccountName");
+
+            //return the MultiSelectList
+            return mslAllAccounts;
+        }
+
+        private MultiSelectList GetBankAccountSelectList(Transaction transaction)
+        {
+            //Create a new list of departments and get the list of the departments
+            //from the database
+            List<BankAccount> allAccounts = _context.Accounts.ToList();
+
+            //loop through the list of course departments to find a list of department ids
+            //create a list to store the department ids
+            List<Int32> selectedAccountsIDs = new List<Int32>();
+
+            //Loop through the list to find the DepartmentIDs
+            foreach (BankAccount associatedAccount in transaction.BankAccounts)
+            {
+                selectedAccountsIDs.Add(associatedAccount.BankAccountID);
+            }
+
+            //use the MultiSelectList constructor method to get a new MultiSelectList
+            MultiSelectList mslAllAccounts = new MultiSelectList(allAccounts.OrderBy(d => d.AccountName), "BankAccountID", "AccountName", selectedAccountsIDs);
+
+            //return the MultiSelectList
+            return mslAllAccounts;
+        }
+
 
     }
 }
