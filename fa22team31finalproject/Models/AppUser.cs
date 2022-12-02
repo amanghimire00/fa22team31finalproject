@@ -56,5 +56,7 @@ namespace fa22team31finalproject.Models
         public StockPortfolio StockPortfolio { get;  set; }
 
         public List<BankAccount> BankAccount { get; set; }
+
+        public List<Dispute> Disputes { get; set; }
     }
 }

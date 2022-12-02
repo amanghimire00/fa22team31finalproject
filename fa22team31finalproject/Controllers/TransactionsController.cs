@@ -31,11 +31,11 @@ namespace fa22team31finalproject.Controllers
             List<Transaction> transactions = new List<Transaction>();
             if (User.IsInRole("Admin") || User.IsInRole("Employee"))
             {
-                transactions = _context.Transactions.ToList();
+                transactions = _context.Transactions.Include(u => u.AppUser).ThenInclude(b => b.BankAccount).ToList();
             }
             else
             {
-                transactions = _context.Transactions.Where(r => r.AppUser.UserName == User.Identity.Name).ToList();
+                transactions = _context.Transactions.Include(u => u.AppUser).ThenInclude(b => b.BankAccount).Where(r => r.AppUser.UserName == User.Identity.Name).ToList();
             }
             return View(transactions);
         }
@@ -48,7 +48,7 @@ namespace fa22team31finalproject.Controllers
                 return NotFound();
             }
 
-            var transaction = await _context.Transactions.Include(d => d.AppUser)
+            var transaction = await _context.Transactions.Include(d => d.AppUser).ThenInclude(b => b.BankAccount)
                 .FirstOrDefaultAsync(m => m.TransactionID == id);
             if (transaction == null)
             {
