@@ -33,6 +33,15 @@ namespace fa22team31finalproject.Models
         [Range(1, 49999, ErrorMessage = "The number must be atleast one")]
         public Decimal SumofWithdrawals { get; set; }
 
+        public Decimal AmountDeposit
+        {
+            get { return Balance + SumofDeposits;}
+        }
+
+        public Decimal AmountWithdrawal
+        {
+            get { return Balance - SumofWithdrawals; }
+        }
         [Display(Name = "Account Type:")]
         public AccountType AccountType { get; set; }
 
