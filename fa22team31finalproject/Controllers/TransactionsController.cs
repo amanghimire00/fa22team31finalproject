@@ -102,15 +102,6 @@ namespace fa22team31finalproject.Controllers
             _context.Add(transaction);
             await _context.SaveChangesAsync();
 
-            foreach (int accountID in SelectedAccounts)
-            {
-                //find the department associated with that id
-                BankAccount dbAccount = _context.Accounts.Find(accountID);
-
-                //add the department to the course's list of departments and save changes
-                transaction.BankAccounts.Add(dbAccount);
-                _context.SaveChanges();
-            }
 
             return RedirectToAction(nameof(Index), new { transactionNumber = transaction.TransactionNumber });
         }
