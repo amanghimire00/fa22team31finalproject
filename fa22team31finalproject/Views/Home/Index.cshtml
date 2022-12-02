@@ -12,7 +12,7 @@
 @if (User.Identity.IsAuthenticated == false)
 {
     <h3>Invest, save, and manage with Longhorn Bank. Create your account now!</h3>
-    <a asp-action="Create" asp-controller="BankAccounts" class="btn btn-success">Register for an Account</a>
+    <a asp-action="Register" asp-controller="Account" class="btn btn-success">Register for an Account</a>
 }
 
 
@@ -26,7 +26,7 @@
 
     if (User.IsInRole("Admin"))
     {
-        <a asp-action="Index" asp-controller="Departments" class="btn btn-danger">View Departments</a>
+
         <a asp-action="Index" asp-controller="RoleAdmin" class="btn btn-warning">Manage Users</a>
     }
 

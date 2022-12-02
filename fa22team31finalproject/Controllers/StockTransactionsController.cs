@@ -36,7 +36,7 @@ namespace fa22team31finalproject.Controllers
             }
             else
             {
-                stockTransactions = _context.StockTransactions.Include(u => u.AppUser).ThenInclude(s => s.StockPortfolio).Where(r => r.AppUser.UserName == User.Identity.Name).ToList();
+                stockTransactions = _context.StockTransactions.Include(u => u.AppUser).ThenInclude(s => s.StockPortfolio).Include(a => a.Stock).Where(r => r.AppUser.UserName == User.Identity.Name).ToList();
             }
             return View(stockTransactions);
         }
