@@ -131,20 +131,23 @@ namespace fa22team31finalproject.Models
         [Required]
         [Display(Name = "Street Address:")]
         public string Address { get; set; }
+        [Required]
 
         [Display(Name = "City:")]
 
         public string City { get; set; }
+        [Required]
 
         [Display(Name = "State:")]
-
+        
         public string State { get; set; }
-
+        [Required]
         [Display(Name = "ZipCode:")]
         public string ZipCode { get; set; }
     }
     public class ChangePhoneNumberViewModel
     {
+        [Required]
         [Phone]
         [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
