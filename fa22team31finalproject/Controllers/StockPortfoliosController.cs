@@ -25,14 +25,16 @@ namespace fa22team31finalproject.Controllers
         // GET: StockPortfolios
         public async Task<IActionResult> Index()
         {
+            var query = from u in _context.Users
+                        select u;
             List<StockPortfolio> stockPortfolios = new List<StockPortfolio>();
-            if (User.IsInRole("Admin")||User.IsInRole("Employee"))
+            if (User.IsInRole("Admin") || User.IsInRole("Employee"))
             {
-                stockPortfolios = _context.StockPortfolios.ToList();
+                stockPortfolios = _context.StockPortfolios.Include(u => u.AppUser).ToList();
             }
             else
             {
-                stockPortfolios = _context.StockPortfolios.Where(r => r.AppUser.UserName == User.Identity.Name).ToList();
+                stockPortfolios = _context.StockPortfolios.Include(u => u.AppUser).Where(u => u.AppUser.UserName == User.Identity.Name).ToList();
             }
             return View(stockPortfolios);
         }
@@ -40,6 +42,8 @@ namespace fa22team31finalproject.Controllers
         // GET: StockPortfolios/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            var query = from r in _context.Users
+                        select r;
             if (id == null || _context.StockPortfolios == null)
             {
                 return NotFound();

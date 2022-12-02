@@ -26,11 +26,11 @@ namespace fa22team31finalproject.Controllers
         {
             if (User.IsInRole("Admin") || User.IsInRole("Employee"))
             {
-                return View(await _context.Disputes.ToListAsync());
+                return View(await _context.Disputes.Include(u => u.Transaction).ThenInclude(t => t.AppUser).ToListAsync());
             }
             else
             {
-                return View(await _context.Disputes.Where(r => r.AppUser.UserName == User.Identity.Name).ToListAsync());
+                return View(await _context.Disputes.Include(u => u.Transaction).ThenInclude(t => t.AppUser).Where(r => r.AppUser.UserName == User.Identity.Name).ToListAsync());
 
             }
 
@@ -46,6 +46,7 @@ namespace fa22team31finalproject.Controllers
 
             var dispute = await _context.Disputes
                 .Include(t => t.Transaction)
+                .ThenInclude(t => t.AppUser)
                 .FirstOrDefaultAsync(m => m.DisputeID == id);
             if (dispute == null)
             {
