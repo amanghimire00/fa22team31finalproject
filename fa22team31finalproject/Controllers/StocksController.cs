@@ -72,6 +72,7 @@ namespace fa22team31finalproject.Controllers
         }
 
         // GET: Stocks/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Stocks == null)
@@ -90,6 +91,7 @@ namespace fa22team31finalproject.Controllers
         // POST: Stocks/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("StockID,StockName,TickerSymbol,StockPrice,SharesQuantity")] Stock stock)

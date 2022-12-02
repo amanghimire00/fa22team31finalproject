@@ -43,7 +43,11 @@
                 @Html.DisplayFor(modelItem => item.StockPrice)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.StockID">Edit</a> |
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.StockID">Edit |</a>
+                    }
+               
                 <a asp-action="Details" asp-route-id="@item.StockID">Details</a> 
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                     {
