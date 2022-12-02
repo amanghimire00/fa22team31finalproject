@@ -29,7 +29,7 @@ namespace fa22team31finalproject.Controllers
         public async Task<IActionResult> Index()
         {
             List<BankAccount> bankAccounts = new List<BankAccount>();
-            if (User.IsInRole("Admin"))
+            if (User.IsInRole("Admin") || User.IsInRole("Employee"))
             {
                 bankAccounts = _context.Accounts.ToList();
             }

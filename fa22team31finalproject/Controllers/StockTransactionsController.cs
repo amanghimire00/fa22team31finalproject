@@ -25,7 +25,16 @@ namespace fa22team31finalproject.Controllers
         // GET: StockTransactions
         public async Task<IActionResult> Index()
         {
-              return View(await _context.StockTransactions.ToListAsync());
+            List<StockTransaction> stockTransactions = new List<StockTransaction>();
+            if (User.IsInRole("Admin") || User.IsInRole("Employee"))
+            {
+                stockTransactions = _context.StockTransactions.ToList();
+            }
+            else
+            {
+                stockTransactions = _context.StockTransactions.Where(r => r.AppUser.UserName == User.Identity.Name).ToList();
+            }
+            return View(stockTransactions);
         }
 
         // GET: StockTransactions/Details/5

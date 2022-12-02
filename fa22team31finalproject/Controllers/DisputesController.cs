@@ -24,7 +24,7 @@ namespace fa22team31finalproject.Controllers
         // GET: Disputes
         public async Task<IActionResult> Index()
         {
-            if (User.IsInRole("Admin"))
+            if (User.IsInRole("Admin") || User.IsInRole("Employee"))
             {
                 return View(await _context.Disputes.ToListAsync());
             }

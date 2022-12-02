@@ -29,7 +29,7 @@ namespace fa22team31finalproject.Controllers
         public async Task<IActionResult> Index()
         {
             List<Transaction> transactions = new List<Transaction>();
-            if (User.IsInRole("Admin"))
+            if (User.IsInRole("Admin") || User.IsInRole("Employee"))
             {
                 transactions = _context.Transactions.ToList();
             }

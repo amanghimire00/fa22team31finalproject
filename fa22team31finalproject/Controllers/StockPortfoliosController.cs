@@ -26,13 +26,13 @@ namespace fa22team31finalproject.Controllers
         public async Task<IActionResult> Index()
         {
             List<StockPortfolio> stockPortfolios = new List<StockPortfolio>();
-            if (User.IsInRole("Admin"))
+            if (User.IsInRole("Admin")||User.IsInRole("Employee"))
             {
                 stockPortfolios = _context.StockPortfolios.ToList();
             }
             else
             {
-                stockPortfolios = _context.StockPortfolios.Where(r => r.AppUser.UserName == User.Identity.Name).Include(d => d.AppUser).ToList();
+                stockPortfolios = _context.StockPortfolios.Where(r => r.AppUser.UserName == User.Identity.Name).ToList();
             }
             return View(stockPortfolios);
         }
