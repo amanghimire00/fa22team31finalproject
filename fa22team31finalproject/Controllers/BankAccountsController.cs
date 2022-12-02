@@ -37,6 +37,7 @@ namespace fa22team31finalproject.Controllers
             {
                 bankAccounts = _context.Accounts.Where(r => r.AppUser.UserName == User.Identity.Name).ToList();
             }
+            foreach (Transaction transaction in transactionAmount )
             return View(bankAccounts);
             /*List<BankAccount> bankAccounts;
             bankAccounts = _context.Accounts

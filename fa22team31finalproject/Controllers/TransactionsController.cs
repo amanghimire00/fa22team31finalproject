@@ -82,7 +82,7 @@ namespace fa22team31finalproject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TransactionID,TransactionNumber,TransactionType,TransactionDate,TransactionComment,TransactionApproved,TransactionAmount")] Transaction transaction, int[] SelectedAccounts)
+        public async Task<IActionResult> Create([Bind("TransactionID,TransactionNumber,TransactionType,TransactionDate,TransactionComment,TransactionApproved, TransactionAmount")] Transaction transaction, int[] SelectedAccounts)
         {
 
             if (ModelState.IsValid == false)
@@ -103,7 +103,7 @@ namespace fa22team31finalproject.Controllers
             await _context.SaveChangesAsync();
 
 
-            return RedirectToAction(nameof(Index), new { transactionNumber = transaction.TransactionNumber });
+            return RedirectToAction(nameof(Index), new { transactionNumber = transaction.TransactionNumber, transactionAmount = transaction.TransactionAmount });
         }
 
         // GET: Transactions/Edit/5
