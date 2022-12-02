@@ -36,7 +36,6 @@
             <td>
                 @Html.DisplayFor(modelItem => item.DisputeStatus)
             </td>
-
             <td>
                 @Html.DisplayFor(modelItem => item.CorrectAmount)
             </td>
@@ -49,8 +48,7 @@
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                     {
                         <a asp-action="Delete" asp-route-id="@item.DisputeID">| Delete</a>
-                    }
-                
+                    }  
             </td>
         </tr>
 }

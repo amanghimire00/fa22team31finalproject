@@ -30,11 +30,13 @@ namespace fa22team31finalproject.Controllers
             List<StockTransaction> stockTransactions = new List<StockTransaction>();
             if (User.IsInRole("Admin") || User.IsInRole("Employee"))
             {
-                stockTransactions = _context.StockTransactions.Include(d => d.Stock).ToList();
+                stockTransactions = _context.StockTransactions.Include(d => d.AppUser)
+                    .ThenInclude(s => s.StockPortfolio)
+                    .Include(a => a.Stock).ToList();
             }
             else
             {
-                stockTransactions = _context.StockTransactions.Include(u => u.AppUser).Where(r => r.AppUser.UserName == User.Identity.Name).ToList();
+                stockTransactions = _context.StockTransactions.Include(u => u.AppUser).ThenInclude(s => s.StockPortfolio).Where(r => r.AppUser.UserName == User.Identity.Name).ToList();
             }
             return View(stockTransactions);
         }
@@ -49,7 +51,7 @@ namespace fa22team31finalproject.Controllers
                 return NotFound();
             }
 
-            var stockTransaction = await _context.StockTransactions
+            var stockTransaction = await _context.StockTransactions.Include(u => u.AppUser)
                 .FirstOrDefaultAsync(m => m.StockTransactionID == id);
             if (stockTransaction == null)
             {
