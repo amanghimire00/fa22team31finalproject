@@ -17,11 +17,11 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.StockName)
+                @Html.DisplayNameFor(model => model.TickerSymbol)
             </th>
             <th>@Html.DisplayNameFor(model => model.StockType.StockTypeName)</th>
             <th>
-                @Html.DisplayNameFor(model => model.TickerSymbol)
+                @Html.DisplayNameFor(model => model.StockName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.StockPrice)
@@ -32,11 +32,12 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.StockName)
+                @Html.DisplayFor(modelItem => item.TickerSymbol)
             </td>
+            
                 <td>@Html.DisplayFor(modelItem => item.StockType.StockTypeName)</td>
             <td>
-                @Html.DisplayFor(modelItem => item.TickerSymbol)
+                @Html.DisplayFor(modelItem => item.StockName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.StockPrice)
